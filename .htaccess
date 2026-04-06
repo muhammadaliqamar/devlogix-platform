@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Redirect all HTTP traffic to the Node.js application
+# cPanel's Node.js App feature typically handles this automatically,
+# but this ensures proper routing if the proxy isn't auto-configured.
+
+RewriteRule ^(.*)$ http://127.0.0.1:%{ENV:PASSENGER_BASE_PORT}/$1 [P,L]
