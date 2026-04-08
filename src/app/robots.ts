@@ -5,8 +5,14 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/studio/', '/api/'],
+      disallow: [
+        '/api/',
+        '/studio/',
+        '/thank-you/',
+        '/ksa/thank-you/',
+        '/_next/',
+      ],
     },
-    sitemap: 'https://devlogix.com/sitemap.xml',
+    sitemap: 'https://devlogix.com.pk/sitemap.xml',
   }
 }

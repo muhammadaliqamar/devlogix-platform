@@ -1,10 +1,12 @@
 import { MetadataRoute } from 'next'
+import { servicesData } from '@/data/servicesData'
+import { industriesData } from '@/data/industriesData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://devlogix.com' // Replace with actual domain
+  const baseUrl = 'https://devlogix.com.pk'
 
-  // Add more dynamic fetching from Sanity CMS here subsequently
-  return [
+  // ─── STATIC PAGES ───────────────────────────────────────────
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -54,4 +56,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
   ]
+
+  // ─── DYNAMIC: /services/[slug] ──────────────────────────────
+  const servicePages: MetadataRoute.Sitemap = Object.keys(servicesData).map((slug) => ({
+    url: `${baseUrl}/services/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
+
+  // ─── DYNAMIC: /industries/[slug] ────────────────────────────
+  const industryPages: MetadataRoute.Sitemap = Object.keys(industriesData).map((slug) => ({
+    url: `${baseUrl}/industries/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
+
+  return [...staticPages, ...servicePages, ...industryPages]
 }

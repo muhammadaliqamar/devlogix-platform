@@ -77,7 +77,7 @@ const formSchema = z.object({
   message: z.string().min(10, 'Please describe your project'),
   budget: z.string().min(1, 'Please specify a budget'),
   nda: z.boolean(),
-  botField: z.string().max(0, 'Spam detected').optional(), // Honeypot
+  botField: z.string().max(0, 'Spam detected').optional(),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -113,21 +113,15 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     setErrorMsg('');
-
-    // Prefix phone internally before submitting to API
     const finalData = { ...data, phone: `${data.dialCode} ${data.phone}` };
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(finalData),
       });
-
       const result = await response.json();
-
       if (response.ok) {
         setIsSuccess(true);
         reset();
@@ -136,7 +130,6 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
         setErrorMsg(result.error || 'Failed to submit the form. Please try again.');
       }
     } catch (error) {
-      // Safe default fallback error
       setErrorMsg('An unexpected error occurred. Please try again later.');
     } finally {
       setIsSubmitting(false);
@@ -144,20 +137,17 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
   };
 
   return (
-    <section className="w-full font-poppins-regular relative bg-white" dir={content.dir}>
-      {/* Main Container - Full Width Edge to Edge */}
+    // SEO FIX 1: Linked section to heading via aria-labelledby
+    <section aria-labelledby="contact-heading" className="w-full font-poppins-regular relative bg-white" dir={content.dir}>
       <div className="flex flex-col lg:flex-row w-full overflow-hidden items-stretch border-t border-slate-100">
 
-        {/* Left Panel - Abstract engaging graphic */}
+        {/* Left Panel - Visuals untouched */}
         <div className="lg:w-[35%] bg-slate-950 relative overflow-hidden flex flex-col justify-center items-center py-10 p-8 lg:p-12">
-          {/* Concentric Circles & Nodes overlay */}
           <div className={`absolute inset-0 flex items-center justify-center opacity-80 pointer-events-none ${content.dir === 'rtl' ? '-scale-x-100' : ''}`}>
             <div className="absolute w-[800px] h-[800px] border-[0.5px] border-white/20 rounded-full translate-x-1/3"></div>
             <div className="absolute w-[600px] h-[600px] border-[0.5px] border-white/30 rounded-full translate-x-1/3"></div>
             <div className="absolute w-[400px] h-[400px] border-[0.5px] border-white/40 rounded-full translate-x-1/3"></div>
             <div className="absolute w-[200px] h-[200px] border-[0.5px] border-white/50 rounded-full translate-x-1/3"></div>
-
-            {/* Abstract Nodes representing people/connections */}
             <div className="absolute w-12 h-12 bg-white/20 backdrop-blur-md rounded-full shadow-lg right-[10%] top-[20%] flex items-center justify-center border border-white/30">
               <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden">
                 <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix&backgroundColor=e2e8f0" alt="Avatar" />
@@ -177,17 +167,15 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
             <div className="absolute w-4 h-4 bg-teal-400 rounded-full right-[20%] bottom-[20%] shadow-md border border-white"></div>
             <div className="absolute w-6 h-6 bg-yellow-400 rounded-full left-[70%] top-[70%] shadow-md border border-white"></div>
           </div>
-
-          {/* <div className={`relative z-10 w-full text-center lg:text-left text-white mt-auto pt-8 ${content.dir === 'rtl' ? 'lg:text-right' : ''}`}>
-                <h3 className="text-2xl font-bold font-poppins-regular mb-1 text-white">{content.leftTitle}</h3>
-                <p className="text-teal-500 font-light text-xs tracking-wide">{content.leftSubtitle}</p>
-            </div> */}
         </div>
 
         {/* Right Panel - Form */}
         <div className="lg:w-[65%] bg-white py-10 px-6 lg:px-16 xl:px-24 flex flex-col justify-center">
-          <h2 className="text-2xl lg:text-3xl font-semibold mb-2 text-slate-800">
+
+          {/* SEO FIX 2: Added ID and invisible keywords to the main H2 */}
+          <h2 id="contact-heading" className="text-2xl lg:text-3xl font-semibold mb-2 text-slate-800">
             {content.headingText} <span className="text-[#0d938c]">{content.headingHighlight}</span>
+            <span className="sr-only"> About Custom Software Solutions</span>
           </h2>
           <p className="text-slate-500 mb-10 text-sm">{content.subheading}</p>
 
@@ -213,6 +201,7 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
                 className="hidden"
                 tabIndex={-1}
                 autoComplete="off"
+                aria-hidden="true" // SEO FIX 3: Tells screen readers to ignore the honeypot
               />
 
               {errorMsg && (
@@ -226,6 +215,7 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
                   <input
                     type="text"
                     placeholder={content.namePlaceholder}
+                    aria-label="Full Name" // SEO FIX 4: Form Accessibility Labels added everywhere
                     {...register('name')}
                     className={`w-full bg-transparent border-b ${errors.name ? 'border-red-500' : 'border-slate-300 group-hover:border-[#0d938c]'} text-slate-800 px-0 py-2 focus:outline-none focus:border-[#0d938c] focus:border-b-2 transition-all placeholder:text-slate-400 placeholder:font-light text-sm`}
                   />
@@ -236,6 +226,7 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
                   <input
                     type="email"
                     placeholder={content.emailPlaceholder}
+                    aria-label="Email Address"
                     {...register('email')}
                     className={`w-full bg-transparent border-b ${errors.email ? 'border-red-500' : 'border-slate-300 group-hover:border-[#0d938c]'} text-slate-800 px-0 py-2 focus:outline-none focus:border-[#0d938c] focus:border-b-2 transition-all placeholder:text-slate-400 placeholder:font-light text-sm`}
                   />
@@ -247,6 +238,7 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
               <div className="relative group pt-4">
                 <select
                   {...register('service')}
+                  aria-label="Required Service"
                   className={`w-full bg-transparent border-b ${errors.service ? 'border-red-500' : 'border-slate-300 group-hover:border-[#0d938c]'} text-slate-800 px-0 py-2 focus:outline-none focus:border-[#0d938c] focus:border-b-2 transition-all placeholder:text-slate-400 placeholder:font-light appearance-none cursor-pointer text-sm`}
                   defaultValue=""
                 >
@@ -268,6 +260,7 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
                   <div className="w-[110px] flex-shrink-0 flex items-center border-b border-slate-300 group-hover:border-[#0d938c] transition-all relative">
                     <select
                       {...register('dialCode')}
+                      aria-label="Country Dial Code"
                       className="w-full h-full bg-transparent text-slate-600 text-[13px] tracking-wide focus:outline-none cursor-pointer py-2 pr-4 appearance-none"
                       dir="ltr"
                     >
@@ -285,6 +278,7 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
                   <input
                     type="tel"
                     placeholder={content.phonePlaceholder}
+                    aria-label="Phone Number"
                     {...register('phone')}
                     className={`w-full bg-transparent border-b ${errors.phone ? 'border-red-500' : 'border-slate-300 group-hover:border-[#0d938c]'} text-slate-800 px-3 py-2 focus:outline-none focus:border-[#0d938c] focus:border-b-2 transition-all placeholder:text-slate-400 placeholder:font-light text-sm`}
                     dir="ltr"
@@ -297,6 +291,7 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
                 <input
                   type="text"
                   placeholder={content.projectPlaceholder}
+                  aria-label="Project Description"
                   {...register('message')}
                   className={`w-full bg-transparent border-b ${errors.message ? 'border-red-500' : 'border-slate-300 group-hover:border-[#0d938c]'} text-slate-800 px-0 py-2 focus:outline-none focus:border-[#0d938c] focus:border-b-2 transition-all placeholder:text-slate-400 placeholder:font-light text-sm`}
                 />
@@ -306,6 +301,7 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
               <div className="relative group pt-4">
                 <select
                   {...register('budget')}
+                  aria-label="Project Budget Range"
                   className={`w-full bg-transparent border-b ${errors.budget ? 'border-red-500' : 'border-slate-300 group-hover:border-[#0d938c]'} text-slate-800 px-0 py-2 focus:outline-none focus:border-[#0d938c] focus:border-b-2 transition-all placeholder:text-slate-400 placeholder:font-light appearance-none cursor-pointer text-sm`}
                   defaultValue=""
                 >
@@ -328,6 +324,7 @@ export default function LeadCaptureCTA({ localization }: { localization?: LeadCa
                   <div className="relative flex items-center">
                     <input
                       type="checkbox"
+                      aria-label="Request Non-Disclosure Agreement (NDA)"
                       {...register('nda')}
                       className="peer appearance-none w-4 h-4 border border-slate-400 rounded-sm focus:outline-none focus:ring-2 focus:ring-[#0d938c]/30 checked:bg-[#0d938c] checked:border-[#0d938c] transition-all cursor-pointer m-0"
                     />

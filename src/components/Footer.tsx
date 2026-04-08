@@ -43,12 +43,13 @@ export default function Footer() {
                         <div className="space-y-6 text-sm">
 
                             {/* --- 1. GLOBAL DELIVERY CENTER --- */}
-                            <div className="bg-white/5 rounded-[4px] p-5 border border-white/10 relative overflow-hidden group hover:border-[#0d938c]/50 transition-colors duration-500">
+
+                            <address className="bg-white/5 rounded-[4px] p-5 border border-white/10 relative overflow-hidden group hover:border-[#0d938c]/50 transition-colors duration-500 not-italic">
                                 <div className="absolute top-0 left-0 w-1 h-full bg-[#0d938c]"></div>
-                                <h6 className="text-white font-bold mb-3 flex items-center gap-2 text-xs uppercase tracking-widest">
+                                <span className="text-white font-bold mb-3 flex items-center gap-2 text-xs uppercase tracking-widest">
                                     <Globe size={14} className="text-[#0d938c]" />
                                     Global Delivery Center
-                                </h6>
+                                </span>
                                 <div className="mb-1">
                                     <div className="flex items-center gap-2 mb-1">
                                         {/* <span className="text-lg">🇵🇰</span> */}
@@ -58,35 +59,35 @@ export default function Footer() {
                                         Grand Trunk Road, Rahwali Cantt,<br />Gujranwala
                                     </span>
                                 </div>
-                            </div>
+                            </address>
 
                             {/* --- 2. REGIONAL HUBS --- */}
                             {/* <div>
-                                <h6 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Regional Hubs</h6>
-                                <div className="grid grid-cols-2 gap-3">
-                                    <div className="bg-white/5 rounded-[4px] p-3 border border-white/10 hover:border-[#0d938c]/50 transition-colors duration-500">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="text-lg">🇺🇸</span>
-                                            <strong className="text-white text-xs">USA</strong>
+                                    <h6 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Regional Hubs</h6>
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <div className="bg-white/5 rounded-[4px] p-3 border border-white/10 hover:border-[#0d938c]/50 transition-colors duration-500">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <span className="text-lg">🇺🇸</span>
+                                                <strong className="text-white text-xs">USA</strong>
+                                            </div>
+                                            <p className="text-[10px] leading-snug text-slate-500">San Jose, CA</p>
                                         </div>
-                                        <p className="text-[10px] leading-snug text-slate-500">San Jose, CA</p>
-                                    </div>
-                                    <div className="bg-white/5 rounded-[4px] p-3 border border-white/10 hover:border-[#0d938c]/50 transition-colors duration-500">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="text-lg">🇬🇧</span>
-                                            <strong className="text-white text-xs">UK</strong>
+                                        <div className="bg-white/5 rounded-[4px] p-3 border border-white/10 hover:border-[#0d938c]/50 transition-colors duration-500">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <span className="text-lg">🇬🇧</span>
+                                                <strong className="text-white text-xs">UK</strong>
+                                            </div>
+                                            <p className="text-[10px] leading-snug text-slate-500">London, EC1V</p>
                                         </div>
-                                        <p className="text-[10px] leading-snug text-slate-500">London, EC1V</p>
-                                    </div>
-                                    <div className="bg-white/5 rounded-[4px] p-3 border border-white/10 hover:border-[#0d938c]/50 transition-colors duration-500">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="text-lg">🇦🇪</span>
-                                            <strong className="text-white text-xs">UAE</strong>
+                                        <div className="bg-white/5 rounded-[4px] p-3 border border-white/10 hover:border-[#0d938c]/50 transition-colors duration-500">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <span className="text-lg">🇦🇪</span>
+                                                <strong className="text-white text-xs">UAE</strong>
+                                            </div>
+                                            <p className="text-[10px] leading-snug text-slate-500">Dubai Internet City</p>
                                         </div>
-                                        <p className="text-[10px] leading-snug text-slate-500">Dubai Internet City</p>
                                     </div>
-                                </div>
-                            </div> */}
+                                </div> */}
 
                             {/* --- 3. SOCIAL ICONS (Anchored here) --- */}
                             <div className="pt-2">
@@ -203,7 +204,7 @@ export default function Footer() {
                     <div className="flex gap-8">
                         {/* <Link href="/privacy" className="hover:text-slate-400 transition-colors">Privacy Policy</Link> */}
                         {/* <Link href="/terms" className="hover:text-slate-400 transition-colors">Terms of Service</Link> */}
-                        {/* <Link href="/sitemap" className="hover:text-slate-400 transition-colors">Sitemap</Link> */}
+                        <Link href="/sitemap.xml" className="hover:text-slate-400 transition-colors">Sitemap</Link>
                     </div>
                 </div>
             </div>

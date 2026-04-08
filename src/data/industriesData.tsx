@@ -60,7 +60,7 @@ export const industriesData: any = {
         ]
     },
 
-    "supplychain": {
+    "supply-chain": {
         hero: {
             title: "Supply Chain & Logistics",
             subtitle: "Intelligent Operations for Seamless Movement",

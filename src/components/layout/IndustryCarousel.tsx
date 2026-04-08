@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight, MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// THE 12 VERTICALS (Industrial, Commercial, Sovereign)
+// DATA (Untouched)
 const industries = [
     // Industrial Cluster
     { title: "Textile", category: "Industrial", solution: "Custom Solutions for smart manufacturing and real-time production monitoring.", image: "/industries/textile.jpg", link: "/industries/textile-manufacturing" },
@@ -31,120 +31,101 @@ export default function IndustryCarousel() {
     const controls = useAnimation();
     const x = useMotionValue(0);
 
-    // Calculate constraints on mount/resize
     useEffect(() => {
         if (carousel.current) {
-            // Logic: ScrollWidth (Total Content) - OffsetWidth (Visible Viewport)
             setMaxScrollWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
         }
     }, []);
 
-    // BUTTON LOGIC: SLIDE LEFT/RIGHT
     const slide = (direction: 'left' | 'right') => {
-        // 1. Get current position
         const currentX = x.get();
-
-        // 2. Determine slide distance (Roughly one card width + gap)
-        // Desktop: 22vw (~300-400px), Mobile: 85vw
-        // We use a safe static estimate or dynamic measure. 
-        // For smoothness, we'll assume a standard 'jump' of 350px.
         const slideAmount = 350;
-
-        // 3. Calculate new position
-        let newX = direction === 'left'
-            ? currentX + slideAmount  // Moving Left means increasing X (towards 0)
-            : currentX - slideAmount; // Moving Right means decreasing X (towards negative)
-
-        // 4. Clamp the values so we don't scroll into empty space
-        // Max Right (Start): 0
-        // Max Left (End): -maxScrollWidth
+        let newX = direction === 'left' ? currentX + slideAmount : currentX - slideAmount;
         if (newX > 0) newX = 0;
         if (newX < -maxScrollWidth) newX = -maxScrollWidth;
 
-        // 5. Animate to the new position
         controls.start({
             x: newX,
             transition: { type: "spring", stiffness: 300, damping: 30 }
         });
-
-        // 6. Update the MotionValue state so dragging resumes correctly
         x.set(newX);
     };
 
     return (
-        <section className="w-full bg-slate-50 pt-8 pb-12 md:pt-6 md:pb-12 font-poppins-regular overflow-hidden">
+        // SEO FIX 1: Added aria-labelledby to connect the section to its semantic title
+        <section aria-labelledby="industries-heading" className="w-full bg-slate-50 pt-8 pb-12 md:pt-6 md:pb-12 font-poppins-regular overflow-hidden">
             <div className="max-w-[1440px] mx-auto px-6 relative">
 
                 {/* HEADER & CONTROLS */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                     <div>
-                        <h2 className="text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-4">
+                        {/* SEO FIX 2: Changed from <h2> to <span>. Just a visual overline. */}
+                        <span className="block text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-4">
                             Verticalized Expertise
-                        </h2>
-                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
+                        </span>
+
+                        {/* SEO FIX 3: Changed from <h3> to <h2>. Added invisible core keywords. */}
+                        <h2 id="industries-heading" className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
                             Excellence Across Sectors
-                        </h3>
+                            <span className="sr-only"> - Industry-Specific Custom Software Development</span>
+                        </h2>
                     </div>
 
-                    {/* Minimalist Navigation Arrows */}
                     <div className="flex gap-2 hidden md:flex">
+                        {/* SEO FIX 4: Added aria-labels to interactive custom buttons */}
                         <button
                             onClick={() => slide('left')}
+                            aria-label="Scroll industries left"
                             className="w-12 h-12 flex items-center justify-center rounded-full border border-[#0d938c] hover:border-[#0d938c] hover:bg-[#0d938c] text-[#0d938c] hover:text-white transition-all duration-300 active:scale-95"
                         >
                             <ArrowLeft className="w-5 h-5" />
                         </button>
                         <button
                             onClick={() => slide('right')}
+                            aria-label="Scroll industries right"
                             className="w-12 h-12 flex items-center justify-center rounded-full border border-[#0d938c] hover:border-[#0d938c] hover:bg-[#0d938c] text-[#0d938c] hover:text-white transition-all duration-300 active:scale-95"
                         >
                             <ArrowRight className="w-5 h-5" />
                         </button>
-                        <p className="text-[10px] uppercase tracking-widest text-slate-400 self-center ml-4">
+                        <p aria-hidden="true" className="text-[10px] uppercase tracking-widest text-slate-400 self-center ml-4">
                             Drag to Explore
                         </p>
                     </div>
                 </div>
 
                 {/* CAROUSEL TRACK */}
-                <motion.div
-                    ref={carousel}
-                    className="cursor-grab active:cursor-grabbing overflow-visible"
-                >
+                <motion.div ref={carousel} className="cursor-grab active:cursor-grabbing overflow-visible">
                     <motion.div
                         drag="x"
                         dragConstraints={{ right: 0, left: -maxScrollWidth }}
                         whileTap={{ cursor: "grabbing" }}
-                        animate={controls} // Connects the animation controls to the div
-                        style={{ x }} // Connects the MotionValue (keeps drag & click in sync)
+                        animate={controls}
+                        style={{ x }}
                         className="flex gap-6"
                     >
                         {industries.map((industry) => (
                             <motion.div
                                 key={industry.title}
-                                // WIDTH LOGIC FOR PEEKING:
-                                // Mobile: w-[85vw] (Shows 1 card + 15% of next)
-                                // Tablet: w-[42vw] (Shows 2 cards + space)
-                                // Desktop: w-[22vw] (Shows 4 cards + 15% of 5th)
                                 className="relative flex-shrink-0 bg-black rounded-xl overflow-hidden group border border-[#0d938c] w-[85vw] md:w-[42vw] lg:w-[22vw] h-[400px]"
                             >
-                                {/* 1. BACKGROUND IMAGE (ENABLED) */}
+                                {/* 1. BACKGROUND IMAGE */}
                                 <div className="absolute inset-0">
                                     <Image
                                         src={industry.image}
-                                        alt={industry.title}
+                                        // SEO FIX 5: Dynamic, long-tail alt text injection
+                                        alt={`${industry.title} industry software solutions and development`}
                                         fill
                                         className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out"
                                     />
-                                    {/* Base Overlay */}
                                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all duration-500" />
                                 </div>
 
                                 {/* 2. DEFAULT STATE (Title) */}
                                 <div className="absolute inset-0 p-8 flex flex-col justify-end z-10 pointer-events-none">
-                                    <h4 className="text-2xl font-bold text-white tracking-tight mb-2 group-hover:opacity-0 transition-opacity duration-300 transform translate-y-0 group-hover:-translate-y-4">
+                                    {/* SEO FIX 6: Changed from <h4> to <h3>. This is the main title for the document outline. */}
+                                    <h3 className="text-2xl font-bold text-white tracking-tight mb-2 group-hover:opacity-0 transition-opacity duration-300 transform translate-y-0 group-hover:-translate-y-4">
                                         {industry.title}
-                                    </h4>
+                                    </h3>
                                     <div className="h-[2px] w-8 bg-[#0d938c] group-hover:opacity-0 transition-opacity duration-300" />
                                 </div>
 
@@ -153,13 +134,24 @@ export default function IndustryCarousel() {
                                     <span className="text-[#0d938c] text-xs font-bold uppercase tracking-widest mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
                                         {industry.category}
                                     </span>
-                                    <h4 className="text-2xl font-bold text-white mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+
+                                    {/* SEO FIX 7: Changed from <h4> to <div> and added aria-hidden="true". 
+                                        This stops Google from indexing the exact same heading twice, while keeping your animation identical. */}
+                                    <div aria-hidden="true" className="text-2xl font-bold text-white mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
                                         {industry.title}
-                                    </h4>
+                                    </div>
+
                                     <p className="text-slate-300 text-sm leading-relaxed mb-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
                                         {industry.solution}
                                     </p>
-                                    <Link href={industry.link || '#'} className="flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200 cursor-pointer pointer-events-auto">
+
+                                    {/* SEO FIX 8: Added highly descriptive aria-label to the Link. 
+                                        "Explore Industry" is bad link context. This fixes it invisibly. */}
+                                    <Link
+                                        href={industry.link || '#'}
+                                        aria-label={`Explore our software solutions for the ${industry.title} sector`}
+                                        className="flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200 cursor-pointer pointer-events-auto"
+                                    >
                                         Explore Industry <MoveRight className="w-4 h-4 text-[#0d938c]" />
                                     </Link>
                                 </div>

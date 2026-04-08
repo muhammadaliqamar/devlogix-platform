@@ -16,6 +16,7 @@ export default function Hero() {
                     loop
                     muted
                     playsInline
+                    poster="/hero-poster.png"
                     className="h-full w-full object-cover"
                 >
                     <source src="/hero-background.mp4" type="video/mp4" />
@@ -38,17 +39,18 @@ export default function Hero() {
                     className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance"
                 >
                     Shaping the Digital Horizons
+                    <span className="sr-only"> - Custom Software & AI Development Company</span>
                 </motion.h1>
 
                 {/* Sub-Headline */}
-                <motion.p
+                <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance"
                 >
-                    We help businesses across industries and borders build smarter, faster, and more scalable digital products
-                </motion.p>
+                    We help global businesses build scalable digital products through <strong>custom software development</strong> and advanced <strong>AI solutions</strong>
+                </motion.h2>
 
                 {/* CTA COMPONENT ENGINEERING */}
                 <div className="flex flex-col sm:flex-row items-center gap-6 mt-6 relative z-30">
@@ -56,6 +58,7 @@ export default function Hero() {
                     {/* Primary: Enterprise Glass */}
                     <Link
                         href="/contact"
+                        aria-label="Partner with our software development team"
                         className="px-10 py-4 backdrop-blur-[10px] bg-white/5 border border-white/20 text-white font-medium text-lg rounded-[4px] 
                transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] 
                hover:bg-[#0d938c] hover:border-[#0d938c] hover:shadow-[0_0_40px_rgba(13,147,140,0.3)]

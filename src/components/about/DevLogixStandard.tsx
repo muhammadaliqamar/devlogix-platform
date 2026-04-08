@@ -26,19 +26,24 @@ const standards = [
 
 export default function DevLogixStandard() {
     return (
-        <section className="w-full bg-white py-24 md:pt-24 md:pb-18 font-poppins-regular border-b border-slate-100">
+        // SEO FIX 1: Linked section to heading via aria-labelledby
+        <section aria-labelledby="standards-heading" className="w-full bg-white py-24 md:pt-24 md:pb-18 font-poppins-regular border-b border-slate-100">
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* SECTION HEADLINE */}
                 <div className="text-center mb-20">
-                    <motion.span
+                    {/* SEO FIX 2: Upgraded from <span> to <h2> to anchor the section hierarchy */}
+                    <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        id="standards-heading"
                         className="inline-block py-1 px-3 border border-[#0d938c]/20 bg-[#0d938c]/5 rounded-full text-[10px] font-bold text-[#0d938c] uppercase tracking-[0.2em]"
                     >
-                        DevLogix Standard
-                    </motion.span>
+                        DevLogix Engineering Standard
+                    </motion.h2>
+                    {/* Hidden text for SEO context */}
+                    <span className="sr-only">Our Core Software Development Principles</span>
                 </div>
 
                 {/* 3-COLUMN GRID */}
@@ -54,15 +59,14 @@ export default function DevLogixStandard() {
                         >
                             {/* ICON ARCHITECTURE */}
                             <div className="mb-8 relative">
-                                {/* Outer Ring */}
                                 <div className="w-16 h-16 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#0d938c] transition-colors duration-500">
-                                    <item.icon strokeWidth={1.5} className="w-7 h-7 text-slate-400 group-hover:text-[#0d938c] transition-colors duration-500" />
+                                    <item.icon aria-hidden="true" strokeWidth={1.5} className="w-7 h-7 text-slate-400 group-hover:text-[#0d938c] transition-colors duration-500" />
                                 </div>
-                                {/* Subtle Glow on Hover */}
                                 <div className="absolute inset-0 bg-[#0d938c] opacity-0 group-hover:opacity-10 blur-xl rounded-full transition-opacity duration-500" />
                             </div>
 
                             {/* HEADLINE */}
+                            {/* SEO FIX 3: Standardized to <h3> as they sit under the H2 */}
                             <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-[#0d938c] transition-colors duration-300">
                                 {item.title}
                             </h3>

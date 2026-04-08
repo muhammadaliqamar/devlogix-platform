@@ -47,27 +47,29 @@ interface InsightsGridProps {
 
 export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
     const t = { ...defaultLocale, ...locale };
-
-    // Destructure the array passed from the server
-    // Order is guaranteed: [Featured, Blog1, Blog2, News]
     const [featured, insight1, insight2, news] = items;
 
-    // Safety check in case data is missing (e.g., fresh CMS)
     if (!featured) return null;
 
     return (
-        <section className="w-full bg-slate-50 pt-20 pb-12 md:pt-6 md:pb-12 font-poppins-regular" dir={t.dir}>
+        // SEO FIX 1: Linked the section directly to the main semantic heading via aria-labelledby
+        <section aria-labelledby="insights-heading" className="w-full bg-slate-50 pt-20 pb-12 md:pt-6 md:pb-12 font-poppins-regular" dir={t.dir}>
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* SECTION HEADER */}
                 <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
-                        <h2 className="text-xs font-bold text-slate-500 uppercase tracking-[0.3em] mb-4">
+                        {/* SEO FIX 2: Changed from <h2> to <span>. Kickers are visual labels, not document headings. */}
+                        <span className="block text-xs font-bold text-slate-500 uppercase tracking-[0.3em] mb-4">
                             {t.kicker}
-                        </h2>
-                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+                        </span>
+
+                        {/* SEO FIX 3: Changed from <h3> to <h2>. Added ID for the section link. Appended invisible keywords. */}
+                        <h2 id="insights-heading" className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
                             {t.heading} <span className="text-[#0d938c]">{t.headingHighlight}</span>
-                        </h3>
+                            <span className="sr-only"> on Custom Software Development</span>
+                        </h2>
+
                         <p className="text-slate-500 max-w-2xl text-sm leading-relaxed">
                             {t.paragraph}
                         </p>
@@ -80,7 +82,7 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                 {/* THE BENTO GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-auto md:h-[600px]">
 
-                    {/* SLOT 1: FEATURED CASE STUDY (Obsidian Theme) */}
+                    {/* SLOT 1: FEATURED CASE STUDY */}
                     <Link href={featured.link} className="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -89,10 +91,10 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                             transition={{ duration: 0.6 }}
                             className="h-full w-full"
                         >
-                            {/* Dynamic Background Image */}
                             <div className="absolute inset-0 opacity-60 group-hover:opacity-40 transition-opacity duration-500">
                                 {featured.image && (
-                                    <Image src={featured.image} alt={featured.title} fill className="object-cover" />
+                                    // SEO FIX 4: Made alt text more descriptive by prepending the type
+                                    <Image src={featured.image} alt={`Case Study: ${featured.title}`} fill className="object-cover" />
                                 )}
                                 <div className="w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-slate-800 to-black" />
                             </div>
@@ -106,9 +108,10 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                                 </div>
 
                                 <div>
-                                    <h4 className="text-3xl font-bold text-white mb-4 leading-tight">
+                                    {/* SEO FIX 5: Standardized to <h3>. All cards in an <h2> section should be <h3>. */}
+                                    <h3 className="text-3xl font-bold text-white mb-4 leading-tight">
                                         {featured.title}
-                                    </h4>
+                                    </h3>
                                     <p className="text-slate-400 text-sm leading-relaxed max-w-md mb-6">
                                         {featured.summary}
                                     </p>
@@ -120,7 +123,7 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                         </motion.div>
                     </Link>
 
-                    {/* SLOT 2: INSIGHT 1 (White Theme) */}
+                    {/* SLOT 2: INSIGHT 1 */}
                     {insight1 && (
                         <Link href={insight1.link} className="md:col-span-1 md:row-span-1 group relative rounded-xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 transition-colors p-6 flex flex-col justify-between">
                             <motion.div
@@ -137,9 +140,10 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                                     </span>
                                 </div>
                                 <div>
-                                    <h5 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-[#0d938c] transition-colors line-clamp-2">
+                                    {/* SEO FIX 6: Standardized to <h3> */}
+                                    <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-[#0d938c] transition-colors line-clamp-2">
                                         {insight1.title}
-                                    </h5>
+                                    </h3>
                                     <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
                                         {insight1.summary}
                                     </p>
@@ -148,7 +152,7 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                         </Link>
                     )}
 
-                    {/* SLOT 3: INSIGHT 2 (White Theme) */}
+                    {/* SLOT 3: INSIGHT 2 */}
                     {insight2 && (
                         <Link href={insight2.link} className="md:col-span-1 md:row-span-1 group relative rounded-xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 transition-colors p-6 flex flex-col justify-between">
                             <motion.div
@@ -165,9 +169,10 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                                     </span>
                                 </div>
                                 <div>
-                                    <h5 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-[#0d938c] transition-colors line-clamp-2">
+                                    {/* SEO FIX 7: Standardized to <h3> */}
+                                    <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-[#0d938c] transition-colors line-clamp-2">
                                         {insight2.title}
-                                    </h5>
+                                    </h3>
                                     <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
                                         {insight2.summary}
                                     </p>
@@ -176,7 +181,7 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                         </Link>
                     )}
 
-                    {/* SLOT 4: PRESS RELEASE (Wide White Theme) */}
+                    {/* SLOT 4: PRESS RELEASE */}
                     {news && (
                         <Link href={news.link} className="md:col-span-2 md:row-span-1 group relative rounded-xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 transition-colors p-8 flex flex-col justify-center">
                             <motion.div
@@ -195,9 +200,10 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                                 </div>
                                 <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
                                     <div className="flex-1">
-                                        <h4 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#0d938c] transition-colors">
+                                        {/* SEO FIX 8: Standardized to <h3> */}
+                                        <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#0d938c] transition-colors">
                                             {news.title}
-                                        </h4>
+                                        </h3>
                                         <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">
                                             {news.summary}
                                         </p>

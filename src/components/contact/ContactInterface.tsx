@@ -71,7 +71,12 @@ export default function ContactInterface() {
     };
 
     return (
-        <section className="relative z-20 max-w-7xl mx-auto px-6 py-12 md:pt-10 md:pb-10 font-poppins-regular">
+        <section aria-labelledby="interface-heading" className="relative z-20 max-w-7xl mx-auto px-6 py-12 md:pt-10 md:pb-10 font-poppins-regular">
+
+            {/* SEO FIX: Hidden H2 for the form section */}
+            <h2 id="interface-heading" className="sr-only">
+                Contact Form for Software Development Services in Pakistan
+            </h2>
 
             <div className="flex flex-col lg:flex-row shadow-2xl rounded-xl overflow-hidden">
 
@@ -79,8 +84,7 @@ export default function ContactInterface() {
                 <div className="w-full lg:w-2/5 bg-[#0B1221] text-white p-10 md:p-12 lg:p-16 flex flex-col justify-between relative border-r border-white/5">
                     <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(#0d938c 1px, transparent 1px), linear-gradient(90deg, #0d938c 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                     <div className="relative z-10">
-                        <h4 className="text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-6">Coordinates</h4>
-                        <h3 className="text-3xl font-bold leading-tight mb-8 text-white">Initiate <br /><span className="text-slate-500">The Dialogue.</span></h3>
+                        <span className="block text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-6">Global Delivery Hub</span>                        <h3 className="text-3xl font-bold leading-tight mb-8 text-white">Initiate <br /><span className="text-slate-500">The Dialogue.</span></h3>
                         <div className="space-y-8">
                             <div className="flex items-start gap-4 group cursor-pointer">
                                 <div className="w-10 h-10 shrink-0 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-[#0d938c] group-hover:bg-[#0d938c] transition-all duration-300"><Mail className="w-4 h-4 text-slate-300 group-hover:text-white" /></div>
@@ -234,4 +238,4 @@ export default function ContactInterface() {
         </section>
     );
 }
-
+

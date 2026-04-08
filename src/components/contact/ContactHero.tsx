@@ -4,10 +4,15 @@ import { motion } from 'framer-motion';
 
 export default function ContactHero() {
     return (
-        <section className="relative w-full h-[50vh] bg-[#0B1221] flex items-center justify-center overflow-hidden font-poppins-regular">
+        <section
+            aria-labelledby="contact-hero-title"
+            className="relative w-full h-[50vh] bg-[#0B1221] flex items-center justify-center overflow-hidden font-poppins-regular"
+        >
 
             {/* 1. BACKGROUND AMBIENCE (Subtle & Dark) */}
-            <div className="absolute inset-0 opacity-[0.1]"
+            <div
+                className="absolute inset-0 opacity-[0.1]"
+                aria-hidden="true" // SEO FIX 1: Explicitly hide decorative grid from screen readers
                 style={{
                     backgroundImage: 'linear-gradient(#0d938c 1px, transparent 1px), linear-gradient(90deg, #0d938c 1px, transparent 1px)',
                     backgroundSize: '40px 40px'
@@ -19,16 +24,8 @@ export default function ContactHero() {
 
             {/* 2. TEXT CONTENT */}
             <div className="relative z-10 text-center mt-10">
-                {/* <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="inline-block mb-4 text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] border border-[#0d938c]/20 bg-[#0d938c]/5 px-4 py-2 rounded-full"
-                >
-                    Secure Channel
-                </motion.span> */}
-
                 <motion.h1
+                    id="contact-hero-title" // Linked to aria-labelledby above
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1 }}
@@ -38,7 +35,19 @@ export default function ContactHero() {
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">
                         DevLogix
                     </span>
+                    {/* SEO FIX 2: Visually hidden keywords to define the page intent for Google */}
+                    <span className="sr-only"> - Custom Software Development & AI Consultations</span>
                 </motion.h1>
+
+                {/* SEO FIX 3: Added an H2 (even if small/subtle) to reinforce intent */}
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.4 }}
+                    className="mt-4 text-slate-400 text-sm md:text-base max-w-md mx-auto px-6 font-light"
+                >
+                    Connect with our global engineering hubs to scale your digital transformation.
+                </motion.p>
             </div>
 
         </section>

@@ -6,32 +6,27 @@ import { ArrowRight } from 'lucide-react';
 
 export default function AboutHero() {
     return (
-        // CHANGE 1: min-h-screen instead of h-screen (allows scrolling if content is tall)
-        // CHANGE 2: flex flex-col (creates a vertical stack layout)
         <section className="relative min-h-screen w-full overflow-hidden bg-black font-poppins-regular flex flex-col">
             {/* 1. VISUAL FOUNDATION (Video Background) */}
             <div className="absolute inset-0 z-0">
-                {/* VIDEO ELEMENT */}
-                {/* Replace '/videos/network-mesh.mp4' with your actual asset. 
-            If you don't have one yet, I can provide a CSS fallback. */}
                 <video
                     autoPlay
                     loop
                     muted
                     playsInline
+                    // SEO FIX 1: Added poster image to fix Core Web Vitals (LCP) penalty
+                    poster="/about/network-mesh-poster.png"
                     className="w-full h-full object-cover"
+                    aria-hidden="true" // Hides decorative background video from screen readers
                 >
                     <source src="/about/network-mesh.mp4" type="video/mp4" />
                 </video>
 
-                {/* OBSIDIAN OVERLAY (The "Tint") */}
-                {/* We use a high opacity (90% or 0.9) to push the video deep into the background */}
                 <div className="absolute inset-0 bg-[#0B1221]/85 mix-blend-multiply" />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0B1221] via-transparent to-[#0B1221]" />
             </div>
 
-            {/* 2. THE MESSAGE (Typography & Buttons) */}
-            {/* flex-grow ensures this takes up all available space, pushing the Trust Bar down */}
+            {/* 2. THE MESSAGE */}
             <div className="relative z-30 flex-grow flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-18">
 
                 {/* Animated Headline */}
@@ -42,24 +37,28 @@ export default function AboutHero() {
                     className="text-xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance"
                 >
                     Beyond Code <br />We Engineer Legacies
+                    {/* SEO FIX 2: Visually hidden, but gives your About H1 massive SEO power */}
+                    <span className="sr-only"> - About DevLogix, Custom Software & AI Development Company</span>
                 </motion.h1>
 
                 {/* Sub-Headline */}
-                <motion.p
+                {/* SEO FIX 3: Upgraded to <h2> for semantic outline weight */}
+                <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance"
                 >
-                    At DevLogix, we build intelligent digital ecosystems designed for longevity, resilience, and growth. We don't just solve today's problems; we architect tomorrow's foundation
-                </motion.p>
+                    At DevLogix, we build <strong>intelligent digital ecosystems</strong> designed for longevity, resilience, and growth. We don't just solve today's problems; we architect tomorrow's foundation.
+                </motion.h2>
 
                 {/* CTA COMPONENT ENGINEERING */}
                 <div className="flex flex-col sm:flex-row items-center gap-6 mt-6 relative z-30">
 
-                    {/* Primary: Enterprise Glass */}
+                    {/* Primary */}
                     <Link
                         href="/contact"
+                        aria-label="Partner with DevLogix for custom enterprise software" // SEO FIX 4: Rich link context
                         className="px-10 py-4 backdrop-blur-[10px] bg-white/5 border border-white/20 text-white font-medium text-lg rounded-[4px] 
                transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] 
                hover:bg-[#0d938c] hover:border-[#0d938c] hover:shadow-[0_0_40px_rgba(13,147,140,0.3)]
@@ -69,21 +68,20 @@ export default function AboutHero() {
                         <ArrowRight className="w-5 h-5 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-1" />
                     </Link>
 
-                    {/* Secondary: High-Authority Ghost */}
-                    <Link
+                    {/* Secondary */}
+                    {/* <Link
                         href="/case-studies"
+                        aria-label="View DevLogix software engineering case studies" // SEO FIX 4: Rich link context
                         className="px-10 py-4 bg-transparent border-[1.5px] border-white/40 text-white font-medium text-lg rounded-[4px] 
                transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
                hover:bg-white/5 backdrop-blur-sm
                flex items-center justify-center"
                     >
                         View Case Studies
-                    </Link>
+                    </Link> */}
                 </div>
 
             </div>
-
-
         </section >
     );
 }

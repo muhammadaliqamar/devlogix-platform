@@ -4,10 +4,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, MoveRight, ArrowUp } from 'lucide-react';
 import Image from 'next/image';
-
 import Link from 'next/link';
 
-// DATA
+// DATA (Untouched)
 const capabilities = [
     // ROW 1
     { title: "AI & Machine Learning", description: "Deploy transparent, explainable AI models and machine learning algorithms to automate complex decisions.", image: "/services/ai.jpg", link: "/services/ai-ml" },
@@ -28,7 +27,7 @@ const capabilities = [
     { title: "Product Design & UX", description: "Design intuitive, clean interfaces that reduce user friction and drive adoption.", image: "/services/uiux.jpg", link: "/services/ui-ux" }
 ];
 
-// REUSABLE CARD COMPONENT (To keep the main logic clean)
+// REUSABLE CARD COMPONENT
 const CapabilityCard = ({ item, index }: { item: any, index: number }) => (
     <Link href={item.link || '#'} className="group relative flex flex-col h-[320px] rounded-xl border border-gray-100 bg-white overflow-hidden hover:shadow-xl hover:shadow-gray-100/50 transition-all duration-500 cursor-pointer block">
         {/* IMAGE */}
@@ -36,7 +35,8 @@ const CapabilityCard = ({ item, index }: { item: any, index: number }) => (
             <div className="absolute inset-0 bg-slate-200">
                 <Image
                     src={item.image}
-                    alt={item.title}
+                    // SEO FIX 1: Appended "services by DevLogix" to dynamically create richer alt text without changing your array
+                    alt={`${item.title} services by DevLogix`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -47,9 +47,11 @@ const CapabilityCard = ({ item, index }: { item: any, index: number }) => (
         {/* CONTENT */}
         <div className="flex flex-col justify-between p-6 h-[55%]">
             <div>
-                <h4 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#0d938c] transition-colors">
+                {/* SEO FIX 2: Changed from <h4> to <h3>. 
+                    Since the section title is an H2, these MUST be H3s to maintain valid document outline. */}
+                <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#0d938c] transition-colors">
                     {item.title}
-                </h4>
+                </h3>
                 <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
                     {item.description}
                 </p>
@@ -64,7 +66,6 @@ const CapabilityCard = ({ item, index }: { item: any, index: number }) => (
 export default function CapabilitiesMatrix() {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    // STATIC SPLIT: Top 4 are always there. The rest wait in the hidden div.
     const initialItems = capabilities.slice(0, 4);
     const hiddenItems = capabilities.slice(4);
 
@@ -74,16 +75,23 @@ export default function CapabilitiesMatrix() {
 
                 {/* HEADER */}
                 <div className="mb-16 md:mb-18">
-                    <h2 className="text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-2">
+                    {/* SEO FIX 3: Changed from <h2> to <span>. 
+                        "Our Expertise" is not a keyword-rich title, it's just a visual UI label. */}
+                    <span className="block text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-2">
                         Our Expertise
-                    </h2>
+                    </span>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                        <h3 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight max-w-2xl">
+
+                        {/* SEO FIX 4: Changed from <h3> to <h2>. This is the main semantic title of this section. */}
+                        <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight max-w-2xl">
                             Redefining  <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0d938c] to-[#0a706b]">
                                 Digital Excellence.
                             </span>
-                        </h3>
+                            {/* SEO FIX 5: Visually hidden keywords tied directly to the H2. */}
+                            <span className="sr-only"> Core Capabilities in Custom Software & Enterprise Solutions</span>
+                        </h2>
+
                         <p className="text-slate-500 max-w-md text-sm leading-relaxed">
                             From enterprise platforms to intelligent systems, DevLogix
                             architects scalable software solutions tailored to your industry,
@@ -92,25 +100,21 @@ export default function CapabilitiesMatrix() {
                     </div>
                 </div>
 
-                {/* --- GRID PART 1: THE ANCHORS (Always Visible, No Animation) --- */}
-                {/* This grid never re-renders, preventing layout thrashing */}
+                {/* --- GRID PART 1 --- */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {initialItems.map((item, index) => (
                         <CapabilityCard key={item.title} item={item} index={index} />
                     ))}
                 </div>
 
-                {/* --- GRID PART 2: THE EXPANSION (Animated Height) --- */}
+                {/* --- GRID PART 2 --- */}
+                {/* SEO Note: Googlebot CAN read text inside divs with height: 0, so your hidden items will still be indexed! */}
                 <motion.div
                     initial={false}
-                    animate={{
-                        height: isExpanded ? "auto" : 0,
-                        opacity: isExpanded ? 1 : 0
-                    }}
-                    transition={{ duration: 0.6, ease: [0.04, 0.62, 0.23, 0.98] }} // Smooth "Apple-like" ease
+                    animate={{ height: isExpanded ? "auto" : 0, opacity: isExpanded ? 1 : 0 }}
+                    transition={{ duration: 0.6, ease: [0.04, 0.62, 0.23, 0.98] }}
                     className="overflow-hidden"
                 >
-                    {/* Inner container needs padding-top to simulate the Grid Gap between the two sections */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
                         {hiddenItems.map((item, index) => (
                             <CapabilityCard key={item.title} item={item} index={index + 4} />
@@ -122,6 +126,8 @@ export default function CapabilitiesMatrix() {
                 <div className="flex justify-center mt-12">
                     <button
                         onClick={() => setIsExpanded(!isExpanded)}
+                        // SEO FIX 6: Added aria-expanded to tell screen readers and crawlers that this toggles content below
+                        aria-expanded={isExpanded}
                         className="group flex items-center gap-3 px-8 py-4 bg-white border border-slate-200 rounded-full text-sm font-semibold text-slate-600 hover:text-slate-900 hover:border-slate-300 transition-all shadow-sm hover:shadow-md"
                     >
                         {isExpanded ? (
