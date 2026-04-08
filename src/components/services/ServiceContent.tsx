@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 // IMPORT YOUR GLOBAL CTA
-import CTASection from '@/components/layout/CTASection';
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
 
 // =====================================================================
 // REUSABLE COMPONENT: CINEMATIC CARD
@@ -207,10 +207,7 @@ export default function ServiceContent({ data }: { data: ServiceData | null }) {
 
             {/* ---------------- DYNAMIC GLOBAL CTA ---------------- */}
             {/* We pass a custom title based on the Service Name to make it feel personalized */}
-            {/* <CTASection
-                title={`Ready to Architect Your ${data.hero.title}?`}
-                subtitle="Stop renting your technology. Start owning it. Schedule a technical discovery call with our Board today."
-            /> */}
+            <LeadCaptureCTA />
 
         </main>
     );

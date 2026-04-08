@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Briefcase, CheckCircle2, MapPin, Search } from 'lucide-react';
 import { useState } from 'react';
 import { benefits, openPositions, departments } from '@/data/careersData';
-import CTASection from '@/components/layout/CTASection';
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
 
 export default function CareersPage() {
     const [activeDept, setActiveDept] = useState("All");
@@ -161,10 +161,7 @@ export default function CareersPage() {
                 </div>
             </section>
 
-            <CTASection
-                title="Don't See Your Role?"
-                subtitle="We are always looking for outliers. Send your dossier to careers@devlogix.io and tell us what you can build."
-            />
+            <LeadCaptureCTA localization={{ headingText: "Don", headingHighlight: "", subheading: "We are always looking for outliers. Send your dossier to careers@devlogix.io and tell us what you can build." }} />
 
         </main>
     );

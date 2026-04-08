@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion';
-import { CheckCircle2, FileText, Lock, ArrowLeft, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, FileText, Lock, ArrowLeft, ShieldCheck, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+import { countryCodes } from '@/lib/countryCodes';
 
 export default function CaseStudyGateUI({ study }: { study: any }) {
     const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -123,7 +124,17 @@ export default function CaseStudyGateUI({ study }: { study: any }) {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Phone</label>
-                                        <input required type="tel" className="w-full bg-slate-50 border border-slate-200 rounded-sm px-4 py-3 text-slate-900 text-sm focus:border-[#0d938c] focus:outline-none focus:bg-white transition-all" placeholder="+1..." />
+                                        <div className="flex border border-slate-200 rounded-sm bg-slate-50 overflow-hidden focus-within:border-[#0d938c] transition-all focus-within:bg-white">
+                                            <div className="w-[100px] relative border-r border-slate-200 bg-transparent flex items-center justify-center">
+                                                <select required defaultValue="+1" className="w-full h-full bg-transparent text-slate-900 text-sm focus:outline-none appearance-none cursor-pointer px-2 pr-6 z-10">
+                                                {countryCodes.map(c => (
+                                                    <option key={c.code} value={c.dial}>{c.code} ({c.dial})</option>
+                                                ))}
+                                                </select>
+                                                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 text-slate-400 z-0 pointer-events-none" />
+                                            </div>
+                                            <input required type="tel" className="flex-1 bg-transparent px-4 py-3 text-slate-900 text-sm focus:outline-none" placeholder="xxxx-xxxx" />
+                                        </div>
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Company</label>

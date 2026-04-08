@@ -39,9 +39,12 @@ export default function InsightsGridUI({ items }: InsightsGridProps) {
                         <h2 className="text-xs font-bold text-slate-500 uppercase tracking-[0.3em] mb-4">
                             Intelligence Stream
                         </h2>
-                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-                            Institutional <span className="text-[#0d938c]">Insights.</span>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+                            Enterprise Tech <span className="text-[#0d938c]">Insights & Case Studies.</span>
                         </h3>
+                        <p className="text-slate-500 max-w-2xl text-sm leading-relaxed">
+                            Explore our latest thinking, technical deep-dives, and real-world case studies demonstrating how we engineer scalable software for global industries.
+                        </p>
                     </div>
                     <Link href="/blog" className="text-sm font-bold text-slate-900 border-b border-slate-300 pb-1 hover:border-[#0d938c] hover:text-[#0d938c] transition-all duration-300">
                         View All Intelligence

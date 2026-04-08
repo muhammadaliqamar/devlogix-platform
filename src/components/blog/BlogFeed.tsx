@@ -5,7 +5,7 @@ import { ArrowRight, Calendar, Clock, Search, Tag } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import CTASection from '@/components/layout/CTASection';
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
 
 // --- COMPONENTS (Moved inside) ---
 
@@ -179,10 +179,7 @@ export default function BlogFeed({ posts }: { posts: any[] }) {
                 )}
             </section>
 
-            <CTASection
-                title="Join The Inner Circle."
-                subtitle="Get sovereign tech analysis delivered to your secure channel."
-            />
+            <LeadCaptureCTA localization={{ headingText: "Join The Inner Circle.", headingHighlight: "", subheading: "Get sovereign tech analysis delivered to your secure channel." }} />
 
         </main>
     );

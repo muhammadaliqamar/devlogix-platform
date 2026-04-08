@@ -3,12 +3,22 @@
 import { useEffect, useRef } from 'react';
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 
-const stats = [
-    { label: 'Industries Verticalized', value: 12, suffix: '' },
-    { label: 'LATAM Hubs (SP - BA - BOG)', value: 3, suffix: '' },
-    { label: 'Digital Platforms Scaled', value: 200, suffix: '+' },
-    { label: 'Years of Engineering', value: 4, suffix: '+' },
-];
+const getStats = (lang: 'es' | 'pt') => {
+    if (lang === 'pt') {
+        return [
+            { label: 'Indústrias Verticalizadas', value: 12, suffix: '' },
+            { label: 'Hubs LATAM (SP - BA - BOG)', value: 3, suffix: '' },
+            { label: 'Plataformas Digitais Escaladas', value: 200, suffix: '+' },
+            { label: 'Anos de Engenharia', value: 4, suffix: '+' },
+        ];
+    }
+    return [
+        { label: 'Industrias Verticalizadas', value: 12, suffix: '' },
+        { label: 'Hubs LATAM (SP - BA - BOG)', value: 3, suffix: '' },
+        { label: 'Plataformas Digitales Escaladas', value: 200, suffix: '+' },
+        { label: 'Años de Ingeniería', value: 4, suffix: '+' },
+    ];
+};
 
 function Counter({ value }: { value: number }) {
     const ref = useRef(null);
@@ -28,7 +38,8 @@ function Counter({ value }: { value: number }) {
     return <motion.span ref={ref}>{rounded}</motion.span>;
 }
 
-export default function AuthorityStrip() {
+export default function AuthorityStrip({ lang = 'es' }: { lang?: 'es' | 'pt' }) {
+    const stats = getStats(lang);
     return (
         <div className="relative w-full bg-white font-poppins-regular">
             <div className="relative h-0 w-full z-1 px-6">

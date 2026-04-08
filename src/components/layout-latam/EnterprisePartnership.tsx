@@ -5,7 +5,36 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function EnterprisePartnership() {
+const content = {
+    es: {
+        tagline: "Asociaciones Estratégicas en LATAM",
+        title: "Co-innovando con la",
+        highlight: "Élite Tecnológica de América Latina",
+        description: "Nos asociamos con líderes empresariales desde Brasil hasta Chile para construir plataformas masivas y de alta disponibilidad capaces de satisfacer las aceleradas demandas digitales del continente.",
+        bullets: [
+            "Integración de Ecosistemas Localizados",
+            "Módulos de Escalado Ágil Rápido",
+            "Equipos de Ingeniería Panamericanos",
+        ],
+        cta: "Discutir Su Proyecto"
+    },
+    pt: {
+        tagline: "Parcerias Estratégicas na LATAM",
+        title: "Co-inovando com a",
+        highlight: "Elite Tecnológica da América Latina",
+        description: "Temos parcerias com líderes corporativos do Brasil ao Chile para construir plataformas massivas e de alta disponibilidade com capacidade para atender às crescentes demandas digitais do continente.",
+        bullets: [
+            "Integração de Ecossistemas Localizados",
+            "Módulos de Escalonamento Ágil Rápido",
+            "Equipes de Engenharia Pan-Americanas",
+        ],
+        cta: "Discutir Seu Projeto"
+    }
+};
+
+export default function EnterprisePartnership({ lang = 'es' }: { lang?: 'es' | 'pt' }) {
+    const t = content[lang];
+
     return (
         <section className="w-full bg-slate-50 pt-24 pb-12 md:pt-16 md:pb-12 font-poppins-regular ">
             <div className="max-w-7xl mx-auto px-6">
@@ -17,22 +46,18 @@ export default function EnterprisePartnership() {
                         transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                     >
                         <h2 className="text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-6">
-                            Strategic LATAM Partnerships
+                            {t.tagline}
                         </h2>
                         <h3 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
-                            Co-innovating with <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0d938c] to-[#0a706b]">Latin America&apos;s Tech Elite</span>
+                            {t.title} <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0d938c] to-[#0a706b]">{t.highlight}</span>
                         </h3>
                         <p className="text-slate-500 text-lg leading-relaxed mb-8 max-w-lg">
-                            We partner with enterprise leaders from Brazil to Chile to construct massive, highly available platforms capable of meeting the continent&apos;s accelerating digital demands.
+                            {t.description}
                         </p>
 
                         <div className="space-y-4 mb-10">
-                            {[
-                                "Localized Ecosystem Integration",
-                                "Rapid Agile Scaling Modules",
-                                "Pan-American Engineering Pods",
-                            ].map((item, i) => (
+                            {t.bullets.map((item, i) => (
                                 <div key={i} className="flex items-center gap-3">
                                     <CheckCircle2 className="w-5 h-5 text-[#0d938c]" />
                                     <span className="text-slate-700 font-medium">{item}</span>
@@ -44,7 +69,7 @@ export default function EnterprisePartnership() {
                             href="/contact"
                             className="inline-flex items-center gap-3 px-8 py-4 bg-slate-900 text-white rounded-[4px] font-semibold transition-all duration-300 hover:bg-[#0d938c] hover:shadow-lg group"
                         >
-                            Discuss Your Project
+                            {t.cta}
                             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </Link>
                     </motion.div>

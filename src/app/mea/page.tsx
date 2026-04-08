@@ -4,8 +4,9 @@ import Hero from '@/components/layout-mea/Hero'
 import AuthorityStrip from '@/components/layout-mea/AuthorityStrip'
 import CapabilitiesMatrix from '@/components/layout-mea/CapabilitiesMatrix'
 import IndustryCarousel from '@/components/layout-mea/IndustryCarousel'
+import InsightsGrid from '@/components/layout/InsightsGrid'
 import CareersSection from '@/components/layout-mea/CareersSection'
-import CTASection from '@/components/layout-mea/CTASection'
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA'
 import Script from 'next/script'
 import { Metadata } from 'next'
 
@@ -42,8 +43,9 @@ export default function MEALandingPage() {
       <AuthorityStrip />
       <CapabilitiesMatrix />
       <IndustryCarousel />
+      <InsightsGrid />
       <CareersSection />
-      <CTASection />
+      <LeadCaptureCTA localization={{ dialCode: 'AE +971' }} />
     </main>
   )
 }

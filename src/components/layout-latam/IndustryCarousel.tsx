@@ -6,28 +6,72 @@ import { ArrowLeft, ArrowRight, MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const industries = [
-    { title: "Neo-Banking & FinTech", category: "High-Value", solution: "Building seamless banking API layers and mobile wallet networks.", image: "/industries/banking.jpg", link: "/industries/fintech" },
-    { title: "Retail & E-commerce", category: "Commercial", solution: "Omnichannel retail strategies to capture LATAM's digital consumers.", image: "/industries/retail.jpg", link: "/industries/retail" },
-    { title: "Logistics & Supply Chain", category: "Industrial", solution: "Geospatial telemetry and real-time cross-border tracking systems.", image: "/industries/logistics.jpg", link: "/industries/supplychain" },
-    { title: "AgriTech & Mining", category: "Resources", solution: "IoT sensors for remote asset monitoring and yield predictability.", image: "/industries/energy.jpg", link: "/industries/natural-resources" },
-    { title: "Telecommunications", category: "Commercial", solution: "5G integration and automated operational architectures.", image: "/industries/telecom.jpg", link: "/industries/telecom" },
-    { title: "Healthcare & Telemedicine", category: "Sovereign", solution: "Accessible remote diagnostic platforms for broad geographic reach.", image: "/industries/healthcare.jpg", link: "/industries/healthcare" },
-    { title: "High-Growth Startups (SaaS)", category: "Commercial", solution: "Rapid prototyping and hyperscaling for Series A/B market leaders.", image: "/industries/saas.jpg", link: "/industries/saas" },
-    { title: "Real Estate & PropTech", category: "Commercial", solution: "Digital brokerage networks and modern property valuation tools.", image: "/industries/realestate.jpg", link: "/industries/realestate" }
-];
+const getIndustries = (lang: 'es' | 'pt') => {
+    const images = [
+        "/industries/banking.jpg", "/industries/retail.jpg", "/industries/logistics.jpg", 
+        "/industries/energy.jpg", "/industries/telecom.jpg", "/industries/healthcare.jpg", 
+        "/industries/saas.jpg", "/industries/realestate.jpg"
+    ];
+    const links = [
+        "/industries/fintech", "/industries/retail", "/industries/supplychain", 
+        "/industries/natural-resources", "/industries/telecom", "/industries/healthcare", 
+        "/industries/saas", "/industries/realestate"
+    ];
 
-export default function IndustryCarousel() {
+    if (lang === 'pt') {
+        return [
+            { title: "Neo-Banking e FinTech", category: "Alto Valor", solution: "Criando camadas de API bancárias fluidas e redes de carteira móvel.", image: images[0], link: links[0] },
+            { title: "Varejo e E-commerce", category: "Comercial", solution: "Estratégias omnichannel para captar os consumidores digitais da LATAM.", image: images[1], link: links[1] },
+            { title: "Logística e Cadeias de Suprimentos", category: "Industrial", solution: "Telemetria geoespacial e sistemas de rastreamento transfronteiriço.", image: images[2], link: links[2] },
+            { title: "AgriTech e Mineração", category: "Recursos", solution: "Sensores IoT para monitoramento remoto de ativos e previsibilidade de safra.", image: images[3], link: links[3] },
+            { title: "Telecomunicações", category: "Comercial", solution: "Integração 5G e arquiteturas operacionais automatizadas.", image: images[4], link: links[4] },
+            { title: "Saúde e Telemedicina", category: "Soberano", solution: "Plataformas de diagnóstico remoto acessíveis para alcance geográfico.", image: images[5], link: links[5] },
+            { title: "High-Growth Startups (SaaS)", category: "Comercial", solution: "Prototipagem rápida e hiper-escalonamento para líderes de Séries A/B.", image: images[6], link: links[6] },
+            { title: "Imóveis e PropTech", category: "Comercial", solution: "Redes de corretagem digital e ferramentas modernas de avaliação.", image: images[7], link: links[7] }
+        ];
+    }
+    
+    return [
+        { title: "Neo-Banca & FinTech", category: "Alto Valor", solution: "Creando capas de API bancarias fluidas y redes de billeteras móviles.", image: images[0], link: links[0] },
+        { title: "Retail y Comercio Electrónico", category: "Comercial", solution: "Estrategias omnicanal para captar a los consumidores digitales de LATAM.", image: images[1], link: links[1] },
+        { title: "Logística y Cadena de Suministro", category: "Industrial", solution: "Telemetría geoespacial y sistemas de seguimiento transfronterizo.", image: images[2], link: links[2] },
+        { title: "AgriTech y Minería", category: "Recursos", solution: "Sensores IoT para monitoreo remoto de activos y previsibilidad de rendimiento.", image: images[3], link: links[3] },
+        { title: "Telecomunicaciones", category: "Comercial", solution: "Integración de 5G y arquitecturas operativas automatizadas.", image: images[4], link: links[4] },
+        { title: "Salud y Telemedicina", category: "Soberano", solution: "Plataformas de diagnóstico remoto para alcance geográfico.", image: images[5], link: links[5] },
+        { title: "High-Growth Startups (SaaS)", category: "Comercial", solution: "Prototipado rápido e hiper-escalamiento para líderes de Series A/B.", image: images[6], link: links[6] },
+        { title: "Bienes Raíces y PropTech", category: "Comercial", solution: "Redes digitales y herramientas modernas de valoración.", image: images[7], link: links[7] }
+    ];
+}
+
+const uiContent = {
+    es: {
+        tagline: "Sectores Clave Sudamericanos",
+        title: "Acelerando Industrias de LATAM",
+        dragAction: "Arrastrar para Explorar",
+        exploreAction: "Explorar Industria"
+    },
+    pt: {
+        tagline: "Setores Principais Sul-Americanos",
+        title: "Acelerando Indústrias da LATAM",
+        dragAction: "Arraste para Explorar",
+        exploreAction: "Explorar Indústria"
+    }
+};
+
+export default function IndustryCarousel({ lang = 'es' }: { lang?: 'es' | 'pt' }) {
     const [maxScrollWidth, setMaxScrollWidth] = useState(0);
     const carousel = useRef<HTMLDivElement>(null);
     const controls = useAnimation();
     const x = useMotionValue(0);
 
+    const industries = getIndustries(lang);
+    const t = uiContent[lang];
+
     useEffect(() => {
         if (carousel.current) {
             setMaxScrollWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
         }
-    }, []);
+    }, [lang]); // Re-calculate if layout shifts on language change
 
     const slide = (direction: 'left' | 'right') => {
         const currentX = x.get();
@@ -50,10 +94,10 @@ export default function IndustryCarousel() {
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <div>
                         <h2 className="text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-4">
-                            South American Core Sectors
+                            {t.tagline}
                         </h2>
                         <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight leading-tight">
-                            Accelerating LATAM Industries
+                            {t.title}
                         </h3>
                     </div>
                     <div className="flex gap-2 hidden md:flex">
@@ -70,7 +114,7 @@ export default function IndustryCarousel() {
                             <ArrowRight className="w-5 h-5" />
                         </button>
                         <p className="text-[10px] uppercase tracking-widest text-slate-400 self-center ml-4">
-                            Drag to Explore
+                            {t.dragAction}
                         </p>
                     </div>
                 </div>
@@ -115,7 +159,7 @@ export default function IndustryCarousel() {
                                         {industry.solution}
                                     </p>
                                     <Link href={industry.link || '#'} className="flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-200 cursor-pointer pointer-events-auto">
-                                        Explore Industry <MoveRight className="w-4 h-4 text-[#0d938c]" />
+                                        {t.exploreAction} <MoveRight className="w-4 h-4 text-[#0d938c]" />
                                     </Link>
                                 </div>
                             </motion.div>

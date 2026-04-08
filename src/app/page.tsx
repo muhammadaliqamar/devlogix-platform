@@ -6,7 +6,7 @@ import CapabilitiesMatrix from '@/components/layout/CapabilitiesMatrix'
 import IndustryCarousel from '@/components/layout/IndustryCarousel'
 import InsightsGrid from '@/components/layout/InsightsGrid'
 import CareersSection from '@/components/layout/CareersSection'
-import CTASection from '@/components/layout/CTASection'
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA'
 import Script from 'next/script'
 import { Metadata } from 'next'
 
@@ -38,11 +38,20 @@ export default function Home() {
     '@type': 'Organization',
     name: 'DevLogix',
     url: 'https://devlogix.com.pk',
-    logo: 'https://devlogix.com.pk/logo.png', // Replace with actual logo URL
-    description: 'DevLogix empowers businesses globally with cutting-edge software and digital transformation services.',
+    // logo: 'https://devlogix.com.pk/logo.png', // Replace with actual logo URL
+    description: 'DevLogix transforms businesses with custom software development and advanced AI solutions. Built for scale, designed for growth.',
+    slogan: 'Shaping the digital horizons.',
     sameAs: [
       'https://www.linkedin.com/company/devlogixofficial',
-    ]
+    ],
+    foundingDate: '2023',
+    areaServed: 'Worldwide',
+    serviceType: ['Custom Software Development', 'AI Solutions', 'Mobile App Development', 'Custom Development'],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      url: 'https://devlogix.com.pk/contact',
+    }
   }
 
   return (
@@ -56,9 +65,9 @@ export default function Home() {
       <AuthorityStrip />
       <CapabilitiesMatrix />
       <IndustryCarousel />
-      {/* <InsightsGrid /> */}
+      <InsightsGrid />
       <CareersSection />
-      <CTASection />
+      <LeadCaptureCTA />
     </main>
   )
 }

@@ -17,11 +17,37 @@ export interface InsightItem {
     image?: string;
 }
 
-interface InsightsGridProps {
-    items: InsightItem[];
+// 2. LOCALIZATION INTERFACE
+export interface InsightsGridLocale {
+    dir?: 'ltr' | 'rtl';
+    kicker?: string;
+    heading?: string;
+    headingHighlight?: string;
+    paragraph?: string;
+    viewAllLabel?: string;
+    viewAllLink?: string;
+    readReportLabel?: string;
 }
 
-export default function InsightsGridUI({ items }: InsightsGridProps) {
+const defaultLocale: InsightsGridLocale = {
+    dir: 'ltr',
+    kicker: 'Intelligence Stream',
+    heading: 'Enterprise Tech',
+    headingHighlight: 'Insights & Case Studies.',
+    paragraph: 'Explore our latest thinking, technical deep-dives, and real-world case studies demonstrating how we engineer scalable software for global industries.',
+    viewAllLabel: 'View All Intelligence',
+    viewAllLink: '/blog',
+    readReportLabel: 'Read The Report',
+};
+
+interface InsightsGridProps {
+    items: InsightItem[];
+    locale?: InsightsGridLocale;
+}
+
+export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
+    const t = { ...defaultLocale, ...locale };
+
     // Destructure the array passed from the server
     // Order is guaranteed: [Featured, Blog1, Blog2, News]
     const [featured, insight1, insight2, news] = items;
@@ -30,21 +56,24 @@ export default function InsightsGridUI({ items }: InsightsGridProps) {
     if (!featured) return null;
 
     return (
-        <section className="w-full bg-slate-50 pt-24 pb-12 md:pt-16 md:pb-12 font-poppins-regular">
+        <section className="w-full bg-slate-50 pt-20 pb-12 md:pt-6 md:pb-12 font-poppins-regular" dir={t.dir}>
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* SECTION HEADER */}
-                <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <h2 className="text-xs font-bold text-slate-500 uppercase tracking-[0.3em] mb-4">
-                            Intelligence Stream
+                            {t.kicker}
                         </h2>
-                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-                            Institutional <span className="text-[#0d938c]">Insights.</span>
+                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight mb-4">
+                            {t.heading} <span className="text-[#0d938c]">{t.headingHighlight}</span>
                         </h3>
+                        <p className="text-slate-500 max-w-2xl text-sm leading-relaxed">
+                            {t.paragraph}
+                        </p>
                     </div>
-                    <Link href="/blog" className="text-sm font-bold text-slate-900 border-b border-slate-300 pb-1 hover:border-[#0d938c] hover:text-[#0d938c] transition-all duration-300">
-                        View All Intelligence
+                    <Link href={t.viewAllLink || '/blog'} className="text-sm font-bold text-slate-900 border-b border-slate-300 pb-1 hover:border-[#0d938c] hover:text-[#0d938c] transition-all duration-300">
+                        {t.viewAllLabel}
                     </Link>
                 </div>
 
@@ -84,7 +113,7 @@ export default function InsightsGridUI({ items }: InsightsGridProps) {
                                         {featured.summary}
                                     </p>
                                     <span className="text-[#0d938c] text-xs font-bold uppercase tracking-wider group-hover:underline decoration-[#0d938c]/50 underline-offset-4 cursor-pointer">
-                                        Read The Report
+                                        {t.readReportLabel}
                                     </span>
                                 </div>
                             </div>

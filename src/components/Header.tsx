@@ -37,15 +37,21 @@ const serviceItems = [
     { name: 'AI & Machine Learning', link: '/services/ai-ml', desc: 'Automation & Agents.' },
     // { name: 'IoT Solutions', link: '/services/iot', desc: 'Connected systems.' },
     { name: 'Cybersecurity', link: '/services/cybersecurity', desc: 'Protection.' },
-    { name: 'Cloud & DevOps', link: '/services/cloud-devops', desc: 'AWS/Azure.' },
     { name: 'Custom Software', link: '/services/custom-software', desc: 'Backend systems.' },
-    { name: 'Blockchain', link: '/services/blockchain', desc: 'Ledgers.' },
-    { name: 'Data Science', link: '/services/data-science', desc: 'Analytics.' },
     { name: 'Web Development', link: '/services/web-development', desc: 'Next.js apps.' },
     { name: 'Mobile Apps', link: '/services/mobile-app', desc: 'iOS & Android.' },
-    { name: 'Product Design & UX', link: '/services/ui-ux', desc: 'User interfaces.' },
+    { name: 'Cloud & DevOps', link: '/services/cloud-devops', desc: 'AWS/Azure.' },
+
+    { name: 'Blockchain', link: '/services/blockchain', desc: 'Ledgers.' },
+
     { name: 'IT Staff Augmentation', link: '/services/staff-augmentation', desc: 'Scale your team.' },
-    { name: 'Tech Advisory', link: '/services/consulting', desc: 'Strategic plans.' }
+    { name: 'Tech Advisory', link: '/services/consulting', desc: 'Strategic plans.' },
+    { name: 'Data Science', link: '/services/data-science', desc: 'Analytics.' },
+
+
+    { name: 'Product Design & UX', link: '/services/ui-ux', desc: 'User interfaces.' },
+
+
 ];
 
 export default function Header() {
@@ -140,8 +146,8 @@ export default function Header() {
     const gridItemStyle = "block p-4 rounded-lg hover:bg-slate-50 transition group border border-transparent hover:border-gray-100";
     const mobileLinkStyle = "flex items-center justify-between w-full py-4 text-lg font-medium text-slate-800 border-b border-gray-100";
 
-    // SUPPRESS GLOBAL HEADER ON KSA ROUTE
-    if (pathname?.startsWith('/ksa')) return null;
+    // SUPPRESS GLOBAL HEADER ON CUSTOM ROUTES
+    if (pathname?.startsWith('/ksa') || pathname?.startsWith('/latam')) return null;
 
     return (
         <nav
@@ -173,10 +179,10 @@ export default function Header() {
                             priority
                         />
                     </div>
-                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border uppercase tracking-wider ${isScrolled ? 'text-[#14B8A6] border-[#14B8A6]/30 bg-[#14B8A6]/5' : 'text-white border-white/30 bg-white/10'
+                    {/* <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border uppercase tracking-wider ${isScrolled ? 'text-[#14B8A6] border-[#14B8A6]/30 bg-[#14B8A6]/5' : 'text-white border-white/30 bg-white/10'
                         }`}>
                         Beta
-                    </span>
+                    </span> */}
                 </Link>
 
                 {/* ================= DESKTOP NAV ================= */}
@@ -212,7 +218,8 @@ export default function Header() {
                         Partner with us
                     </Link>
 
-                    {/* Region Selector (Desktop Only) */}
+                    {/* Region Selector — Disabled for global-only launch */}
+                    {false && (
                     <div className="relative hidden lg:block" ref={regionRef}>
                         <button
                             onClick={toggleRegion}
@@ -222,8 +229,6 @@ export default function Header() {
                             <span>{currentRegion}</span>
                             <i className={`fa-solid fa-chevron-down text-[10px] transition-transform duration-200 ${regionOpen ? 'rotate-180' : ''}`}></i>
                         </button>
-                        {/* Desktop Region Dropdown */}
-
                         {regionOpen && (
                             <div className="absolute top-full right-0 mt-4 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 animate-fade-in-up origin-top-right">
                                 <div className="absolute -top-1.5 right-2 w-3 h-3 bg-white border-t border-l border-gray-100 transform rotate-45"></div>
@@ -242,6 +247,7 @@ export default function Header() {
                             </div>
                         )}
                     </div>
+                    )}
 
 
 
@@ -350,7 +356,8 @@ export default function Header() {
                     {/* MOBILE FOOTER: REGION & CTA */}
                     <div className="mt-8 space-y-6">
 
-                        {/* Mobile Region Selector */}
+                        {/* Mobile Region Selector — Disabled for global-only launch */}
+                        {false && (
                         <div>
                             <p className="text-xs text-slate-400 uppercase tracking-wider mb-3">Select Region</p>
                             <div className="grid grid-cols-2 gap-2">
@@ -368,6 +375,7 @@ export default function Header() {
                                 ))}
                             </div>
                         </div>
+                        )}
 
                         <Link
                             href="/contact"

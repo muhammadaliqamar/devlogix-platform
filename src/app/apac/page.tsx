@@ -5,7 +5,7 @@ import AuthorityStrip from '@/components/layout-apac/AuthorityStrip'
 import CapabilitiesMatrix from '@/components/layout-apac/CapabilitiesMatrix'
 import IndustryCarousel from '@/components/layout-apac/IndustryCarousel'
 import CareersSection from '@/components/layout-apac/CareersSection'
-import CTASection from '@/components/layout-apac/CTASection'
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA'
 import Script from 'next/script'
 import { Metadata } from 'next'
 
@@ -43,7 +43,7 @@ export default function APACLandingPage() {
       <CapabilitiesMatrix />
       <IndustryCarousel />
       <CareersSection />
-      <CTASection />
+      <LeadCaptureCTA localization={{ dialCode: 'SG +65' }} />
     </main>
   )
 }

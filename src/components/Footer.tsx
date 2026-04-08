@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 
 export default function Footer() {
     const pathname = usePathname();
-    
+
     // SUPPRESS GLOBAL FOOTER ON KSA ROUTE
     if (pathname?.startsWith('/ksa')) return null;
 
@@ -47,11 +47,11 @@ export default function Footer() {
                                 <div className="absolute top-0 left-0 w-1 h-full bg-[#0d938c]"></div>
                                 <h6 className="text-white font-bold mb-3 flex items-center gap-2 text-xs uppercase tracking-widest">
                                     <Globe size={14} className="text-[#0d938c]" />
-                                    Delivery Center
+                                    Global Delivery Center
                                 </h6>
                                 <div className="mb-1">
                                     <div className="flex items-center gap-2 mb-1">
-                                        <span className="text-lg">🇵🇰</span>
+                                        {/* <span className="text-lg">🇵🇰</span> */}
                                         <span className="text-white font-bold">Pakistan</span>
                                     </div>
                                     <span className="leading-relaxed text-slate-400 text-xs block">
@@ -61,7 +61,7 @@ export default function Footer() {
                             </div>
 
                             {/* --- 2. REGIONAL HUBS --- */}
-                            <div>
+                            {/* <div>
                                 <h6 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Regional Hubs</h6>
                                 <div className="grid grid-cols-2 gap-3">
                                     <div className="bg-white/5 rounded-[4px] p-3 border border-white/10 hover:border-[#0d938c]/50 transition-colors duration-500">
@@ -86,7 +86,7 @@ export default function Footer() {
                                         <p className="text-[10px] leading-snug text-slate-500">Dubai Internet City</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
                             {/* --- 3. SOCIAL ICONS (Anchored here) --- */}
                             <div className="pt-2">
@@ -122,15 +122,19 @@ export default function Footer() {
                             <li><Link href="/services/ai-ml" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">AI & Machine Learning</Link></li>
                             {/* <li><Link href="/services/iot" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">IoT Solutions</Link></li> */}
                             <li><Link href="/services/cybersecurity" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Cybersecurity</Link></li>
-                            <li><Link href="/services/cloud-devops" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Cloud & DevOps</Link></li>
+
                             <li><Link href="/services/custom-software" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Custom Software</Link></li>
-                            <li><Link href="/services/blockchain" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Blockchain & Crypto</Link></li>
-                            <li><Link href="/services/data-science" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Data Science & Analytics</Link></li>
                             <li><Link href="/services/web-development" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Full-Stack Web Development</Link></li>
                             <li><Link href="/services/mobile-app" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Mobile App Development</Link></li>
-                            <li><Link href="/services/ui-ux" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Product Design & UX</Link></li>
+                            <li><Link href="/services/cloud-devops" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Cloud & DevOps</Link></li>
+                            <li><Link href="/services/blockchain" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Blockchain & Crypto</Link></li>
+
+
+
                             <li><Link href="/services/staff-augmentation" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">IT Staff Augmentation</Link></li>
                             <li><Link href="/services/consulting" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Strategic Tech Advisory</Link></li>
+                            <li><Link href="/services/data-science" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Data Science & Analytics</Link></li>
+                            <li><Link href="/services/ui-ux" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">Product Design & UX</Link></li>
                         </ul>
                     </div>
 

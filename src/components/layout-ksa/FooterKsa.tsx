@@ -45,7 +45,7 @@ export default function Footer() {
                                 </h6>
                                 <div className="mb-1">
                                     <div className="flex items-center gap-2 mb-1">
-                                        <span className="text-lg">🇵🇰</span>
+                                        {/* <span className="text-lg">🇵🇰</span> */}
                                         <span className="text-white font-bold">باكستان</span>
                                     </div>
                                     <span className="leading-relaxed text-slate-400 text-xs block">
@@ -55,7 +55,7 @@ export default function Footer() {
                             </div>
 
                             {/* --- 2. REGIONAL HUBS --- */}
-                            <div>
+                            {/* <div>
                                 <h6 className="text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">المراكز الإقليمية</h6>
                                 <div className="grid grid-cols-2 gap-3">
                                     <div className="bg-white/5 rounded-[4px] p-3 border border-white/10 hover:border-[#0d938c]/50 transition-colors duration-500">
@@ -80,7 +80,7 @@ export default function Footer() {
                                         <p className="text-[10px] leading-snug text-slate-500">مدينة دبي للإنترنت</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
 
                             {/* --- 3. SOCIAL ICONS (Anchored here) --- */}
                             <div className="pt-2">
@@ -116,15 +116,15 @@ export default function Footer() {
                             <li><Link href="/services/ai-ml" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">الذكاء الاصطناعي وتعلم الآلة</Link></li>
                             {/* <li><Link href="/services/iot" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">IoT Solutions</Link></li> */}
                             <li><Link href="/services/cybersecurity" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">الأمن السيبراني</Link></li>
-                            <li><Link href="/services/cloud-devops" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">السحابة وعمليات التطوير</Link></li>
                             <li><Link href="/services/custom-software" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">برمجيات مخصصة</Link></li>
-                            <li><Link href="/services/blockchain" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">البلوكتشين</Link></li>
-                            <li><Link href="/services/data-science" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">علم البيانات</Link></li>
                             <li><Link href="/services/web-development" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">تطوير ويب شامل</Link></li>
                             <li><Link href="/services/mobile-app" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">تطبيقات المحمول</Link></li>
-                            <li><Link href="/services/ui-ux" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">تصميم واجهة وتجربة المستخدم</Link></li>
+                            <li><Link href="/services/cloud-devops" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">السحابة وعمليات التطوير</Link></li>
+                            <li><Link href="/services/blockchain" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">البلوكتشين</Link></li>
                             <li><Link href="/services/staff-augmentation" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">تعزيز الكوادر</Link></li>
                             <li><Link href="/services/consulting" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">الاستشارات التقنية</Link></li>
+                            <li><Link href="/services/data-science" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">علم البيانات</Link></li>
+                            <li><Link href="/services/ui-ux" className="text-slate-400 hover:text-[#0d938c] transition-colors duration-300 block">تصميم واجهة وتجربة المستخدم</Link></li>
                         </ul>
                     </div>
 

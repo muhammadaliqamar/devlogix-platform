@@ -5,14 +5,23 @@ import { motion } from 'framer-motion';
 import { ArrowDown, MoveRight, ArrowUp } from 'lucide-react';
 import Image from 'next/image';
 
-// DATA
+// DATA — 12 خدمات مُرتبة حسب أولويات رؤية 2030
 const capabilities = [
-    { title: "الذكاء الاصطناعي وتعلم الآلة", description: "أتمتة القرارات المعقدة من خلال نماذج مخصصة مبنية لبياناتك التشغيلية المحددة.", image: "/services/ai.jpg" },
-    { title: "الأمن السيبراني", description: "حماية بنيتك التحتية الحرجة وأصول بياناتك بهيكليات أمنية تعتمد مبدأ انعدام الثقة.", image: "/services/cyber.jpg" },
-    { title: "بنية السحابة والتطوير", description: "نشر بنية تحتية سيادية قابلة للتوسع بمعدلات توافر عالية.", image: "/services/cloud.jpg" },
-    { title: "تحليلات البيانات الضخمة", description: "تحويل البيانات التشغيلية الخام إلى استخبارات أعمال حية لدعم الرؤية.", image: "/services/dataanalytics.jpg" },
-    { title: "أنظمة برمجية مخصصة", description: "بناء منصات سيادية لحل أعقد المشاكل التشغيلية الحكومية والمؤسسية.", image: "/services/customsoftware.jpg" },
-    { title: "الاستشارات التقنية الاستراتيجية", description: "توجيه خارطة الطريق للتحول الرقمي لضمان كفاءة البنية التحتية.", image: "/services/advisory.jpeg" }
+    // الصف الأول
+    { title: "الذكاء الاصطناعي وتعلم الآلة", description: "نماذج ذكاء اصطناعي متوافقة مع أخلاقيات سدايا لأتمتة القرارات التشغيلية السيادية.", image: "/services/ai.jpg" },
+    { title: "الأمن السيبراني", description: "بنى أمنية بمعايير الهيئة الوطنية للأمن السيبراني (NCA) ومبدأ انعدام الثقة.", image: "/services/cyber.jpg" },
+    { title: "أنظمة تخطيط الموارد المؤسسية", description: "أنظمة ERP متوافقة مع الزكاة والضريبة (ZATCA) لتوحيد المالية وسلاسل الإمداد.", image: "/services/erp.jpg" },
+    { title: "تطوير البرمجيات المخصصة", description: "منصات سيادية مبنية وفق معايير إقامة البيانات السعودية والحوكمة الرقمية.", image: "/services/customsoftware.jpg" },
+    // الصف الثاني
+    { title: "بنية السحابة والتطوير", description: "نشر سحابي سيادي على AWS الرياض وأزور المملكة متوافق مع سياسة الحوسبة السحابية أولاً.", image: "/services/cloud.jpg" },
+    { title: "هندسة الويب المتكاملة", description: "منصات ويب عالية الأداء بتصميم RTL أولاً للجمهور السعودي والعربي.", image: "/services/fullstack.jpg" },
+    { title: "تطوير تطبيقات الجوال", description: "تطبيقات iOS وأندرويد مُحسّنة للسوق السعودي الأول عالمياً في استخدام الهواتف.", image: "/services/mobileapp.jpg" },
+    { title: "البلوكتشين والعملات الرقمية", description: "سجلات موزعة متوافقة مع ساما للمعاملات المالية عبر الحدود وسلاسل الإمداد.", image: "/services/blockchain.jpg" },
+    // الصف الثالث
+    { title: "توسعة فرق العمل التقنية", description: "توسيع فرقك الهندسية فوراً بمطورين معتمدين ذوي خبرة في السوق السعودي.", image: "/services/staff.jpg" },
+    { title: "الاستشارات التقنية الاستراتيجية", description: "خرائط طريق تقنية متوافقة مع رؤية 2030 واستراتيجية التحول الرقمي الوطنية.", image: "/services/advisory.jpeg" },
+    { title: "علم البيانات والتحليلات", description: "لوحات تحليلات ذكية متوافقة مع سياسات البيانات المفتوحة في المملكة.", image: "/services/dataanalytics.jpg" },
+    { title: "تصميم المنتج وتجربة المستخدم", description: "واجهات ثنائية اللغة عربي-إنجليزي مصممة وفق معايير الوصول الرقمي السعودية.", image: "/services/uiux.jpg" }
 ];
 
 // REUSABLE CARD COMPONENT (To keep the main logic clean)
@@ -52,8 +61,8 @@ export default function CapabilitiesMatrix() {
     const [isExpanded, setIsExpanded] = useState(false);
 
     // STATIC SPLIT: Top 4 are always there. The rest wait in the hidden div.
-    const initialItems = capabilities.slice(0, 3);
-    const hiddenItems = capabilities.slice(3);
+    const initialItems = capabilities.slice(0, 4);
+    const hiddenItems = capabilities.slice(4);
 
     return (
         <section className="w-full bg-white pt-10 pb-12 md:pt-1 md:pb-12 font-poppins-regular">
@@ -79,7 +88,7 @@ export default function CapabilitiesMatrix() {
 
                 {/* --- GRID PART 1: THE ANCHORS (Always Visible, No Animation) --- */}
                 {/* This grid never re-renders, preventing layout thrashing */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {initialItems.map((item, index) => (
                         <CapabilityCard key={item.title} item={item} index={index} />
                     ))}
@@ -96,9 +105,9 @@ export default function CapabilitiesMatrix() {
                     className="overflow-hidden"
                 >
                     {/* Inner container needs padding-top to simulate the Grid Gap between the two sections */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
                         {hiddenItems.map((item, index) => (
-                            <CapabilityCard key={item.title} item={item} index={index + 3} />
+                            <CapabilityCard key={item.title} item={item} index={index + 4} />
                         ))}
                     </div>
                 </motion.div>

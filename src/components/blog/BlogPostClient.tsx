@@ -5,7 +5,7 @@ import { ArrowLeft, Share2, Linkedin, Twitter, Copy, Calendar, Clock } from 'luc
 import Image from 'next/image';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
-import CTASection from '@/components/layout/CTASection';
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
 
 // --- RICH TEXT STYLING (The "Prose" Engine) ---
 const ptComponents = {
@@ -140,10 +140,7 @@ export default function BlogPostClient({ post }: { post: any }) {
                 </div>
             </section>
 
-            <CTASection
-                title="Disgusted by Rent-Seeking?"
-                subtitle="If this briefing resonated with you, it's time to own your technology."
-            />
+            <LeadCaptureCTA localization={{ headingText: "Disgusted by Rent-Seeking?", headingHighlight: "", subheading: "If this briefing resonated with you, it" }} />
 
         </main>
     );

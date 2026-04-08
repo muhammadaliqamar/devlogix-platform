@@ -183,7 +183,7 @@ export const industriesData: any = {
         overview: {
             heading: "Modernizing Public Service Delivery",
             content: "We help governments transition from paper-based bureaucracies to digital-first ecosystems. Our solutions include secure citizen portals, automated tax filing systems, and smart city dashboards that aggregate data for better urban planning. Security and accessibility are at the core of everything we build.",
-            image: "/industries/govtech.jpg"
+            image: "/industries/govtech.png"
         },
         strategicShift: {
             heading: "The Citizen-Centric Revolution",

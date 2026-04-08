@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
 // Reuse Global CTA
-import CTASection from '@/components/layout/CTASection';
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
 
 // REUSABLE CARD
 const CinematicCard = ({ title, desc, image, index }: { title: string, desc?: string, image: string, index: number }) => (
@@ -121,10 +121,7 @@ export default function IndustryContent({ data }: { data: any }) {
             </section>
 
             {/* 6. DYNAMIC CTA */}
-            {/* <CTASection
-                title={`Ready to Revolutionize ${data.hero.title}?`}
-                subtitle="The market is moving. Position your organization at the forefront of the shift."
-            /> */}
+            <LeadCaptureCTA />
 
         </main>
     );

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle2, Layers, Cpu, Clock, Calendar, Zap, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import CTASection from '@/components/layout/CTASection';
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
 
 export default function CaseStudyUI({ study }: { study: any }) {
 
@@ -172,10 +172,7 @@ export default function CaseStudyUI({ study }: { study: any }) {
             </section>
 
             {/* 4. CTA */}
-            <CTASection
-                title="Need Similar Results?"
-                subtitle="This architecture is repeatable. Let's deploy it for your organization."
-            />
+            <LeadCaptureCTA localization={{ headingText: "Need Similar Results?", headingHighlight: "", subheading: "This architecture is repeatable. Let" }} />
 
         </main>
     );

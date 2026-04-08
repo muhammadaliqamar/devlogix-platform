@@ -35,9 +35,9 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance"
+                    className="text-5xl md:text-7xl lg:text-7.5xl font-bold tracking-tight text-white mb-6 max-w-4xl leading-tight text-balance"
                 >
-                    Accelerating MEA's Digital Future
+                    Expanding Digital Horizons Across the Middle East & Africa
                 </motion.h1>
 
                 {/* Sub-Headline */}
@@ -47,7 +47,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance"
                 >
-                    Delivering transformative technology solutions across industries and borders
+                    From visionary enterprises in the Gulf to fast-growing markets in Africa, we help organizations transcend limits through intelligent digital solutions
                 </motion.p>
 
                 {/* CTA COMPONENT ENGINEERING */}

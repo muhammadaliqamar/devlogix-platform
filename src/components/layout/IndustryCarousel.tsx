@@ -9,20 +9,20 @@ import Link from 'next/link';
 // THE 12 VERTICALS (Industrial, Commercial, Sovereign)
 const industries = [
     // Industrial Cluster
-    { title: "Textile", category: "Industrial", solution: "Smart fabrics & real-time production monitoring.", image: "/industries/textile.jpg", link: "/industries/textile-manufacturing" },
-    { title: "Energy", category: "Industrial", solution: "Grid modernization & renewable asset telemetry.", image: "/industries/energy.jpg", link: "/industries/energy" },
-    { title: "Manufacturing", category: "Industrial", solution: "Industry 4.0 automation & predictive maintenance.", image: "/industries/manufacturing.jpg", link: "/industries/manufacturing" },
-    { title: "Logistics", category: "Industrial", solution: "End-to-end supply chain visibility & fleet tracking.", image: "/industries/logistics.jpg", link: "/industries/supplychain" },
+    { title: "Textile", category: "Industrial", solution: "Custom Solutions for smart manufacturing and real-time production monitoring.", image: "/industries/textile.jpg", link: "/industries/textile-manufacturing" },
+    { title: "Energy", category: "Industrial", solution: "Grid modernization software and renewable asset telemetry systems.", image: "/industries/energy.jpg", link: "/industries/energy" },
+    { title: "Manufacturing", category: "Industrial", solution: "Industry 4.0 automation and AI-driven predictive maintenance software.", image: "/industries/manufacturing.jpg", link: "/industries/manufacturing" },
+    { title: "Logistics", category: "Industrial", solution: "End-to-end supply chain solutions and intelligent fleet tracking visibility.", image: "/industries/logistics.jpg", link: "/industries/supply-chain" },
     // Commercial Cluster
-    { title: "Retail", category: "Commercial", solution: "Omnichannel customer analytics & inventory AI.", image: "/industries/retail.jpg", link: "/industries/retail" },
-    { title: "Real Estate", category: "Commercial", solution: "Smart building management & asset valuation models.", image: "/industries/realestate.jpg", link: "/industries/realestate" },
-    { title: "Telecom", category: "Commercial", solution: "5G network slicing & automated infrastructure.", image: "/industries/telecom.jpg", link: "/industries/telecom" },
-    { title: "SaaS", category: "Commercial", solution: "Scalable microservices architecture & cloud optimization.", image: "/industries/saas.jpg", link: "/industries/saas" },
+    { title: "Retail", category: "Commercial", solution: "Omnichannel customer analytics and AI-powered inventory management systems.", image: "/industries/retail.jpg", link: "/industries/retail" },
+    { title: "Real Estate", category: "Commercial", solution: "Smart building management and predictive valuation systems.", image: "/industries/realestate.jpg", link: "/industries/realestate" },
+    { title: "Telecom", category: "Commercial", solution: "5G network slicing and automated infrastructure management systems.", image: "/industries/telecom.jpg", link: "/industries/telecom" },
+    { title: "SaaS", category: "Commercial", solution: "Scalable microservices architecture and cloud infrastructure optimization.", image: "/industries/saas.jpg", link: "/industries/saas" },
     // Sovereign Cluster
-    { title: "Fintech", category: "Sovereign", solution: "High-frequency trading infrastructure & secure payments.", image: "/industries/banking.jpg", link: "/industries/fintech" },
-    { title: "GovTech", category: "Sovereign", solution: "Citizen data platforms & secure public digital services.", image: "/industries/govtech.jpg", link: "/industries/govtech" },
-    { title: "Healthcare", category: "Sovereign", solution: "Telemedicine platforms & interoperable patient data.", image: "/industries/healthcare.jpg", link: "/industries/healthcare" },
-    { title: "Legal", category: "Sovereign", solution: "AI-driven contract analysis & case management systems.", image: "/industries/legal.jpg", link: "/industries/legal" }
+    { title: "Fintech", category: "Sovereign", solution: "High-frequency trading infrastructure and secure financial platforms.", image: "/industries/banking.jpg", link: "/industries/fintech" },
+    { title: "GovTech", category: "Sovereign", solution: "Secure citizen data platforms and interoperable public digital services.", image: "/industries/govtech.jpg", link: "/industries/govtech" },
+    { title: "Healthcare", category: "Sovereign", solution: "Telemedicine platforms and interoperable patient data systems.", image: "/industries/healthcare.jpg", link: "/industries/healthcare" },
+    { title: "Legal", category: "Sovereign", solution: "AI-driven contract analysis and case management systems.", image: "/industries/legal.jpg", link: "/industries/legal" }
 ];
 
 export default function IndustryCarousel() {
@@ -72,11 +72,11 @@ export default function IndustryCarousel() {
     };
 
     return (
-        <section className="w-full bg-slate-50 pt-8 pb-12 md:pt-8 md:pb-12 font-poppins-regular overflow-hidden">
+        <section className="w-full bg-slate-50 pt-8 pb-12 md:pt-6 md:pb-12 font-poppins-regular overflow-hidden">
             <div className="max-w-[1440px] mx-auto px-6 relative">
 
                 {/* HEADER & CONTROLS */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                     <div>
                         <h2 className="text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-4">
                             Verticalized Expertise

@@ -4,7 +4,7 @@ import { motion, Variants } from 'framer-motion'; // <--- 1. Import Variants
 import { ArrowUpRight, Target, Zap, Lock } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import CTASection from '@/components/layout/CTASection';
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
 
 // 2. EXPLICITLY TYPE THE VARIANTS
 const containerVar: Variants = {
@@ -118,7 +118,7 @@ export default function CaseStudiesFeed({ projects }: { projects: any[] }) {
                 </motion.div>
             </section>
 
-            <CTASection title="Engineered for Dominance." subtitle="Stop competing. Start conquering." />
+            <LeadCaptureCTA localization={{ headingText: "Engineered for Dominance.", headingHighlight: "", subheading: "Stop competing. Start conquering." }} />
         </main>
     );
 }

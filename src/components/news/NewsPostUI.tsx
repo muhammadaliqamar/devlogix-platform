@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Download, Printer, Mail, FileText } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import CTASection from '@/components/layout/CTASection';
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
 
 export default function NewsPostUI({ post }: { post: any }) {
 
@@ -113,10 +113,7 @@ export default function NewsPostUI({ post }: { post: any }) {
             </section>
 
             {/* 3. CTA */}
-            <CTASection
-                title="Build With a Market Leader."
-                subtitle="Partner with the sovereign engineering firm that is redefining the enterprise stack."
-            />
+            <LeadCaptureCTA localization={{ headingText: "Build With a Market Leader.", headingHighlight: "", subheading: "Partner with the sovereign engineering firm that is redefining the enterprise stack." }} />
 
         </main>
     );

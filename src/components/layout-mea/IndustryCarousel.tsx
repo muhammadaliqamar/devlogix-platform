@@ -6,23 +6,23 @@ import { ArrowLeft, ArrowRight, MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// THE 12 VERTICALS (Industrial, Commercial, Sovereign)
+// THE 12 VERTICALS — Ordered for GCC & Africa regional relevance
 const industries = [
-    // Industrial Cluster
-    { title: "Textile", category: "Industrial", solution: "Smart fabrics & real-time production monitoring.", image: "/industries/textile.jpg", link: "/industries/textile-manufacturing" },
-    { title: "Energy & Oil", category: "Industrial", solution: "Grid management, oilfield telemetry & renewables.", image: "/industries/energy.jpg", link: "/industries/energy" },
-    { title: "Manufacturing", category: "Industrial", solution: "Industry 4.0 automation & predictive maintenance.", image: "/industries/manufacturing.jpg", link: "/industries/manufacturing" },
-    { title: "Logistics", category: "Industrial", solution: "End-to-end supply chain visibility & fleet tracking.", image: "/industries/logistics.jpg", link: "/industries/supplychain" },
-    // Commercial Cluster
-    { title: "Retail", category: "Commercial", solution: "Omnichannel customer analytics & inventory AI.", image: "/industries/retail.jpg", link: "/industries/retail" },
-    { title: "Real Estate", category: "Commercial", solution: "Smart building management & asset valuation models.", image: "/industries/realestate.jpg", link: "/industries/realestate" },
-    { title: "Telecom", category: "Commercial", solution: "5G network slicing & automated infrastructure.", image: "/industries/telecom.jpg", link: "/industries/telecom" },
-    { title: "SaaS", category: "Commercial", solution: "Scalable microservices architecture & cloud optimization.", image: "/industries/saas.jpg", link: "/industries/saas" },
     // Sovereign Cluster
-    { title: "Fintech & Mobile Money", category: "Sovereign", solution: "Cross-border payments & mobile banking platforms.", image: "/industries/banking.jpg", link: "/industries/fintech" },
-    { title: "GovTech", category: "Sovereign", solution: "Citizen data platforms & secure public digital services.", image: "/industries/govtech.jpg", link: "/industries/govtech" },
-    { title: "Healthcare", category: "Sovereign", solution: "Telemedicine platforms & interoperable patient data.", image: "/industries/healthcare.jpg", link: "/industries/healthcare" },
-    { title: "Legal", category: "Sovereign", solution: "AI-driven contract analysis & case management systems.", image: "/industries/legal.jpg", link: "/industries/legal" }
+    { title: "GovTech", category: "Sovereign", solution: "Smart-city citizen portals and e-governance platforms for GCC national agendas.", image: "/industries/govtech.png", link: "/industries/govtech" },
+    { title: "Fintech", category: "Sovereign", solution: "DFSA and CBN-compliant mobile-money and cross-border payment platforms.", image: "/industries/banking.jpg", link: "/industries/fintech" },
+    { title: "Healthcare", category: "Sovereign", solution: "NABIDH and NHIA-aligned telemedicine and interoperable patient data systems.", image: "/industries/healthcare.jpg", link: "/industries/healthcare" },
+    { title: "Legal", category: "Sovereign", solution: "AI-powered contract analysis built for DIFC, ADGM, and African arbitration law.", image: "/industries/legal.jpg", link: "/industries/legal" },
+    // Industrial Cluster
+    { title: "Energy & Oil", category: "Industrial", solution: "Oilfield IoT telemetry, DEWA grid analytics, and African renewable platforms.", image: "/industries/energy.jpg", link: "/industries/energy" },
+    { title: "Real Estate", category: "Commercial", solution: "Proptech platforms for Dubai Land Dept. compliance and African housing markets.", image: "/industries/realestate.jpg", link: "/industries/realestate" },
+    { title: "Logistics", category: "Industrial", solution: "Cross-border fleet tracking and Jebel Ali–Mombasa supply chain digitization.", image: "/industries/logistics.jpg", link: "/industries/supplychain" },
+    { title: "Manufacturing", category: "Industrial", solution: "Industry 4.0 automation aligned with UAE Make It and AfCFTA trade readiness.", image: "/industries/manufacturing.jpg", link: "/industries/manufacturing" },
+    // Commercial Cluster
+    { title: "Telecom", category: "Commercial", solution: "5G network slicing and TRA/NCC-compliant infrastructure management systems.", image: "/industries/telecom.jpg", link: "/industries/telecom" },
+    { title: "Retail", category: "Commercial", solution: "Omnichannel commerce platforms localized for GCC VAT and African mobile wallets.", image: "/industries/retail.jpg", link: "/industries/retail" },
+    { title: "SaaS", category: "Commercial", solution: "Multi-tenant SaaS on GCC-sovereign cloud with Africa CDN edge optimization.", image: "/industries/saas.jpg", link: "/industries/saas" },
+    { title: "Textile", category: "Industrial", solution: "Smart-factory production monitoring for MENA garment exports and African cotton.", image: "/industries/textile.jpg", link: "/industries/textile-manufacturing" }
 ];
 
 export default function IndustryCarousel() {

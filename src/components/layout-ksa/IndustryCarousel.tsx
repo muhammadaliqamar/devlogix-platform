@@ -6,14 +6,23 @@ import { ArrowLeft, ArrowRight, MoveRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// THE 12 VERTICALS (Industrial, Commercial, Sovereign)
+// القطاعات الـ 12 — مرتبة حسب أولويات رؤية المملكة 2030
 const industries = [
-    { title: "التكنولوجيا الحكومية", category: "سيادي", solution: "منصات بيانات المواطنين والخدمات الرقمية العامة الآمنة.", image: "/industries/govtech.jpg", link: "/industries/govtech" },
-    { title: "العقارات والمدن الذكية", category: "تجاري", solution: "إدارة المباني الذكية ونماذج ذكية للمشاريع العملاقة.", image: "/industries/realestate.jpg", link: "/industries/realestate" },
-    { title: "التكنولوجيا المالية", category: "سيادي", solution: "بنية تحتية للتداول عالي التردد والمدفوعات الآمنة.", image: "/industries/banking.jpg", link: "/industries/fintech" },
-    { title: "الخدمات اللوجستية", category: "صناعي", solution: "رؤية شاملة لسلسلة التوريد وتتبع الأساطيل والتجارة.", image: "/industries/logistics.jpg", link: "/industries/supplychain" },
-    { title: "الرعاية الصحية", category: "سيادي", solution: "منصات الطب الاتصالي وبيانات المرضى القابلة للتشغيل البيني.", image: "/industries/healthcare.jpg", link: "/industries/healthcare" },
-    { title: "الطاقة والمرافق", category: "صناعي", solution: "تحديث الشبكات وقياس الأصول للطاقة المتجددة.", image: "/industries/energy.jpg", link: "/industries/energy" }
+    // القطاع السيادي
+    { title: "التكنولوجيا الحكومية", category: "سيادي", solution: "بوابات المواطن الذكية ومنصات الحكومة الإلكترونية المتوافقة مع أبشر ونفاذ.", image: "/industries/govtech.png", link: "/industries/govtech" },
+    { title: "التكنولوجيا المالية", category: "سيادي", solution: "منصات دفع عابرة للحدود متوافقة مع ساما ونظام سريع للتحويلات الفورية.", image: "/industries/banking.jpg", link: "/industries/fintech" },
+    { title: "الرعاية الصحية", category: "سيادي", solution: "منصات طب عن بُعد متوافقة مع نظام نافس والسجل الصحي الإلكتروني الموحد.", image: "/industries/healthcare.jpg", link: "/industries/healthcare" },
+    { title: "القطاع القانوني", category: "سيادي", solution: "تحليل العقود بالذكاء الاصطناعي متوافق مع أنظمة ناجز ومنصة القضاء.", image: "/industries/legal.jpg", link: "/industries/legal" },
+    // القطاع الصناعي
+    { title: "الطاقة والمرافق", category: "صناعي", solution: "أنظمة إدارة الشبكات الذكية ومنصات الطاقة المتجددة لرؤية 2030.", image: "/industries/energy.jpg", link: "/industries/energy" },
+    { title: "العقارات والمدن الذكية", category: "تجاري", solution: "منصات بروبتك لمشاريع نيوم والبحر الأحمر وإدارة الأصول العقارية.", image: "/industries/realestate.jpg", link: "/industries/realestate" },
+    { title: "الخدمات اللوجستية", category: "صناعي", solution: "تتبع الأساطيل ورقمنة سلاسل الإمداد عبر ميناء الملك عبدالله وسار.", image: "/industries/logistics.jpg", link: "/industries/supplychain" },
+    { title: "الصناعة والتصنيع", category: "صناعي", solution: "أتمتة المصانع الذكية متوافقة مع برنامج صنع في السعودية ورؤية 2030.", image: "/industries/manufacturing.jpg", link: "/industries/manufacturing" },
+    // القطاع التجاري
+    { title: "الاتصالات", category: "تجاري", solution: "بنية 5G متوافقة مع هيئة الاتصالات وإدارة البنية التحتية الذكية.", image: "/industries/telecom.jpg", link: "/industries/telecom" },
+    { title: "قطاع التجزئة", category: "تجاري", solution: "منصات تجارة متعددة القنوات متوافقة مع ضريبة القيمة المضافة في المملكة.", image: "/industries/retail.jpg", link: "/industries/retail" },
+    { title: "البرمجيات كخدمة", category: "تجاري", solution: "بنية SaaS سحابية سيادية على منصات الحوسبة السحابية المعتمدة في المملكة.", image: "/industries/saas.jpg", link: "/industries/saas" },
+    { title: "المنسوجات والتصنيع", category: "صناعي", solution: "مراقبة إنتاج المصانع الذكية لصادرات المنسوجات السعودية والخليجية.", image: "/industries/textile.jpg", link: "/industries/textile-manufacturing" }
 ];
 
 export default function IndustryCarousel() {

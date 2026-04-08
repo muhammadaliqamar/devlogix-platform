@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone, ArrowRight, CheckCircle2, ChevronDown } from 'lucide-react';
-import { useState, useEffect } from 'react'; // <--- Import useEffect
+import { useState, useEffect } from 'react';
+import { countryCodes } from '@/lib/countryCodes';
 
 export default function ContactInterface() {
     const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -32,13 +33,13 @@ export default function ContactInterface() {
                 const data = await response.json();
 
                 // Find the matching dial code in our database
-                const detectedCountry = ALL_COUNTRIES.find(c => c.code === data.country_code);
+                const detectedCountry = countryCodes.find(c => c.code === data.country_code);
 
                 if (detectedCountry) {
                     // Update the form state silently
                     setFormData(prev => ({
                         ...prev,
-                        countryCode: detectedCountry.dial_code
+                        countryCode: detectedCountry.dial
                     }));
                 }
             } catch (error) {
@@ -146,9 +147,9 @@ export default function ContactInterface() {
                                                 onChange={handleChange}
                                                 className="w-full bg-transparent border-b border-slate-300 py-3 text-slate-900 focus:border-[#0d938c] focus:outline-none text-xs md:text-sm appearance-none cursor-pointer truncate pr-4"
                                             >
-                                                {ALL_COUNTRIES.map((c) => (
-                                                    <option key={c.code} value={c.dial_code}>
-                                                        {c.code} ({c.dial_code})
+                                                {countryCodes.map((c) => (
+                                                    <option key={c.code} value={c.dial}>
+                                                        {c.code} ({c.dial})
                                                     </option>
                                                 ))}
                                             </select>
@@ -233,60 +234,4 @@ export default function ContactInterface() {
         </section>
     );
 }
-
-// ---------------------------------------------------------
-// DATA: COMPREHENSIVE COUNTRY CODES
-// ---------------------------------------------------------
-const ALL_COUNTRIES = [
-    { code: "PK", name: "Pakistan", dial_code: "+92" },
-    { code: "US", name: "United States", dial_code: "+1" },
-    { code: "GB", name: "United Kingdom", dial_code: "+44" },
-    { code: "AE", name: "United Arab Emirates", dial_code: "+971" },
-    { code: "SA", name: "Saudi Arabia", dial_code: "+966" },
-    { code: "CA", name: "Canada", dial_code: "+1" },
-    { code: "DE", name: "Germany", dial_code: "+49" },
-    { code: "FR", name: "France", dial_code: "+33" },
-    { code: "AU", name: "Australia", dial_code: "+61" },
-    { code: "QA", name: "Qatar", dial_code: "+974" },
-    { code: "CN", name: "China", dial_code: "+86" },
-    { code: "IN", name: "India", dial_code: "+91" },
-    { code: "SG", name: "Singapore", dial_code: "+65" },
-    { code: "TR", name: "Turkey", dial_code: "+90" },
-    { code: "JP", name: "Japan", dial_code: "+81" },
-    { code: "KR", name: "South Korea", dial_code: "+82" },
-    { code: "RU", name: "Russia", dial_code: "+7" },
-    { code: "BR", name: "Brazil", dial_code: "+55" },
-    { code: "MX", name: "Mexico", dial_code: "+52" },
-    { code: "ZA", name: "South Africa", dial_code: "+27" },
-    { code: "IT", name: "Italy", dial_code: "+39" },
-    { code: "ES", name: "Spain", dial_code: "+34" },
-    { code: "NL", name: "Netherlands", dial_code: "+31" },
-    { code: "SE", name: "Sweden", dial_code: "+46" },
-    { code: "CH", name: "Switzerland", dial_code: "+41" },
-    { code: "MY", name: "Malaysia", dial_code: "+60" },
-    { code: "ID", name: "Indonesia", dial_code: "+62" },
-    { code: "TH", name: "Thailand", dial_code: "+66" },
-    { code: "VN", name: "Vietnam", dial_code: "+84" },
-    { code: "KW", name: "Kuwait", dial_code: "+965" },
-    { code: "BH", name: "Bahrain", dial_code: "+973" },
-    { code: "OM", name: "Oman", dial_code: "+968" },
-    { code: "NO", name: "Norway", dial_code: "+47" },
-    { code: "DK", name: "Denmark", dial_code: "+45" },
-    { code: "FI", name: "Finland", dial_code: "+358" },
-    { code: "NZ", name: "New Zealand", dial_code: "+64" },
-    { code: "IE", name: "Ireland", dial_code: "+353" },
-    { code: "BE", name: "Belgium", dial_code: "+32" },
-    { code: "AT", name: "Austria", dial_code: "+43" },
-    { code: "PT", name: "Portugal", dial_code: "+351" },
-    { code: "PL", name: "Poland", dial_code: "+48" },
-    { code: "GR", name: "Greece", dial_code: "+30" },
-    { code: "EG", name: "Egypt", dial_code: "+20" },
-    { code: "MA", name: "Morocco", dial_code: "+212" },
-    { code: "NG", name: "Nigeria", dial_code: "+234" },
-    { code: "KE", name: "Kenya", dial_code: "+254" },
-    { code: "AR", name: "Argentina", dial_code: "+54" },
-    { code: "CL", name: "Chile", dial_code: "+56" },
-    { code: "CO", name: "Colombia", dial_code: "+57" },
-    { code: "PE", name: "Peru", dial_code: "+51" }
-    // Add more as needed, this covers 95% of global GDP
-];
+

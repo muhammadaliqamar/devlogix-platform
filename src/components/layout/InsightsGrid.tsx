@@ -1,11 +1,15 @@
 import { client } from "@/sanity/lib/client";
 import { landingInsightsQuery } from "@/sanity/lib/queries";
-import InsightsGridUI, { InsightItem } from "./InsightsGridUI";
+import InsightsGridUI, { InsightItem, InsightsGridLocale } from "./InsightsGridUI";
 
 // REVALIDATION: Keep the landing page fresh
 export const revalidate = 60;
 
-export default async function InsightsGrid() {
+interface InsightsGridProps {
+    locale?: InsightsGridLocale;
+}
+
+export default async function InsightsGrid({ locale }: InsightsGridProps = {}) {
     // 1. Fetch data from Sanity
     const data = await client.fetch(landingInsightsQuery);
 
@@ -18,6 +22,6 @@ export default async function InsightsGrid() {
         data.press          // Latest news
     ].filter(Boolean); // Remove nulls if content is missing
 
-    // 3. Render the Client UI with data
-    return <InsightsGridUI items={items} />;
+    // 3. Render the Client UI with data + locale
+    return <InsightsGridUI items={items} locale={locale} />;
 }

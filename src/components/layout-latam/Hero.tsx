@@ -4,7 +4,20 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-export default function Hero() {
+export default function Hero({ lang = 'es' }: { lang?: 'es' | 'pt' }) {
+    const content = {
+        es: {
+            headline: 'Acelerando los Horizontes Digitales de LATAM',
+            subhead: 'Impulsando el rápido crecimiento de líderes empresariales y FinTech desde São Paulo hasta Santiago con ingeniería de clase mundial.',
+            cta: 'Escalar el Mercado LATAM'
+        },
+        pt: {
+            headline: 'Acelerando os Horizontes Digitais da LATAM',
+            subhead: 'Impulsionando o rápido crescimento de líderes corporativos e FinTech de São Paulo a Santiago com engenharia de classe mundial.',
+            cta: 'Escale o Mercado LATAM'
+        }
+    }[lang];
+
     return (
         <section className="relative min-h-screen w-full overflow-hidden bg-black font-poppins-regular flex flex-col">
             {/* 1. VISUAL FOUNDATION (Video Background) */}
@@ -34,7 +47,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance"
                 >
-                    Accelerating South America&apos;s Digital Horizons
+                    {content.headline}
                 </motion.h1>
 
                 {/* Sub-Headline */}
@@ -44,7 +57,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                     className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance"
                 >
-                    Fueling the rapid growth of enterprise and FinTech leaders from São Paulo to Santiago with world-class engineering.
+                    {content.subhead}
                 </motion.p>
 
                 {/* CTA COMPONENT ENGINEERING */}
@@ -56,7 +69,7 @@ export default function Hero() {
                hover:bg-[#0d938c] hover:border-[#0d938c] hover:shadow-[0_0_40px_rgba(13,147,140,0.3)]
                flex items-center justify-center gap-3 group"
                     >
-                        Scale the LATAM Market
+                        {content.cta}
                         <ArrowRight className="w-5 h-5 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-1" />
                     </Link>
                 </div>

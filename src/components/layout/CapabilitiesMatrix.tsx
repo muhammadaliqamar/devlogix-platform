@@ -73,8 +73,8 @@ export default function CapabilitiesMatrix() {
             <div className="max-w-7xl mx-auto px-6">
 
                 {/* HEADER */}
-                <div className="mb-16 md:mb-24">
-                    <h2 className="text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-4">
+                <div className="mb-16 md:mb-18">
+                    <h2 className="text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-2">
                         Our Expertise
                     </h2>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -85,7 +85,9 @@ export default function CapabilitiesMatrix() {
                             </span>
                         </h3>
                         <p className="text-slate-500 max-w-md text-sm leading-relaxed">
-                            From enterprise platforms to automation systems, we architect solutions that drive operational excellence.
+                            From enterprise platforms to intelligent systems, DevLogix
+                            architects scalable software solutions tailored to your industry,
+                            built to reduce operational costs and accelerate growth.
                         </p>
                     </div>
                 </div>

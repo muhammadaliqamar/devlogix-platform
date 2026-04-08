@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 // Reuse your Global CTA
-import CTASection from '@/components/layout/CTASection';
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
 
 export default function BlogPostUI({ post }: { post: any }) {
 
@@ -116,10 +116,7 @@ export default function BlogPostUI({ post }: { post: any }) {
             </section>
 
             {/* 3. DYNAMIC CTA */}
-            <CTASection
-                title="Disgusted by Rent-Seeking?"
-                subtitle="If this briefing resonated with you, it's time to own your technology. Let's build your sovereign asset."
-            />
+            <LeadCaptureCTA localization={{ headingText: "Disgusted by Rent-Seeking?", headingHighlight: "", subheading: "If this briefing resonated with you, it" }} />
 
         </main>
     );

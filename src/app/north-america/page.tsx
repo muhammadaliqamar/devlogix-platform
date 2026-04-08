@@ -5,7 +5,7 @@ import AuthorityStrip from '@/components/layout-north-america/AuthorityStrip'
 import CapabilitiesMatrix from '@/components/layout-north-america/CapabilitiesMatrix'
 import IndustryCarousel from '@/components/layout-north-america/IndustryCarousel'
 import EnterprisePartnership from '@/components/layout-north-america/EnterprisePartnership'
-import CTASection from '@/components/layout-north-america/CTASection'
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA'
 
 export const metadata: Metadata = {
   title: 'DevLogix North America | Enterprise Software & Cloud Operations',
@@ -41,7 +41,7 @@ export default function NorthAmericaLandingPage() {
       <CapabilitiesMatrix />
       <IndustryCarousel />
       <EnterprisePartnership />
-      <CTASection />
+      <LeadCaptureCTA localization={{ dialCode: 'US +1' }} />
     </main>
   )
 }

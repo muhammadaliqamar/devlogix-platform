@@ -19,36 +19,36 @@ const regionPaths: Record<string, string> = {
 
 // DATA STRUCTURES
 const industryItems = [
-    { name: 'النسيج والتصنيع', link: '/industries/textile-manufacturing', desc: 'أقمشة ذكية وإنتاج.' },
-    { name: 'سلسلة التوريد', link: '/industries/supplychain', desc: 'أنظمة تتبع الأساطيل.' },
-    { name: 'التكنولوجيا المالية', link: '/industries/fintech', desc: 'خدمات مصرفية آمنة.' },
-    { name: 'التكنولوجيا الحكومية', link: '/industries/govtech', desc: 'رقمنة القطاع العام.' },
-    { name: 'الرعاية الصحية', link: '/industries/healthcare', desc: 'بيانات الطب الاتصالي.' },
-    { name: 'التجزئة', link: '/industries/retail', desc: 'تجارة شاملة القنوات.' },
-    { name: 'العقارات', link: '/industries/realestate', desc: 'إدارة تكنولوجيا العقار.' },
-    { name: 'الطاقة', link: '/industries/energy', desc: 'تكنولوجيا إدارة الشبكات.' },
-    { name: 'البرمجيات', link: '/industries/saas', desc: 'برمجيات قابلة للتوسع.' },
-    { name: 'القانون', link: '/industries/legal', desc: 'إدارة القضايا.' },
-    { name: 'الاتصالات', link: '/industries/telecom', desc: 'البنية التحتية لـ 5G.' },
-    { name: 'الموارد الطبيعية', link: '/industries/natural-resources', desc: 'التعدين والزراعة.' }
+    { name: 'Textile & Mfg', link: '/industries/textile-manufacturing', desc: 'Smart fabrics & production.' },
+    { name: 'Supply Chain', link: '/industries/supplychain', desc: 'Fleet tracking systems.' },
+    { name: 'Fintech', link: '/industries/fintech', desc: 'Secure banking.' },
+    { name: 'GovTech', link: '/industries/govtech', desc: 'Public sector digitization.' },
+    { name: 'Healthcare', link: '/industries/healthcare', desc: 'Telehealth data.' },
+    { name: 'Retail', link: '/industries/retail', desc: 'Omnichannel commerce.' },
+    { name: 'Real Estate', link: '/industries/realestate', desc: 'Proptech management.' },
+    { name: 'Energy', link: '/industries/energy', desc: 'Grid management tech.' },
+    { name: 'SaaS', link: '/industries/saas', desc: 'Scalable software.' },
+    { name: 'Legal', link: '/industries/legal', desc: 'Case management.' },
+    { name: 'Telecom', link: '/industries/telecom', desc: '5G infrastructure.' },
+    { name: 'Nat. Resources', link: '/industries/natural-resources', desc: 'Mining & Agriculture.' }
 ];
 
 const serviceItems = [
-    { name: 'الذكاء الاصطناعي وتعلم الآلة', link: '/services/ai-ml', desc: 'أتمتة ووكلاء أذكياء.' },
+    { name: 'AI & Machine Learning', link: '/services/ai-ml', desc: 'Automation & Agents.' },
     // { name: 'IoT Solutions', link: '/services/iot', desc: 'Connected systems.' },
-    { name: 'الأمن السيبراني', link: '/services/cybersecurity', desc: 'حماية.' },
-    { name: 'برمجيات مخصصة', link: '/services/custom-software', desc: 'أنظمة الواجهة الخلفية.' },
-    { name: 'تطوير الويب', link: '/services/web-development', desc: 'تطبيقات Next.js.' },
-    { name: 'تطبيقات المحمول', link: '/services/mobile-app', desc: 'آي أو إس وأندرويد.' },
-    { name: 'السحابة وعمليات التطوير', link: '/services/cloud-devops', desc: 'أوس/أزور.' },
-    { name: 'البلوكتشين', link: '/services/blockchain', desc: 'دفاتر السجلات.' },
-    { name: 'تعزيز الكوادر التقنية', link: '/services/staff-augmentation', desc: 'وسّع فريقك.' },
-    { name: 'الاستشارات التقنية', link: '/services/consulting', desc: 'خطط استراتيجية.' },
-    { name: 'علم البيانات', link: '/services/data-science', desc: 'تحليلات.' },
-    { name: 'تصميم المنتج وتجربة المستخدم', link: '/services/ui-ux', desc: 'واجهات المستخدم.' }
+    { name: 'Cybersecurity', link: '/services/cybersecurity', desc: 'Protection.' },
+    { name: 'Custom Software', link: '/services/custom-software', desc: 'Backend systems.' },
+    { name: 'Web Development', link: '/services/web-development', desc: 'Next.js apps.' },
+    { name: 'Mobile Apps', link: '/services/mobile-app', desc: 'iOS & Android.' },
+    { name: 'Cloud & DevOps', link: '/services/cloud-devops', desc: 'AWS/Azure.' },
+    { name: 'Blockchain', link: '/services/blockchain', desc: 'Ledgers.' },
+    { name: 'IT Staff Augmentation', link: '/services/staff-augmentation', desc: 'Scale your team.' },
+    { name: 'Tech Advisory', link: '/services/consulting', desc: 'Strategic plans.' },
+    { name: 'Data Science', link: '/services/data-science', desc: 'Analytics.' },
+    { name: 'Product Design & UX', link: '/services/ui-ux', desc: 'User interfaces.' }
 ];
 
-export default function Header() {
+export default function HeaderLatam({ lang = 'es' }: { lang?: 'es' | 'pt' }) {
     const router = useRouter();
     const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false)
@@ -140,6 +140,8 @@ export default function Header() {
     const gridItemStyle = "block p-4 rounded-lg hover:bg-slate-50 transition group border border-transparent hover:border-gray-100";
     const mobileLinkStyle = "flex items-center justify-between w-full py-4 text-lg font-medium text-slate-800 border-b border-gray-100";
 
+
+
     return (
         <nav
             ref={menuRef}
@@ -179,12 +181,12 @@ export default function Header() {
                 {/* ================= DESKTOP NAV ================= */}
                 <div className="hidden lg:flex gap-8 items-center">
                     <button onClick={() => toggleMenu('industries')} className={navLinkStyle}>
-                        الصناعات
+                        Industries
                         <i className={`fa-solid fa-chevron-down text-[10px] transition-transform duration-200 ${activeMenu === 'industries' ? 'rotate-180' : ''} ${isScrolled ? 'text-black' : 'text-white'}`}></i>
                     </button>
 
                     <button onClick={() => toggleMenu('services')} className={navLinkStyle}>
-                        الخدمات
+                        Services
                         <i className={`fa-solid fa-chevron-down text-[10px] transition-transform duration-200 ${activeMenu === 'services' ? 'rotate-180' : ''} ${isScrolled ? 'text-black' : 'text-white'}`}></i>
                     </button>
 
@@ -194,19 +196,35 @@ export default function Header() {
                     </button> */}
 
                     <button onClick={() => toggleMenu('company')} className={navLinkStyle}>
-                        الشركة
+                        Company
                         <i className={`fa-solid fa-chevron-down text-[10px] transition-transform duration-200 ${activeMenu === 'company' ? 'rotate-180' : ''} ${isScrolled ? 'text-black' : 'text-white'}`}></i>
                     </button>
                 </div>
 
                 {/* ================= RIGHT SIDE ACTIONS ================= */}
                 <div className="flex items-center gap-4 md:gap-6">
+                    {/* Language Switcher */}
+                    <div className={`hidden lg:flex items-center rounded-md p-1 border gap-1 transition-colors ${isScrolled ? 'bg-gray-100 border-gray-200' : 'bg-white/10 border-white/20'}`}>
+                        <Link 
+                            href="/latam" 
+                            className={`px-2 py-1 text-[10px] font-bold rounded-sm transition-all ${lang === 'es' ? (isScrolled ? 'bg-white shadow-sm text-slate-800' : 'bg-white text-slate-800') : (isScrolled ? 'text-slate-500 hover:text-slate-800' : 'text-white/70 hover:text-white')}`}
+                        >
+                            ES
+                        </Link>
+                        <Link 
+                            href="/latam/pt" 
+                            className={`px-2 py-1 text-[10px] font-bold rounded-sm transition-all ${lang === 'pt' ? (isScrolled ? 'bg-white shadow-sm text-slate-800' : 'bg-white text-slate-800') : (isScrolled ? 'text-slate-500 hover:text-slate-800' : 'text-white/70 hover:text-white')}`}
+                        >
+                            PT
+                        </Link>
+                    </div>
+
                     {/* CTA Button (Hidden on very small screens, shown on tablet/desktop) */}
                     <Link
                         href="/contact"
                         className={`hidden sm:block px-5 py-2.5 rounded-lg font-normal transition-all shadow-lg text-sm bg-[#0d938c] text-white hover:bg-[#0a706b]`}
                     >
-                        كن شريكاً لنا
+                        Partner with us
                     </Link>
 
                     {/* Region Selector (Desktop Only) */}
@@ -222,8 +240,8 @@ export default function Header() {
                         {/* Desktop Region Dropdown */}
 
                         {regionOpen && (
-                            <div className="absolute top-full left-0 mt-4 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 animate-fade-in-up origin-top-left">
-                                <div className="absolute -top-1.5 left-2 w-3 h-3 bg-white border-t border-l border-gray-100 transform rotate-45"></div>
+                            <div className="absolute top-full right-0 mt-4 w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 animate-fade-in-up origin-top-right">
+                                <div className="absolute -top-1.5 right-2 w-3 h-3 bg-white border-t border-l border-gray-100 transform rotate-45"></div>
                                 <div className="max-h-[300px] overflow-y-auto">
                                     {regions.map((region) => (
                                         <button
@@ -277,12 +295,12 @@ export default function Header() {
                         {/* MOBILE: INDUSTRIES */}
                         <div className="border-b border-gray-100">
                             <button onClick={() => toggleMobileAccordion('industries')} className={mobileLinkStyle}>
-                                <span>الصناعات</span>
+                                <span>Industries</span>
                                 <i className={`fa-solid fa-chevron-down text-sm transition-transform ${mobileExpanded === 'industries' ? 'rotate-180' : ''}`}></i>
                             </button>
                             <div className={`overflow-hidden transition-all duration-300 ${mobileExpanded === 'industries' ? 'max-h-[1000px] opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
                                 <Link href="/industries" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-sm font-bold text-[#14B8A6] uppercase tracking-wide">
-                                    عرض النظرة العامة
+                                    View Overview
                                 </Link>
                                 <div className="grid grid-cols-1 gap-3 mt-2">
                                     {industryItems.map((item) => (
@@ -297,12 +315,12 @@ export default function Header() {
                         {/* MOBILE: SERVICES */}
                         <div className="border-b border-gray-100">
                             <button onClick={() => toggleMobileAccordion('services')} className={mobileLinkStyle}>
-                                <span>الخدمات</span>
+                                <span>Services</span>
                                 <i className={`fa-solid fa-chevron-down text-sm transition-transform ${mobileExpanded === 'services' ? 'rotate-180' : ''}`}></i>
                             </button>
                             <div className={`overflow-hidden transition-all duration-300 ${mobileExpanded === 'services' ? 'max-h-[1000px] opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
                                 <Link href="/services" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-sm font-bold text-[#14B8A6] uppercase tracking-wide">
-                                    عرض النظرة العامة
+                                    View Overview
                                 </Link>
                                 <div className="grid grid-cols-1 gap-3 mt-2">
                                     {serviceItems.map((item) => (
@@ -331,14 +349,14 @@ export default function Header() {
                         {/* MOBILE: COMPANY */}
                         <div className="border-b border-gray-100">
                             <button onClick={() => toggleMobileAccordion('company')} className={mobileLinkStyle}>
-                                <span>الشركة</span>
+                                <span>Company</span>
                                 <i className={`fa-solid fa-chevron-down text-sm transition-transform ${mobileExpanded === 'company' ? 'rotate-180' : ''}`}></i>
                             </button>
                             <div className={`overflow-hidden transition-all duration-300 ${mobileExpanded === 'company' ? 'max-h-[500px] opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
-                                <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 text-sm">عن الشركة</Link>
-                                <Link href="/about/board" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 text-sm">مجلس الإدارة</Link>
-                                <Link href="/investors" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 text-sm">المستثمرون</Link>
-                                <Link href="/careers" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 text-sm">الوظائف</Link>
+                                <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 text-sm">About Us</Link>
+                                <Link href="/about/board" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 text-sm">Board of Directors</Link>
+                                <Link href="/investors" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 text-sm">Investors</Link>
+                                <Link href="/careers" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-slate-600 text-sm">Careers</Link>
                             </div>
                         </div>
 
@@ -349,7 +367,7 @@ export default function Header() {
 
                         {/* Mobile Region Selector */}
                         <div>
-                            <p className="text-xs text-slate-400 uppercase tracking-wider mb-3">اختر المنطقة</p>
+                            <p className="text-xs text-slate-400 uppercase tracking-wider mb-3">Select Region</p>
                             <div className="grid grid-cols-2 gap-2">
                                 {regions.map((region) => (
                                     <button
@@ -371,7 +389,7 @@ export default function Header() {
                             onClick={() => setMobileMenuOpen(false)}
                             className="block w-full text-center py-4 rounded-lg bg-[#0d938c] text-white font-medium text-lg hover:bg-[#0a706b] shadow-lg"
                         >
-                            كن شريكاً لنا
+                            Partner with us
                         </Link>
                     </div>
                 </div>
@@ -387,11 +405,11 @@ export default function Header() {
                             <div className="w-[260px] bg-[#f8fafc] p-8 border-r border-gray-100 flex flex-col justify-between">
                                 <div>
                                     <Link href="#" className="inline-flex items-center justify-between w-full px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-semibold text-slate-900 hover:text-[#14B8A6] hover:border-[#14B8A6] transition-all group">
-                                        نظرة عامة
-                                        <i className="fa-solid fa-chevron-left text-[10px] text-slate-400 group-hover:text-[#14B8A6]"></i>
+                                        Overview
+                                        <i className="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-[#14B8A6]"></i>
                                     </Link>
-                                    <h3 className="text-lg font-bold text-slate-900 mt-6 mb-2">الصناعات</h3>
-                                    <p className="text-xs text-slate-500 leading-relaxed">حلول متخصصة تمتد عبر 12 قطاعاً، مصممة لمواجهة تحديات تشغيلية محددة.</p>
+                                    <h3 className="text-lg font-bold text-slate-900 mt-6 mb-2">Industries</h3>
+                                    <p className="text-xs text-slate-500 leading-relaxed">Specialized solutions spanning 12 industries, each engineered to meet distinct operational challenges.</p>
                                 </div>
                             </div>
                             <div className="flex-1 p-8 bg-white">
@@ -417,11 +435,11 @@ export default function Header() {
                             <div className="w-[260px] bg-[#f8fafc] p-8 border-r border-gray-100 flex flex-col justify-between">
                                 <div>
                                     <Link href="#" className="inline-flex items-center justify-between w-full px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-semibold text-slate-900 hover:text-[#14B8A6] hover:border-[#14B8A6] transition-all group">
-                                        نظرة عامة
-                                        <i className="fa-solid fa-chevron-left text-[10px] text-slate-400 group-hover:text-[#14B8A6]"></i>
+                                        Overview
+                                        <i className="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-[#14B8A6]"></i>
                                     </Link>
-                                    <h3 className="text-lg font-bold text-slate-900 mt-6 mb-2">الخدمات</h3>
-                                    <p className="text-xs text-slate-500 leading-relaxed">من منصات الشركات الكبرى إلى أنظمة الأتمتة، نصمم الحلول التي تقود للتميز التشغيلي.</p>
+                                    <h3 className="text-lg font-bold text-slate-900 mt-6 mb-2">Services</h3>
+                                    <p className="text-xs text-slate-500 leading-relaxed">From enterprise platforms to automation systems, we architect solutions that drive operational excellence.</p>
                                 </div>
                             </div>
                             <div className="flex-1 p-8 bg-white">
@@ -487,18 +505,18 @@ export default function Header() {
                             <div className="w-[260px] bg-[#f8fafc] p-8 border-r border-gray-100 flex flex-col justify-between">
                                 <div>
                                     <Link href="/about" className="inline-flex items-center justify-between w-full px-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm text-sm font-semibold text-slate-900 hover:text-[#14B8A6] hover:border-[#14B8A6] transition-all group">
-                                        نظرة عامة
-                                        <i className="fa-solid fa-chevron-left text-[10px] text-slate-400 group-hover:text-[#14B8A6]"></i>
+                                        Overview
+                                        <i className="fa-solid fa-chevron-right text-[10px] text-slate-400 group-hover:text-[#14B8A6]"></i>
                                     </Link>
-                                    <h3 className="text-lg font-bold text-slate-900 mt-6 mb-2">الشركة</h3>
-                                    <p className="text-xs text-slate-500 leading-relaxed">تكنولوجيا، وثقة، وخبرة قطاعية مستمرة.</p>
+                                    <h3 className="text-lg font-bold text-slate-900 mt-6 mb-2">Company</h3>
+                                    <p className="text-xs text-slate-500 leading-relaxed">Technology, trust, and domain expertise in motion.</p>
                                 </div>
                             </div>
                             <div className="flex-1 p-8 bg-white">
                                 <div className="grid grid-cols-3 gap-4">
                                     <Link href="/about" className={gridItemStyle}>
-                                        <h4 className="font-bold text-slate-900 mb-1 group-hover:text-[#14B8A6]">عن الشركة</h4>
-                                        <p className="text-xs text-slate-500 leading-relaxed">تعرّف على مسيرتنا ورؤيتنا وقيمنا.</p>
+                                        <h4 className="font-bold text-slate-900 mb-1 group-hover:text-[#14B8A6]">About </h4>
+                                        <p className="text-xs text-slate-500 leading-relaxed">Learn about our journey, vision, and values.</p>
                                     </Link>
                                     {/* <Link href="/about/management" className={gridItemStyle}>
                                     <h4 className="font-bold text-slate-900 mb-1 group-hover:text-[#14B8A6]">Management Team</h4>

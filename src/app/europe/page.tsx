@@ -5,7 +5,7 @@ import AuthorityStrip from '@/components/layout-europe/AuthorityStrip'
 import CapabilitiesMatrix from '@/components/layout-europe/CapabilitiesMatrix'
 import IndustryCarousel from '@/components/layout-europe/IndustryCarousel'
 import EnterprisePartnership from '@/components/layout-europe/EnterprisePartnership'
-import CTASection from '@/components/layout-europe/CTASection'
+import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA'
 
 export const metadata: Metadata = {
   title: 'DevLogix Europe & UK | Enterprise Software & FinTech Innovation',
@@ -41,7 +41,7 @@ export default function EuropeUKLandingPage() {
       <CapabilitiesMatrix />
       <IndustryCarousel />
       <EnterprisePartnership />
-      <CTASection />
+      <LeadCaptureCTA localization={{ dialCode: 'GB +44' }} />
     </main>
   )
 }

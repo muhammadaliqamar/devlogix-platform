@@ -8,20 +8,20 @@ import Image from 'next/image';
 // DATA
 const capabilities = [
     // ROW 1
-    { title: "AI & Machine Learning", description: "Automate complex decisions with custom models built for your specific operational data.", image: "/services/ai.jpg" },
-    { title: "Full-Stack Engineering", description: "Engineer robust, high-performance web platforms capable of handling global traffic loads.", image: "/services/fullstack.jpg" },
-    { title: "Mobile App Development", description: "Create native iOS and Android experiences tailored for the mobile-first populations of MEA.", image: "/services/mobileapp.jpg" },
-    { title: "IT Staff Augmentation", description: "Scale your internal engineering capacity instantly with our vetted top-tier developers.", image: "/services/staff.jpg" },
+    { title: "AI & Machine Learning", description: "Deploy Arabic-NLP and predictive models built for MEA regulatory and operational datasets.", image: "/services/ai.jpg" },
+    { title: "Cybersecurity", description: "NESA and PDPL-aligned zero-trust architectures protecting critical MEA infrastructure.", image: "/services/cyber.jpg" },
+    { title: "Enterprise ERP Solutions", description: "Sharia-compliant ERP systems unifying finance, supply chain, and VAT across the GCC.", image: "/services/erp.jpg" },
+    { title: "Cloud & DevOps", description: "GCC data-sovereign cloud deployments on AWS Bahrain, Azure UAE, and Oracle Jeddah.", image: "/services/cloud.jpg" },
     // ROW 2
-    { title: "Enterprise ERP Solutions", description: "Centralize your finance, supply chain, and operations into one unified management system.", image: "/services/erp.jpg" },
-    { title: "Blockchain & Crypto", description: "Implement secure, transparent ledgers for financial transactions and supply chain verification.", image: "/services/blockchain.jpg" },
-    { title: "Cloud & DevOps", description: "Deploy scalable, high-availability infrastructure that grows automatically with user demand.", image: "/services/cloud.jpg" },
-    { title: "Custom Software Development", description: "Build tailored software solutions that solve specific problems off-the-shelf products cannot.", image: "/services/customsoftware.jpg" },
+    { title: "Custom Software Development", description: "Bespoke platforms built to meet DIFC, ADGM, and regional data-residency mandates.", image: "/services/customsoftware.jpg" },
+    { title: "Full-Stack Engineering", description: "High-performance web platforms with RTL-first design for Arabic-speaking audiences.", image: "/services/fullstack.jpg" },
+    { title: "Mobile App Development", description: "Native iOS and Android apps optimized for MEA's mobile-first, high-penetration market.", image: "/services/mobileapp.jpg" },
+    { title: "Blockchain & Crypto", description: "DFSA and VARA-compliant distributed ledgers for secure cross-border MEA transactions.", image: "/services/blockchain.jpg" },
     // ROW 3
-    { title: "Cybersecurity", description: "Protect your critical infrastructure and data assets with zero-trust security architectures.", image: "/services/cyber.jpg" },
-    { title: "Data Science & Analytics", description: "Turn raw operational data into clear, actionable insights for boardroom decision-making.", image: "/services/dataanalytics.jpg" },
-    { title: "Strategic Tech Advisory", description: "Guide your long-term technology roadmap with expert advice on architecture and investment.", image: "/services/advisory.jpeg" },
-    { title: "Product Design & UX", description: "Design intuitive, clean interfaces that reduce user friction and drive adoption.", image: "/services/uiux.jpg" }
+    { title: "Data Science & Analytics", description: "Actionable BI dashboards and analytics pipelines aligned with GCC open-data policies.", image: "/services/dataanalytics.jpg" },
+    { title: "IT Staff Augmentation", description: "Scale your engineering teams instantly with developers vetted for MEA domain expertise.", image: "/services/staff.jpg" },
+    { title: "Strategic Tech Advisory", description: "Technology roadmaps aligned with Vision 2030, We The UAE 2031, and GCC digital agendas.", image: "/services/advisory.jpeg" },
+    { title: "Product Design & UX", description: "Bilingual Arabic-English interfaces designed for MEA cultural norms and accessibility.", image: "/services/uiux.jpg" }
 ];
 
 // REUSABLE CARD COMPONENT (To keep the main logic clean)
