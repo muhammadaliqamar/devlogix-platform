@@ -99,6 +99,20 @@ export default function RootLayout({
         Added "antialiased" for better typography rendering.
       */}
       <body className={`${poppins.className} font-sans antialiased bg-[#0B1221] text-slate-200 selection:bg-[#0d938c] selection:text-white`}>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XBQ5T01BSC"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XBQ5T01BSC');
+          `}
+        </Script>
+
         <LayoutShell>
           {children}
         </LayoutShell>
