@@ -43,18 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/case-studies`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/careers`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+    // NOTE: /case-studies, /careers, /newsroom are Phase 2 — excluded from sitemap
   ]
 
   // ─── DYNAMIC: /services/[slug] ──────────────────────────────

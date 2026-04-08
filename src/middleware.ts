@@ -5,6 +5,9 @@ import { REGION_MAP, DEFAULT_REGION } from '@/lib/regions'
 // 1. Define paths we should NOT touch (Static assets, API, images)
 const PUBLIC_FILE = /\.(.*)$/
 
+// Phase 2 routes — not yet launched, block all access
+const PHASE_2_ROUTES = ['/case-studies', '/careers', '/newsroom']
+
 export function middleware(req: NextRequest) {
     const { pathname } = req.nextUrl
 
@@ -18,27 +21,37 @@ export function middleware(req: NextRequest) {
         return NextResponse.next()
     }
 
-    // 2. CHECK FOR MANUAL OVERRIDE (User selected a region in the menu)
+    // 2. PHASE 2 GATE — Redirect blocked routes to homepage
+    const isBlocked = PHASE_2_ROUTES.some(route =>
+        pathname === route || pathname.startsWith(`${route}/`)
+    )
+    if (isBlocked) {
+        const url = req.nextUrl.clone()
+        url.pathname = '/'
+        return NextResponse.redirect(url)
+    }
+
+    // 3. CHECK FOR MANUAL OVERRIDE (User selected a region in the menu)
     // If the user manually switched regions, we respect that cookie.
     const manualRegion = req.cookies.get('devlogix-region')
     if (manualRegion) {
         return NextResponse.next()
     }
 
-    // 3. ONLY REDIRECT THE HOMEPAGE
+    // 4. ONLY REDIRECT THE HOMEPAGE
     // We usually only auto-redirect the root domain to avoid annoyance on deep links.
     if (pathname === '/') {
 
-        // 4. DETECT COUNTRY (Vercel Edge Header)
+        // 5. DETECT COUNTRY (Vercel Edge Header)
         // Vercel injects the 'x-vercel-ip-country' header at the edge.
         // We leave the fallback as undefined so it hits the DEFAULT_REGION logic correctly.
         const country = req.headers.get('x-vercel-ip-country')?.toUpperCase()
 
-        // 5. MATCH REGION
+        // 6. MATCH REGION
         // If country is undefined or not in map, targetRegion becomes DEFAULT_REGION ('global')
         const targetRegion = (country && REGION_MAP[country]) || DEFAULT_REGION
 
-        // 6. EXECUTE REDIRECT
+        // 7. EXECUTE REDIRECT
         if (targetRegion === DEFAULT_REGION) {
             return NextResponse.next()
         }

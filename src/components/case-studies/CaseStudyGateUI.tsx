@@ -23,7 +23,6 @@ export default function CaseStudyGateUI({ study }: { study: any }) {
             phone: `${dialCode} ${formData.get('phone') as string}`,
             company: formData.get('company') as string,
             caseStudyTitle: study.title,
-            caseStudySlug: study.slug || '',
         };
 
         try {
@@ -122,9 +121,9 @@ export default function CaseStudyGateUI({ study }: { study: any }) {
                                 <div className="w-20 h-20 bg-[#0d938c]/10 rounded-full flex items-center justify-center mx-auto mb-6">
                                     <CheckCircle2 className="w-10 h-10 text-[#0d938c]" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-slate-900 mb-3">Check Your Inbox!</h3>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-3">Request Received!</h3>
                                 <p className="text-slate-500 max-w-sm mx-auto mb-8 text-sm leading-relaxed">
-                                    The case study for <strong>{study.client}</strong> has been sent to your email. It should arrive within a minute.
+                                    Thank you for your interest! Our team will send the <strong>{study.client}</strong> case study to your email shortly.
                                 </p>
                                 <Link href="/case-studies" className="text-[#0d938c] font-bold text-xs uppercase tracking-widest hover:underline">
                                     Browse More Case Studies
@@ -135,7 +134,7 @@ export default function CaseStudyGateUI({ study }: { study: any }) {
                                 <div className="mb-6">
                                     <h2 className="text-2xl font-bold text-slate-900 mb-2">Get the Full Case Study</h2>
                                     <p className="text-slate-500 text-sm">
-                                        Fill in your details and we'll send the PDF directly to your email.
+                                        Share your details and our team will send you the complete PDF.
                                     </p>
                                 </div>
 
