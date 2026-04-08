@@ -29,21 +29,20 @@ export function middleware(req: NextRequest) {
     // We usually only auto-redirect the root domain to avoid annoyance on deep links.
     if (pathname === '/') {
 
-        // 4. DETECT COUNTRY (Cloudflare Header)
-        // On Cpanel+Cloudflare, this header is reliable.
-        // Fallback to 'US' for local dev if header is missing.
-        const country = req.headers.get('cf-ipcountry') || 'US'
+        // 4. DETECT COUNTRY (Vercel Edge Header)
+        // Vercel injects the 'x-vercel-ip-country' header at the edge.
+        // We leave the fallback as undefined so it hits the DEFAULT_REGION logic correctly.
+        const country = req.headers.get('x-vercel-ip-country')?.toUpperCase()
 
         // 5. MATCH REGION
-        const targetRegion = REGION_MAP[country.toUpperCase()] || DEFAULT_REGION
+        // If country is undefined or not in map, targetRegion becomes DEFAULT_REGION ('global')
+        const targetRegion = (country && REGION_MAP[country]) || DEFAULT_REGION
 
-        // If we are essentially already at the "Global" default, do nothing.
+        // 6. EXECUTE REDIRECT
         if (targetRegion === DEFAULT_REGION) {
             return NextResponse.next()
         }
 
-        // 6. EXECUTE REDIRECT
-        // Redirect to the region-specific landing page
         const url = req.nextUrl.clone()
         url.pathname = `/${targetRegion}`
         return NextResponse.redirect(url)
