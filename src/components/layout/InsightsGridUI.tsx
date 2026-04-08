@@ -41,7 +41,7 @@ const defaultLocale: InsightsGridLocale = {
 };
 
 interface InsightsGridProps {
-    items: InsightItem[];
+    items: (InsightItem | null)[];
     locale?: InsightsGridLocale;
 }
 
