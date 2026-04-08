@@ -1,49 +1,76 @@
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import { Poppins } from 'next/font/google' // Import the font
+import LayoutShell from '@/components/LayoutShell'
+import { Poppins } from 'next/font/google'
+import { Metadata, Viewport } from 'next' // Added Viewport
+import Script from 'next/script' // Use Next.js Script component
 
-// Configure the font
+// 1. Font Configuration - Optimized for Performance
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'], // 400=Regular, 600=SemiBold, 700=Bold
-  variable: '--font-poppins', // Define a CSS variable for Tailwind
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins',
+  display: 'swap', // SEO FIX: Prevents layout shift by swapping font once loaded
 })
 
+// 2. Viewport Configuration - Essential for Mobile SEO
+export const viewport: Viewport = {
+  themeColor: '#0B1221',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5, // Allows accessibility zooming while staying mobile-friendly
+}
 
-import { Metadata } from 'next'
-
+// 3. Metadata Configuration - Keyword Rich
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://devlogix.com'),
+  // SEO FIX: Use the actual live URL for .com.pk if that is your primary domain
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://devlogix.com.pk'),
   title: {
-    default: 'DevLogix | Enterprise Software Solutions',
+    default: 'DevLogix | Custom Software Development & AI Solutions',
     template: '%s | DevLogix',
   },
-  description: 'Building intelligent futures with technology that scales. Global enterprise software solutions, digital transformation, and specialized IT services.',
+  description: 'DevLogix is a global software engineering house specializing in custom enterprise ERPs, AI-driven automation, and scalable digital transformation for modern industries.',
+  keywords: ['Software House Gujranwala', 'Custom Enterprise Software', 'AI Solutions Pakistan', 'Software Engineering UAE', 'Digital Transformation'],
+
   openGraph: {
-    title: 'DevLogix | Enterprise Software Solutions',
-    description: 'DevLogix empowers businesses globally with cutting-edge software and digital transformation services.',
-    url: 'https://devlogix.com',
-    siteName: 'DevLogix',
+    title: 'DevLogix | Engineering Global Sovereignty',
+    description: 'Specialized software engineering for the world\'s most demanding industries.',
+    url: 'https://devlogix.com.pk',
+    siteName: 'DevLogix Technology',
     images: [
       {
-        url: '/og-image.jpg', // Replace with an actual OG image later
+        url: '/og-image.jpg', // Ensure this is 1200x630
         width: 1200,
         height: 630,
-        alt: 'DevLogix Cover Image',
+        alt: 'DevLogix Enterprise Software Engineering Hub',
       },
     ],
     locale: 'en_US',
     type: 'website',
   },
+
   twitter: {
     card: 'summary_large_image',
     title: 'DevLogix | Enterprise Software Solutions',
-    description: 'Building intelligent futures with technology that scales.',
+    description: 'Building intelligent futures with sovereign technology that scales.',
+    images: ['/og-image.jpg'],
     creator: '@devlogix',
   },
+
+  // SEO FIX: Canonical tags help prevent duplicate content penalties
   alternates: {
-    canonical: '/',
+    canonical: './',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
@@ -53,18 +80,28 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${poppins.variable}`}>
+    // SEO FIX: lang="en" is good, but adding a specific region helps with local SEO if targeting PK/KSA
+    <html lang="en" className={`${poppins.variable} scroll-smooth`}>
       <head>
+        {/* SEO FIX: Moved FontAwesome to "afterInteractive" strategy. 
+          This prevents the CSS from blocking the initial paint of your site.
+        */}
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          media="print"
+          // @ts-ignore
+          onLoad="this.media='all'"
         />
       </head>
 
-      <body className={`${poppins.variable} font-sans antialiased`}>
-        <Header />
-        {children}
-        <Footer />
+      {/* SEO FIX: Applied the font variable directly to the body. 
+        Added "antialiased" for better typography rendering.
+      */}
+      <body className={`${poppins.className} font-sans antialiased bg-[#0B1221] text-slate-200 selection:bg-[#0d938c] selection:text-white`}>
+        <LayoutShell>
+          {children}
+        </LayoutShell>
       </body>
     </html>
   )

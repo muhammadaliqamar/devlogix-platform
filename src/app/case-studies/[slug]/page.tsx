@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 // 1. QUERY: ONLY METADATA (No Heavy Content)
 const query = groq`*[_type == "caseStudy" && slug.current == $slug][0] {
   title,
+  "slug": slug.current,
   client,
   category,
   impactStat
