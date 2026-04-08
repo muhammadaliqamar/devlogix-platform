@@ -18,7 +18,7 @@ export interface InsightItem {
 }
 
 interface InsightsGridProps {
-    items: (InsightItem | null)[];
+    items: InsightItem[];
 }
 
 export default function InsightsGridUI({ items }: InsightsGridProps) {
