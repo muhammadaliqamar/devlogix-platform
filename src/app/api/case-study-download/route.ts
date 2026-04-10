@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
 
     // Send lead notification to the team
     const mailOptions = {
-      from: `"DevLogix Platform" <${process.env.SMTP_FROM || process.env.SMTP_USER || 'noreply@devlogix.com.pk'}>`,
+      from: `"DevLogix Website" <${process.env.SMTP_FROM || process.env.SMTP_USER || 'noreply@devlogix.com.pk'}>`,
       to: 'hello@devlogix.com.pk',
       replyTo: email,
       subject: `📄 Case Study PDF Requested: ${caseStudyTitle}`,

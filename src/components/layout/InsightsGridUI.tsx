@@ -102,7 +102,8 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                             <div className="relative h-full flex flex-col justify-between p-8 md:p-10">
                                 <div className="flex justify-between items-start">
                                     <span className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-widest rounded-sm">
-                                        {featured.category}
+                                        {/* {featured.category} */}
+                                        {/* Hello */}
                                     </span>
                                     <ArrowUpRight className="w-6 h-6 text-white/50 group-hover:text-[#0d938c] transition-colors duration-300" />
                                 </div>
