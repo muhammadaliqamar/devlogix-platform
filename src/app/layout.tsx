@@ -4,6 +4,7 @@ import { Poppins } from 'next/font/google'
 import { Metadata, Viewport } from 'next' // Added Viewport
 import Script from 'next/script' // Use Next.js Script component
 
+
 // 1. Font Configuration - Optimized for Performance
 const poppins = Poppins({
   subsets: ['latin'],
@@ -112,6 +113,7 @@ export default function RootLayout({
             gtag('config', 'G-XBQ5T01BSC');
           `}
         </Script>
+
 
         <LayoutShell>
           {children}
