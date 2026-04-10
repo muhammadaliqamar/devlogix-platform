@@ -4,6 +4,7 @@ import { Poppins } from 'next/font/google'
 import { Metadata, Viewport } from 'next' // Added Viewport
 import Script from 'next/script' // Use Next.js Script component
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/next'
 
 // 1. Font Configuration - Optimized for Performance
 const poppins = Poppins({
@@ -118,6 +119,7 @@ export default function RootLayout({
           {children}
         </LayoutShell>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )
