@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'DevLogix APAC | Scaling Hyper-Growth & Enterprise Architecture',
   description: 'Powering Asia-Pacific\'s digital frontier. DevLogix architects scalable infrastructure, e-commerce systems, and automation for APAC enterprises.',
   alternates: {
-    canonical: '/',
+    canonical: 'https://devlogix.com.pk/',
   }
 }
 

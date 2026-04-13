@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://devlogix.com.pk/',
     languages: {
       'x-default': '/',
       'en-US': '/north-america',

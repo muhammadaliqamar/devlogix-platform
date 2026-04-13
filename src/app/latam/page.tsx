@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'DevLogix LATAM | Digital Innovation & Enterprise Scaling',
   description: 'Scalable software solutions tailored for the Latin American market. Fueling the rapid growth of enterprise and FinTech leaders from São Paulo to Santiago.',
   alternates: {
-    canonical: '/',
+    canonical: 'https://devlogix.com.pk/',
   }
 }
 

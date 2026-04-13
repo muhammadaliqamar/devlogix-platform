@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: 'DevLogix KSA | Enterprise Software & Digital Transformation',
   description: 'Accelerating digital transformation in the Kingdom of Saudi Arabia. Partner with DevLogix for technology solutions that scale across industries regionally.',
   alternates: {
-    canonical: '/',
+    canonical: 'https://devlogix.com.pk/',
   }
 }
 
