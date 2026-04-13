@@ -32,18 +32,27 @@ export default function Hero() {
             <div className="relative z-30 flex-grow flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-18">
 
                 {/* Animated Headline */}
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards]">
+                <h1 
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance animate-fade-in-up"
+                    style={{ animationDuration: '0.8s', animationFillMode: 'both' }}
+                >
                     Shaping the Digital Horizons
                     <span className="sr-only"> - Custom Software & AI Development Company</span>
                 </h1>
 
                 {/* Sub-Headline */}
-                <h2 className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
+                <h2 
+                    className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance animate-fade-in-up"
+                    style={{ animationDuration: '0.8s', animationDelay: '0.2s', animationFillMode: 'both' }}
+                >
                     We help global businesses build scalable digital products through <strong>custom software development</strong> and advanced <strong>AI solutions</strong>
                 </h2>
 
                 {/* CTA COMPONENT ENGINEERING */}
-                <div className="flex flex-col sm:flex-row items-center gap-6 mt-6 relative z-30 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
+                <div 
+                    className="flex flex-col sm:flex-row items-center gap-6 mt-6 relative z-30 animate-fade-in-up"
+                    style={{ animationDuration: '0.8s', animationDelay: '0.4s', animationFillMode: 'both' }}
+                >
 
                     {/* Primary: Enterprise Glass */}
                     <Link
