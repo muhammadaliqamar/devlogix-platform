@@ -1,12 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import Hero from '@/components/layout/Hero'
-import AuthorityStrip from '@/components/layout/AuthorityStrip'
-import CapabilitiesMatrix from '@/components/layout/CapabilitiesMatrix'
-import IndustryCarousel from '@/components/layout/IndustryCarousel'
-import InsightsGrid from '@/components/layout/InsightsGrid'
-import CareersSection from '@/components/layout/CareersSection'
-import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA'
+
+const AuthorityStrip = dynamic(() => import('@/components/layout/AuthorityStrip'))
+const CapabilitiesMatrix = dynamic(() => import('@/components/layout/CapabilitiesMatrix'))
+const IndustryCarousel = dynamic(() => import('@/components/layout/IndustryCarousel'))
+const InsightsGrid = dynamic(() => import('@/components/layout/InsightsGrid'))
+const CareersSection = dynamic(() => import('@/components/layout/CareersSection'))
+const LeadCaptureCTA = dynamic(() => import('@/components/layout/LeadCaptureCTA'))
 import Script from 'next/script'
 import { Metadata } from 'next'
 

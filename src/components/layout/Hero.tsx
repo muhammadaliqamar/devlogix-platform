@@ -1,7 +1,4 @@
-'use client'
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
@@ -10,12 +7,15 @@ export default function Hero() {
         // CHANGE 2: flex flex-col (creates a vertical stack layout)
         <section className="relative min-h-screen w-full overflow-hidden bg-black font-poppins-regular flex flex-col">
             {/* 1. VISUAL FOUNDATION (Video Background) */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0 bg-black">
+                {/* Preloading the poster visually allows FCP to trigger immediately */}
+                <link rel="preload" as="image" href="/hero-poster.png" />
                 <video
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     poster="/hero-poster.png"
                     className="h-full w-full object-cover"
                 >
@@ -23,7 +23,7 @@ export default function Hero() {
                 </video>
 
                 {/* The "Readability" Layers */}
-                <div className="absolute inset-0 bg-black/40 z-10"></div>
+                <div className="absolute inset-0 bg-black/40 z-10 transition-opacity duration-1000"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-20"></div>
             </div>
 
@@ -32,28 +32,18 @@ export default function Hero() {
             <div className="relative z-30 flex-grow flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-18">
 
                 {/* Animated Headline */}
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance"
-                >
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards]">
                     Shaping the Digital Horizons
                     <span className="sr-only"> - Custom Software & AI Development Company</span>
-                </motion.h1>
+                </h1>
 
                 {/* Sub-Headline */}
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance"
-                >
+                <h2 className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
                     We help global businesses build scalable digital products through <strong>custom software development</strong> and advanced <strong>AI solutions</strong>
-                </motion.h2>
+                </h2>
 
                 {/* CTA COMPONENT ENGINEERING */}
-                <div className="flex flex-col sm:flex-row items-center gap-6 mt-6 relative z-30">
+                <div className="flex flex-col sm:flex-row items-center gap-6 mt-6 relative z-30 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
 
                     {/* Primary: Enterprise Glass */}
                     <Link
