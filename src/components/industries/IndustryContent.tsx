@@ -1,5 +1,5 @@
-import dynamic from 'next/dynamic';
 'use client'
+import dynamic from 'next/dynamic';
 
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';

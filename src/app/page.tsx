@@ -84,7 +84,6 @@ export default function Home() {
     ],
     foundingDate: '2023',
     areaServed: 'Worldwide',
-    serviceType: ['Custom Software Development', 'AI Solutions', 'Mobile App Development', 'Custom Development'],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
