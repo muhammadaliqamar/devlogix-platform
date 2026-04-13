@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   // output: 'standalone', // Disabled for cPanel CloudLinux compatibility
   // CloudLinux Node.js Selector manages node_modules via virtual environment
   images: {
-    unoptimized: true, // Required for static export with next/image
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',

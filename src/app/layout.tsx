@@ -85,18 +85,7 @@ export default function RootLayout({
   return (
     // SEO FIX: lang="en" is good, but adding a specific region helps with local SEO if targeting PK/KSA
     <html lang="en" className={`${poppins.variable} scroll-smooth`}>
-      <head>
-        {/* SEO FIX: Moved FontAwesome to "afterInteractive" strategy. 
-          This prevents the CSS from blocking the initial paint of your site.
-        */}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-          media="print"
-          // @ts-ignore
-          onLoad="this.media='all'"
-        />
-      </head>
+      <head></head>
 
       {/* SEO FIX: Applied the font variable directly to the body. 
         Added "antialiased" for better typography rendering.
@@ -105,9 +94,9 @@ export default function RootLayout({
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XBQ5T01BSC"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
