@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'DevLogix North America | Enterprise Software & Cloud Operations',
   description: 'Scalable, SOC2-compliant enterprise software for the US and Canadian market. Partner with DevLogix for transformative, coast-to-coast digital growth.',
   alternates: {
-    canonical: '/north-america',
+    canonical: '/',
   }
 }
 

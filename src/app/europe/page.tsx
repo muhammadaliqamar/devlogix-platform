@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'DevLogix Europe & UK | Enterprise Software & FinTech Innovation',
   description: 'Scalable, GDPR-compliant enterprise software for the UK and European market. Partner with DevLogix for transformative digital operations.',
   alternates: {
-    canonical: '/europe',
+    canonical: '/',
   }
 }
 

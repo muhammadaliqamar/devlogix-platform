@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'DevLogix MEA | Enterprise Software & Transformative Technology',
   description: 'Driving digital leapfrogging across the Middle East & Africa. Partner with DevLogix for scalable tech solutions in emerging markets, telecom, and fintech.',
   alternates: {
-    canonical: '/mea',
+    canonical: '/',
   }
 }
 

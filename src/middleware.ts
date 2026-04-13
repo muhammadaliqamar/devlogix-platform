@@ -29,6 +29,17 @@ export function middleware(req: NextRequest) {
     // 3. ONLY REDIRECT THE HOMEPAGE
     // We only auto-redirect the root domain to avoid annoyance on deep links.
     if (pathname === '/') {
+        
+        // --- SEO FIX: BYPASS REDIRECTS FOR BOTS ---
+        // If Googlebot or another search engine visits, we MUST let them see the global homepage (`/`)
+        // Otherwise, they get redirected to a regional page (like `/north-america`) and index that instead.
+        const userAgentString = req.headers.get('user-agent')?.toLowerCase() || ''
+        const isBot = /bot|crawler|spider|googlebot|bingbot|yandex|duckduckgo|slurp|baiduspider/i.test(userAgentString)
+        
+        if (isBot) {
+             console.log(`[GEO-REDIRECT] Bot detected (${userAgentString}). Bypassing redirect for SEO.`)
+             return NextResponse.next()
+        }
 
         // 4. DETECT COUNTRY via Vercel's official geolocation helper
         // This uses the edge-injected headers under the hood and is the
