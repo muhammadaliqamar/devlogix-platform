@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
@@ -8,16 +9,27 @@ export default function Hero() {
         <section className="relative min-h-screen w-full overflow-hidden bg-black font-poppins-regular flex flex-col">
             {/* 1. VISUAL FOUNDATION (Video Background) */}
             <div className="absolute inset-0 z-0 bg-black">
-                {/* Preloading the poster visually allows FCP to trigger immediately */}
-                <link rel="preload" as="image" href="/hero-poster.png" />
+                {/* 
+                 * SEO/LCP FIX:
+                 * Using Next.js <Image> for the poster instead of the native video poster attribute.
+                 * Why? The native poster is a 2.5MB PNG. Next.js <Image> automatically converts it 
+                 * to a tiny WEBP and natively preloads it since we use 'priority'.
+                 */}
+                <Image
+                    src="/hero-poster.png"
+                    alt="DevLogix Hero Background"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover z-0"
+                />
                 <video
                     autoPlay
                     loop
                     muted
                     playsInline
                     preload="auto"
-                    poster="/hero-poster.png"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover relative z-10"
                 >
                     <source src="/hero-background.mp4" type="video/mp4" />
                 </video>
