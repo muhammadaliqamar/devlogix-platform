@@ -1,7 +1,6 @@
-'use client'
+
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 export default function AboutHero() {
@@ -30,30 +29,29 @@ export default function AboutHero() {
             <div className="relative z-30 flex-grow flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-18">
 
                 {/* Animated Headline */}
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance"
+                <h1
+                    className="text-xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance animate-fade-in-up"
+                    style={{ animationDuration: '0.8s', animationFillMode: 'both' }}
                 >
                     Beyond Code <br />We Engineer Legacies
                     {/* SEO FIX 2: Visually hidden, but gives your About H1 massive SEO power */}
                     <span className="sr-only"> - About DevLogix, Custom Software & AI Development Company</span>
-                </motion.h1>
+                </h1>
 
                 {/* Sub-Headline */}
                 {/* SEO FIX 3: Upgraded to <h2> for semantic outline weight */}
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance"
+                <h2
+                    className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance animate-fade-in-up"
+                    style={{ animationDuration: '0.8s', animationDelay: '0.2s', animationFillMode: 'both' }}
                 >
                     At DevLogix, we build <strong>intelligent digital ecosystems</strong> designed for longevity, resilience, and growth. We don't just solve today's problems; we architect tomorrow's foundation.
-                </motion.h2>
+                </h2>
 
                 {/* CTA COMPONENT ENGINEERING */}
-                <div className="flex flex-col sm:flex-row items-center gap-6 mt-6 relative z-30">
+                <div 
+                    className="flex flex-col sm:flex-row items-center gap-6 mt-6 relative z-30 animate-fade-in-up"
+                    style={{ animationDuration: '0.8s', animationDelay: '0.4s', animationFillMode: 'both' }}
+                >
 
                     {/* Primary */}
                     <Link

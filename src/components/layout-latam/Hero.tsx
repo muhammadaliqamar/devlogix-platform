@@ -1,8 +1,7 @@
-'use client'
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import HeroVideo from '@/components/layout/HeroVideo';
 
 export default function Hero({ lang = 'es' }: { lang?: 'es' | 'pt' }) {
     const content = {
@@ -21,16 +20,17 @@ export default function Hero({ lang = 'es' }: { lang?: 'es' | 'pt' }) {
     return (
         <section className="relative min-h-screen w-full overflow-hidden bg-black font-poppins-regular flex flex-col">
             {/* 1. VISUAL FOUNDATION (Video Background) */}
-            <div className="absolute inset-0 z-0">
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="h-full w-full object-cover"
-                >
-                    <source src="/hero-background.mp4" type="video/mp4" />
-                </video>
+            <div className="absolute inset-0 z-0 bg-black">
+                <Image
+                    src="/hero-poster.png"
+                    alt="DevLogix Hero Background"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover z-0"
+                />
+                
+                <HeroVideo />
 
                 {/* The "Readability" Layers */}
                 <div className="absolute inset-0 bg-black/50 z-10"></div>
@@ -41,27 +41,17 @@ export default function Hero({ lang = 'es' }: { lang?: 'es' | 'pt' }) {
             <div className="relative z-30 flex-grow flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8 pt-24 md:pt-28 pb-18">
 
                 {/* Animated Headline */}
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance"
-                >
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 max-w-6xl leading-tight text-balance animate-fade-in-up" style={{ animationDuration: '0.8s', animationFillMode: 'both' }}>
                     {content.headline}
-                </motion.h1>
+                </h1>
 
                 {/* Sub-Headline */}
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance"
-                >
+                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mt-0 leading-relaxed font-light text-balance animate-fade-in-up" style={{ animationDuration: '0.8s', animationDelay: '0.2s', animationFillMode: 'both' }}>
                     {content.subhead}
-                </motion.p>
+                </p>
 
                 {/* CTA COMPONENT ENGINEERING */}
-                <div className="flex flex-col sm:flex-row items-center gap-6 mt-8 relative z-30">
+                <div className="flex flex-col sm:flex-row items-center gap-6 mt-8 relative z-30 animate-fade-in-up" style={{ animationDuration: '0.8s', animationDelay: '0.4s', animationFillMode: 'both' }}>
                     <Link
                         href="/contact"
                         className="px-10 py-4 backdrop-blur-[10px] bg-white/5 border border-white/20 text-white font-medium text-lg rounded-[4px] 

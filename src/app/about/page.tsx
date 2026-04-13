@@ -1,13 +1,14 @@
 import AboutHero from '@/components/about/AboutHero';
-import NorthStar from '@/components/about/NorthStar';
-import ChairmansNote from '@/components/about/ChairmansNote';
-import DevLogixStandard from '@/components/about/DevLogixStandard';
-import EvolutionaryPath from '@/components/about/EvolutionaryPath';
-import LeadershipCarousel from '@/components/about/LeadershipCarousel';
-import GlobalNexus from '@/components/about/GlobalNexus';
-import AboutCTA from '@/components/about/AboutCTA';
-import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
+const NorthStar = dynamic(() => import('@/components/about/NorthStar'));
+const ChairmansNote = dynamic(() => import('@/components/about/ChairmansNote'));
+const DevLogixStandard = dynamic(() => import('@/components/about/DevLogixStandard'));
+const EvolutionaryPath = dynamic(() => import('@/components/about/EvolutionaryPath'));
+const LeadershipCarousel = dynamic(() => import('@/components/about/LeadershipCarousel'));
+const GlobalNexus = dynamic(() => import('@/components/about/GlobalNexus'));
+const AboutCTA = dynamic(() => import('@/components/about/AboutCTA'));
+const LeadCaptureCTA = dynamic(() => import('@/components/layout/LeadCaptureCTA'));
 
+import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
 import Script from 'next/script';
 

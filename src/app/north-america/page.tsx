@@ -1,11 +1,12 @@
 import Script from 'next/script'
+import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
 import Hero from '@/components/layout-north-america/Hero'
-import AuthorityStrip from '@/components/layout-north-america/AuthorityStrip'
-import CapabilitiesMatrix from '@/components/layout-north-america/CapabilitiesMatrix'
-import IndustryCarousel from '@/components/layout-north-america/IndustryCarousel'
-import EnterprisePartnership from '@/components/layout-north-america/EnterprisePartnership'
-import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA'
+const AuthorityStrip = dynamic(() => import('@/components/layout-north-america/AuthorityStrip'))
+const CapabilitiesMatrix = dynamic(() => import('@/components/layout-north-america/CapabilitiesMatrix'))
+const IndustryCarousel = dynamic(() => import('@/components/layout-north-america/IndustryCarousel'))
+const EnterprisePartnership = dynamic(() => import('@/components/layout-north-america/EnterprisePartnership'))
+const LeadCaptureCTA = dynamic(() => import('@/components/layout/LeadCaptureCTA'))
 
 export const metadata: Metadata = {
   title: 'DevLogix North America | Enterprise Software & Cloud Operations',

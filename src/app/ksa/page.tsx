@@ -1,15 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Hero from '@/components/layout-ksa/Hero'
-import AuthorityStrip from '@/components/layout-ksa/AuthorityStrip'
-import CapabilitiesMatrix from '@/components/layout-ksa/CapabilitiesMatrix'
-import IndustryCarousel from '@/components/layout-ksa/IndustryCarousel'
-import InsightsGrid from '@/components/layout/InsightsGrid'
-import KsaVisionSection from '@/components/layout-ksa/KsaVisionSection'
-import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA'
-import HeaderKsa from '@/components/layout-ksa/HeaderKsa'
-import FooterKsa from '@/components/layout-ksa/FooterKsa'
+const AuthorityStrip = dynamic(() => import('@/components/layout-ksa/AuthorityStrip'))
+const CapabilitiesMatrix = dynamic(() => import('@/components/layout-ksa/CapabilitiesMatrix'))
+const IndustryCarousel = dynamic(() => import('@/components/layout-ksa/IndustryCarousel'))
+const InsightsGrid = dynamic(() => import('@/components/layout/InsightsGrid'))
+const KsaVisionSection = dynamic(() => import('@/components/layout-ksa/KsaVisionSection'))
+const LeadCaptureCTA = dynamic(() => import('@/components/layout/LeadCaptureCTA'))
+const HeaderKsa = dynamic(() => import('@/components/layout-ksa/HeaderKsa'))
+const FooterKsa = dynamic(() => import('@/components/layout-ksa/FooterKsa'))
 import Script from 'next/script'
+import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
 import { Tajawal } from 'next/font/google'
 

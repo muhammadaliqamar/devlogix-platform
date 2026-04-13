@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import HeroVideo from './HeroVideo';
 
 export default function Hero() {
     return (
@@ -23,16 +24,8 @@ export default function Hero() {
                     sizes="100vw"
                     className="object-cover z-0"
                 />
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="h-full w-full object-cover relative z-10"
-                >
-                    <source src="/hero-background.mp4" type="video/mp4" />
-                </video>
+                
+                <HeroVideo />
 
                 {/* The "Readability" Layers */}
                 <div className="absolute inset-0 bg-black/40 z-10 transition-opacity duration-1000"></div>

@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 'use client'
 
 import { motion } from 'framer-motion';
@@ -6,7 +7,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
+const LeadCaptureCTA = dynamic(() => import('@/components/layout/LeadCaptureCTA'));
 
 // REUSABLE CARD
 // SEO FIX 1: Added parentContext to dynamically generate industry-specific alt text

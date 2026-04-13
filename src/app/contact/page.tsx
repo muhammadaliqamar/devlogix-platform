@@ -1,6 +1,7 @@
 import ContactHero from '@/components/contact/ContactHero';
 import ContactInterface from '@/components/contact/ContactInterface';
 import Script from 'next/script';
+import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

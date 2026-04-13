@@ -1,13 +1,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Hero from '@/components/layout-mea/Hero'
-import AuthorityStrip from '@/components/layout-mea/AuthorityStrip'
-import CapabilitiesMatrix from '@/components/layout-mea/CapabilitiesMatrix'
-import IndustryCarousel from '@/components/layout-mea/IndustryCarousel'
-import InsightsGrid from '@/components/layout/InsightsGrid'
-import CareersSection from '@/components/layout-mea/CareersSection'
-import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA'
+const AuthorityStrip = dynamic(() => import('@/components/layout-mea/AuthorityStrip'))
+const CapabilitiesMatrix = dynamic(() => import('@/components/layout-mea/CapabilitiesMatrix'))
+const IndustryCarousel = dynamic(() => import('@/components/layout-mea/IndustryCarousel'))
+const InsightsGrid = dynamic(() => import('@/components/layout/InsightsGrid'))
+const CareersSection = dynamic(() => import('@/components/layout-mea/CareersSection'))
+const LeadCaptureCTA = dynamic(() => import('@/components/layout/LeadCaptureCTA'))
 import Script from 'next/script'
+import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {

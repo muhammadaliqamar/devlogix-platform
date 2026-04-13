@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 'use client'
 
 import { motion } from 'framer-motion';
@@ -5,7 +6,7 @@ import { CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA';
+const LeadCaptureCTA = dynamic(() => import('@/components/layout/LeadCaptureCTA'));
 
 // =====================================================================
 // REUSABLE COMPONENT: CINEMATIC CARD

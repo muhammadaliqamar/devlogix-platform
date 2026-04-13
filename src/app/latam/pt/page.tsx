@@ -1,13 +1,14 @@
 import Script from 'next/script'
+import dynamic from 'next/dynamic'
 import { Metadata } from 'next'
 import Hero from '@/components/layout-latam/Hero'
-import AuthorityStrip from '@/components/layout-latam/AuthorityStrip'
-import CapabilitiesMatrix from '@/components/layout-latam/CapabilitiesMatrix'
-import IndustryCarousel from '@/components/layout-latam/IndustryCarousel'
-import EnterprisePartnership from '@/components/layout-latam/EnterprisePartnership'
-import LeadCaptureCTA from '@/components/layout/LeadCaptureCTA'
-import HeaderLatam from '@/components/layout-latam/HeaderLatam'
-import Footer from '@/components/Footer' // Wait, they don't have FooterLatam yet
+const AuthorityStrip = dynamic(() => import('@/components/layout-latam/AuthorityStrip'))
+const CapabilitiesMatrix = dynamic(() => import('@/components/layout-latam/CapabilitiesMatrix'))
+const IndustryCarousel = dynamic(() => import('@/components/layout-latam/IndustryCarousel'))
+const EnterprisePartnership = dynamic(() => import('@/components/layout-latam/EnterprisePartnership'))
+const LeadCaptureCTA = dynamic(() => import('@/components/layout/LeadCaptureCTA'))
+const HeaderLatam = dynamic(() => import('@/components/layout-latam/HeaderLatam'))
+const Footer = dynamic(() => import('@/components/Footer')) // Wait, they don't have FooterLatam yet
 
 export const metadata: Metadata = {
   title: 'DevLogix LATAM (Brasil) | Inovação Digital e Escalabilidade Corporativa',

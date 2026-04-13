@@ -1,6 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion';
 
 export default function ContactHero() {
     return (
@@ -24,12 +21,10 @@ export default function ContactHero() {
 
             {/* 2. TEXT CONTENT */}
             <div className="relative z-10 text-center mt-10">
-                <motion.h1
+                <h1
                     id="contact-hero-title" // Linked to aria-labelledby above
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                    className="text-4xl md:text-6xl font-bold text-white tracking-tight"
+                    className="text-4xl md:text-6xl font-bold text-white tracking-tight animate-fade-in-up"
+                    style={{ animationDuration: '0.8s', animationFillMode: 'both' }}
                 >
                     Partner With <br className="md:hidden" />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">
@@ -37,17 +32,15 @@ export default function ContactHero() {
                     </span>
                     {/* SEO FIX 2: Visually hidden keywords to define the page intent for Google */}
                     <span className="sr-only"> - Custom Software Development & AI Consultations</span>
-                </motion.h1>
+                </h1>
 
                 {/* SEO FIX 3: Added an H2 (even if small/subtle) to reinforce intent */}
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.4 }}
-                    className="mt-4 text-slate-400 text-sm md:text-base max-w-md mx-auto px-6 font-light"
+                <p
+                    className="mt-4 text-slate-400 text-sm md:text-base max-w-md mx-auto px-6 font-light animate-fade-in-up"
+                    style={{ animationDuration: '0.8s', animationDelay: '0.2s', animationFillMode: 'both' }}
                 >
                     Connect with our global engineering hubs to scale your digital transformation.
-                </motion.p>
+                </p>
             </div>
 
         </section>
