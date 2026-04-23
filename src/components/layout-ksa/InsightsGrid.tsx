@@ -7,17 +7,12 @@ export const revalidate = 60;
 
 export default async function InsightsGrid() {
     try {
-        // 1. Fetch data from Sanity
+        // 1. Fetch blog posts from Sanity
         const data = await client.fetch(landingInsightsQuery);
 
-        // 2. Format the data into a single array for the UI
-        // Structure: [Featured Case Study, Insight 1, Insight 2, Press]
-        const items: InsightItem[] = [
-            data?.featured,
-            data?.insights?.[0], // First blog post
-            data?.insights?.[1], // Second blog post
-            data?.press          // Latest news
-        ].filter(Boolean); // Remove nulls if content is missing
+        // 2. Pass the blogs array directly to the UI
+        // Structure: [Featured Blog, Blog 2, Blog 3, Blog 4]
+        const items: InsightItem[] = (data?.blogs || []).filter(Boolean);
 
         if (items.length === 0) return null;
 

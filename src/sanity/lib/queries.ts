@@ -53,32 +53,16 @@ export const careersQuery = groq`*[_type == "career" && isActive == true] {
 }`;
 
 // 5. FETCH LANDING PAGE INTELLIGENCE (Bento Grid)
-// This fetches 1 Featured Case Study, 2 Latest Blogs, and 1 Latest News item
+// Fetches 4 latest blog posts with cover images for the bento grid
 export const landingInsightsQuery = groq`{
-  "featured": *[_type == "caseStudy" && isFeatured == true][0] {
-    "id": _id,
-    "type": "case-study",
-    category,
-    title,
-    "summary": impactStat, // Uses the Impact Stat as the hook
-    "link": "/case-studies/" + slug.current,
-    "image": coverImage.asset->url
-  },
-  "insights": *[_type == "blog"] | order(publishedAt desc)[0..1] {
+  "blogs": *[_type == "blog"] | order(publishedAt desc)[0..3] {
     "id": _id,
     "type": "insight",
     category,
     title,
     "summary": excerpt,
-    "link": "/blog/" + slug.current
-  },
-  "press": *[_type == "news"] | order(date desc)[0] {
-    "id": _id,
-    "type": "press",
-    "category": type,
-    title,
-    "summary": excerpt,
-    "link": "/newsroom/" + slug.current,
-    "date": date
+    "link": "/blog/" + slug.current,
+    "image": coverImage.asset->url,
+    "date": publishedAt
   }
 }`;

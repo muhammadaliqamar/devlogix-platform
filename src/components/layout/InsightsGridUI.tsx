@@ -32,12 +32,12 @@ export interface InsightsGridLocale {
 const defaultLocale: InsightsGridLocale = {
     dir: 'ltr',
     kicker: 'Intelligence Stream',
-    heading: 'Enterprise Tech',
-    headingHighlight: 'Insights & Case Studies.',
-    paragraph: 'Explore our latest thinking, technical deep-dives, and real-world case studies demonstrating how we engineer scalable software for global industries.',
-    viewAllLabel: 'View All Intelligence',
+    heading: 'Latest',
+    headingHighlight: 'Insights & Articles.',
+    paragraph: 'Explore our latest thinking, technical deep-dives, and industry insights on custom software development, AI, and digital transformation.',
+    viewAllLabel: 'View All Insights',
     viewAllLink: '/blog',
-    readReportLabel: 'Read The Report',
+    readReportLabel: 'Read Article',
 };
 
 interface InsightsGridProps {
@@ -47,7 +47,7 @@ interface InsightsGridProps {
 
 export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
     const t = { ...defaultLocale, ...locale };
-    const [featured, insight1, insight2, news] = items;
+    const [featured, blog1, blog2, blog3] = items;
 
     if (!featured) return null;
 
@@ -82,7 +82,7 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                 {/* THE BENTO GRID */}
                 <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-auto md:h-[600px]">
 
-                    {/* SLOT 1: FEATURED CASE STUDY */}
+                    {/* SLOT 1: FEATURED BLOG POST */}
                     <Link href={featured.link} className="md:col-span-2 md:row-span-2 group relative rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -94,7 +94,7 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                             <div className="absolute inset-0 opacity-60 group-hover:opacity-40 transition-opacity duration-500">
                                 {featured.image ? (
                                     <>
-                                        <Image src={featured.image} alt={`Case Study: ${featured.title}`} fill className="object-cover" unoptimized />
+                                        <Image src={featured.image} alt={`Blog: ${featured.title}`} fill className="object-cover" unoptimized />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                                     </>
                                 ) : (
@@ -127,93 +127,114 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                         </motion.div>
                     </Link>
 
-                    {/* SLOT 2: INSIGHT 1 */}
-                    {insight1 && (
-                        <Link href={insight1.link} className="md:col-span-1 md:row-span-1 group relative rounded-xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 transition-colors p-6 flex flex-col justify-between">
+                    {/* SLOT 2: BLOG 2 */}
+                    {blog1 && (
+                        <Link href={blog1.link} className="md:col-span-1 md:row-span-1 group relative rounded-xl overflow-hidden bg-slate-900 border border-slate-200 hover:border-slate-300 transition-colors">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.1 }}
-                                className="h-full flex flex-col justify-between"
+                                className="h-full w-full"
                             >
-                                <div className="flex justify-between items-start">
-                                    <span className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                        <TrendingUp className="w-3 h-3 text-[#0d938c]" />
-                                        {insight1.category}
-                                    </span>
-                                </div>
-                                <div>
-                                    {/* SEO FIX 6: Standardized to <h3> */}
-                                    <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-[#0d938c] transition-colors line-clamp-2">
-                                        {insight1.title}
-                                    </h3>
-                                    <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
-                                        {insight1.summary}
-                                    </p>
+                                {blog1.image && (
+                                    <div className="absolute inset-0">
+                                        <Image src={blog1.image} alt={`Blog: ${blog1.title}`} fill className="object-cover" unoptimized />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                                    </div>
+                                )}
+                                <div className="relative h-full flex flex-col justify-between p-6">
+                                    <div className="flex justify-between items-start">
+                                        <span className="flex items-center gap-2 text-[10px] font-bold text-white/70 uppercase tracking-widest">
+                                            <TrendingUp className="w-3 h-3 text-[#0d938c]" />
+                                            {blog1.category}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#0d938c] transition-colors line-clamp-2">
+                                            {blog1.title}
+                                        </h3>
+                                        <p className="text-xs text-slate-300 leading-relaxed line-clamp-2">
+                                            {blog1.summary}
+                                        </p>
+                                    </div>
                                 </div>
                             </motion.div>
                         </Link>
                     )}
 
-                    {/* SLOT 3: INSIGHT 2 */}
-                    {insight2 && (
-                        <Link href={insight2.link} className="md:col-span-1 md:row-span-1 group relative rounded-xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 transition-colors p-6 flex flex-col justify-between">
+                    {/* SLOT 3: BLOG 3 */}
+                    {blog2 && (
+                        <Link href={blog2.link} className="md:col-span-1 md:row-span-1 group relative rounded-xl overflow-hidden bg-slate-900 border border-slate-200 hover:border-slate-300 transition-colors">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="h-full flex flex-col justify-between"
+                                className="h-full w-full"
                             >
-                                <div className="flex justify-between items-start">
-                                    <span className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                        <FileText className="w-3 h-3 text-[#0d938c]" />
-                                        {insight2.category}
-                                    </span>
-                                </div>
-                                <div>
-                                    {/* SEO FIX 7: Standardized to <h3> */}
-                                    <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-[#0d938c] transition-colors line-clamp-2">
-                                        {insight2.title}
-                                    </h3>
-                                    <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
-                                        {insight2.summary}
-                                    </p>
+                                {blog2.image && (
+                                    <div className="absolute inset-0">
+                                        <Image src={blog2.image} alt={`Blog: ${blog2.title}`} fill className="object-cover" unoptimized />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                                    </div>
+                                )}
+                                <div className="relative h-full flex flex-col justify-between p-6">
+                                    <div className="flex justify-between items-start">
+                                        <span className="flex items-center gap-2 text-[10px] font-bold text-white/70 uppercase tracking-widest">
+                                            <FileText className="w-3 h-3 text-[#0d938c]" />
+                                            {blog2.category}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#0d938c] transition-colors line-clamp-2">
+                                            {blog2.title}
+                                        </h3>
+                                        <p className="text-xs text-slate-300 leading-relaxed line-clamp-2">
+                                            {blog2.summary}
+                                        </p>
+                                    </div>
                                 </div>
                             </motion.div>
                         </Link>
                     )}
 
-                    {/* SLOT 4: PRESS RELEASE */}
-                    {news && (
-                        <Link href={news.link} className="md:col-span-2 md:row-span-1 group relative rounded-xl overflow-hidden bg-white border border-slate-200 hover:border-slate-300 transition-colors p-8 flex flex-col justify-center">
+                    {/* SLOT 4: BLOG 4 */}
+                    {blog3 && (
+                        <Link href={blog3.link} className="md:col-span-2 md:row-span-1 group relative rounded-xl overflow-hidden bg-slate-900 border border-slate-200 hover:border-slate-300 transition-colors">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
-                                className="h-full flex flex-col justify-center"
+                                className="h-full w-full"
                             >
-                                <div className="flex justify-between items-start mb-4">
-                                    <span className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                        <Newspaper className="w-3 h-3 text-[#0d938c]" />
-                                        {news.category}
-                                    </span>
-                                    <span className="text-[10px] font-bold text-slate-300">{news.date}</span>
-                                </div>
-                                <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
-                                    <div className="flex-1">
-                                        {/* SEO FIX 8: Standardized to <h3> */}
-                                        <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-[#0d938c] transition-colors">
-                                            {news.title}
-                                        </h3>
-                                        <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">
-                                            {news.summary}
-                                        </p>
+                                {blog3.image && (
+                                    <div className="absolute inset-0">
+                                        <Image src={blog3.image} alt={`Blog: ${blog3.title}`} fill className="object-cover" unoptimized />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                                     </div>
-                                    <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-slate-100 group-hover:bg-[#0d938c] group-hover:border-[#0d938c] transition-all">
-                                        <ArrowUpRight className="w-5 h-5 text-slate-300 group-hover:text-white" />
+                                )}
+                                <div className="relative h-full flex flex-col justify-end p-8">
+                                    <div className="flex justify-between items-start mb-4">
+                                        <span className="flex items-center gap-2 text-[10px] font-bold text-white/70 uppercase tracking-widest">
+                                            <Newspaper className="w-3 h-3 text-[#0d938c]" />
+                                            {blog3.category}
+                                        </span>
+                                        <span className="text-[10px] font-bold text-white/40">{blog3.date}</span>
+                                    </div>
+                                    <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
+                                        <div className="flex-1">
+                                            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#0d938c] transition-colors">
+                                                {blog3.title}
+                                            </h3>
+                                            <p className="text-sm text-slate-300 leading-relaxed line-clamp-2">
+                                                {blog3.summary}
+                                            </p>
+                                        </div>
+                                        <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full border border-white/20 group-hover:bg-[#0d938c] group-hover:border-[#0d938c] transition-all">
+                                            <ArrowUpRight className="w-5 h-5 text-white/50 group-hover:text-white" />
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>
