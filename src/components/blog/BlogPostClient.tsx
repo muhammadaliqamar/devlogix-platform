@@ -21,6 +21,7 @@ const ptComponents = {
                         alt={value.alt || 'Blog Image'}
                         fill
                         className="object-cover"
+                        unoptimized
                     />
                 </div>
             );
@@ -96,7 +97,7 @@ export default function BlogPostClient({ post }: { post: any }) {
                             className="relative w-full h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-12"
                         >
                             {post.coverImage && (
-                                <Image src={post.coverImage} alt={post.title} fill className="object-cover" />
+                                <Image src={post.coverImage} alt={post.title} fill className="object-cover" unoptimized />
                             )}
                         </motion.div>
 

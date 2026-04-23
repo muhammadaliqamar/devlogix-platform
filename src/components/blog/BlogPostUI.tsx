@@ -64,7 +64,7 @@ export default function BlogPostUI({ post }: { post: any }) {
                             animate={{ opacity: 1, scale: 1 }}
                             className="relative w-full h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-12"
                         >
-                            <Image src={post.coverImage} alt={post.title} fill className="object-cover" />
+                            <Image src={post.coverImage} alt={post.title} fill className="object-cover" unoptimized />
                         </motion.div>
 
                         {/* RICH TEXT RENDERER */}
