@@ -92,18 +92,21 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
                             className="h-full w-full"
                         >
                             <div className="absolute inset-0 opacity-60 group-hover:opacity-40 transition-opacity duration-500">
-                                {featured.image && (
-                                    // SEO FIX 4: Made alt text more descriptive by prepending the type
-                                    <Image src={featured.image} alt={`Case Study: ${featured.title}`} fill className="object-cover" />
+                                {featured.image ? (
+                                    <>
+                                        <Image src={featured.image} alt={`Case Study: ${featured.title}`} fill className="object-cover" unoptimized />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                    </>
+                                ) : (
+                                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-slate-800 to-black" />
                                 )}
-                                <div className="w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-slate-800 to-black" />
                             </div>
 
                             <div className="relative h-full flex flex-col justify-between p-8 md:p-10">
                                 <div className="flex justify-between items-start">
                                     <span className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase tracking-widest rounded-sm">
                                         {/* {featured.category} */}
-                                        {/* Hello */}
+                                        Blog
                                     </span>
                                     <ArrowUpRight className="w-6 h-6 text-white/50 group-hover:text-[#0d938c] transition-colors duration-300" />
                                 </div>
