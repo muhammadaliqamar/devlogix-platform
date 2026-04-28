@@ -52,7 +52,7 @@ export default function CaseStudyGateUI({ study }: { study: any }) {
             <section className="relative w-full pt-32 pb-32 bg-[#0B1221] overflow-hidden">
                 <div className="absolute inset-0 opacity-[0.1] bg-[url('/grid-pattern.svg')] bg-center" />
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0d938c] opacity-[0.05] blur-[150px] rounded-full pointer-events-none" />
-                <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+                <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 text-center">
                     <Link href="/case-studies" className="inline-flex items-center gap-2 text-slate-400 hover:text-[#0d938c] transition-colors mb-6 text-xs font-bold uppercase tracking-widest">
                         <ArrowLeft className="w-4 h-4" /> Back to Case Studies
                     </Link>

@@ -99,7 +99,7 @@ export default function ServiceContent({ data }: { data: ServiceData | null }) {
             {/* ---------------- OVERVIEW ---------------- */}
             {/* SEO FIX 6: Linked section to heading */}
             <section aria-labelledby="overview-heading" className="w-full bg-white py-20 md:py-32">
-                <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
 
                         {/* SEO FIX 7: Added ID */}
@@ -136,7 +136,7 @@ export default function ServiceContent({ data }: { data: ServiceData | null }) {
 
             {/* ---------------- CAPABILITIES (SUB-SERVICES) ---------------- */}
             <section aria-labelledby="capabilities-heading" className="w-full bg-[#0B1221] py-24 border-t border-white/5">
-                <div className="max-w-7xl mx-auto px-6">
+                <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
                     <div className="mb-12">
                         <span className="block text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-4">
                             Capabilities
@@ -164,7 +164,7 @@ export default function ServiceContent({ data }: { data: ServiceData | null }) {
 
             {/* ---------------- PROCESS TIMELINE ---------------- */}
             <section aria-labelledby="process-heading" className="w-full bg-white py-24">
-                <div className="max-w-7xl mx-auto px-6">
+                <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
                     <h2 id="process-heading" className="text-3xl font-bold text-slate-900 mb-16 text-center">
                         Our Execution Protocol
                         <span className="sr-only"> for {data.hero.title} Projects</span>
@@ -187,7 +187,7 @@ export default function ServiceContent({ data }: { data: ServiceData | null }) {
 
             {/* ---------------- INDUSTRIES SERVED ---------------- */}
             <section aria-labelledby="industries-heading" className="w-full bg-[#050505] py-24 border-t border-white/5">
-                <div className="max-w-7xl mx-auto px-6">
+                <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
                     <div className="mb-12">
                         <span className="block text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-4">
                             Impact

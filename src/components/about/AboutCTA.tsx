@@ -14,7 +14,7 @@ export default function AboutCTA({
 }: AboutCTAProps) {
     return (
         <section className="w-full bg-slate-50 pt-16 pb-8 md:pt-10 md:pb-10 font-poppins-regular">
-            <div className="max-w-6xl mx-auto px-6">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
                 <div className="bg-gradient-to-br from-[#0B1221] to-slate-900 rounded-3xl p-10 md:p-16 text-center text-white shadow-2xl relative overflow-hidden">
 
                     {/* Ambient Glow (Brand Teal #0d938c) */}

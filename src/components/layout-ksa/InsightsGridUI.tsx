@@ -31,7 +31,7 @@ export default function InsightsGridUI({ items }: InsightsGridProps) {
 
     return (
         <section className="w-full bg-slate-50 pt-24 pb-12 md:pt-16 md:pb-12 font-poppins-regular">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
 
                 {/* SECTION HEADER */}
                 <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">

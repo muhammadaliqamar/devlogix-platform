@@ -48,7 +48,7 @@ export default function GlobalNexus() {
                 }}
             />
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 relative z-10">
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
 
                     {/* LEFT: THE MAP VISUALIZATION */}

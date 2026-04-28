@@ -70,7 +70,7 @@ export default function IndustryContent({ data }: { data: any }) {
             {/* 2. OVERVIEW */}
             {/* SEO FIX 6: Connected section to the heading */}
             <section aria-labelledby="overview-heading" className="w-full bg-white pt-10 pb-10 md:pt-24 md:pb-12">
-                <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
                         <h2 id="overview-heading" className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">{data.overview.heading}</h2>
                         <p className="text-slate-500 text-lg leading-relaxed mb-8 border-l-4 border-[#0d938c] pl-6">
@@ -115,7 +115,7 @@ export default function IndustryContent({ data }: { data: any }) {
 
             {/* 4. EXPERTISE */}
             <section aria-labelledby="expertise-heading" className="w-full bg-[#0B1221] py-24 border-t border-white/5">
-                <div className="max-w-7xl mx-auto px-6">
+                <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
                     <div className="mb-12">
                         {/* SEO FIX 9: Demoted <h3> to <span> */}
                         <span className="block text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-4">Domain Expertise</span>
@@ -141,7 +141,7 @@ export default function IndustryContent({ data }: { data: any }) {
 
             {/* 5. TECHNOLOGIES */}
             <section aria-labelledby="tech-heading" className="w-full bg-[#050505] py-24 border-t border-white/5">
-                <div className="max-w-7xl mx-auto px-6">
+                <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
                     <div className="mb-12">
                         {/* SEO FIX 10: Demoted <h3> to <span> */}
                         <span className="block text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-4">Enabling Tech</span>

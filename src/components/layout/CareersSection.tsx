@@ -9,7 +9,7 @@ export default function CareersSection() {
     return (
         // SEO FIX 1: Linked the section to the main heading for accessibility/crawlers
         <section aria-labelledby="careers-heading" className="w-full bg-slate-50 pt-24 pb-12 md:pt-16 md:pb-12 font-poppins-regular ">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
                     {/* COLUMN 1: THE NARRATIVE */}

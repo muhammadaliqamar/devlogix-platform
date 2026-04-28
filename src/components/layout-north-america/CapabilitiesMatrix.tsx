@@ -56,7 +56,7 @@ export default function CapabilitiesMatrix() {
 
     return (
         <section className="w-full bg-white pt-10 pb-12 md:pt-1 md:pb-12 font-poppins-regular">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
                 <div className="mb-16 md:mb-24">
                     <h2 className="text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em] mb-4">
                         North American Capabilities

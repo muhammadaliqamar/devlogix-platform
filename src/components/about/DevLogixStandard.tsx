@@ -28,7 +28,7 @@ export default function DevLogixStandard() {
     return (
         // SEO FIX 1: Linked section to heading via aria-labelledby
         <section aria-labelledby="standards-heading" className="w-full bg-white py-24 md:pt-24 md:pb-18 font-poppins-regular border-b border-slate-100">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
 
                 {/* SECTION HEADLINE */}
                 <div className="text-center mb-20">

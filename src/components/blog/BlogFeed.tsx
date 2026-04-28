@@ -14,7 +14,7 @@ const BlogHero = ({ onSearch }: { onSearch: (term: string) => void }) => (
         <div className="absolute inset-0 opacity-[0.1] bg-[url('/grid-pattern.svg')] bg-center" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0d938c] opacity-[0.05] blur-[150px] rounded-full pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
             <motion.span
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                 className="inline-block mb-4 text-xs font-bold text-[#0d938c] uppercase tracking-[0.3em]"
@@ -50,7 +50,7 @@ const BlogHero = ({ onSearch }: { onSearch: (term: string) => void }) => (
 
 const FeaturedPost = ({ post }: { post: any }) => (
     <section className="w-full -mt-10 relative z-20 px-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full max-w-[1920px] mx-auto">
             <Link href={`/blog/${post.slug}`}>
                 <motion.div
                     initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
@@ -159,7 +159,7 @@ export default function BlogFeed({ posts }: { posts: any[] }) {
             {!searchTerm && featuredPost && <FeaturedPost post={featuredPost} />}
 
             {/* THE GRID */}
-            <section className="max-w-7xl mx-auto px-6 py-20">
+            <section className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 py-20">
                 <div className="flex items-center justify-between mb-12">
                     <h3 className="text-2xl font-bold text-slate-900">
                         {searchTerm ? `Search Results for "${searchTerm}"` : "Latest Transmissions"}

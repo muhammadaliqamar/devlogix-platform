@@ -71,7 +71,7 @@ export default function ContactInterface() {
     };
 
     return (
-        <section aria-labelledby="interface-heading" className="relative z-20 max-w-7xl mx-auto px-6 py-12 md:pt-10 md:pb-10 font-poppins-regular">
+        <section aria-labelledby="interface-heading" className="relative z-20 w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 py-12 md:pt-10 md:pb-10 font-poppins-regular">
 
             {/* SEO FIX: Hidden H2 for the form section */}
             <h2 id="interface-heading" className="sr-only">

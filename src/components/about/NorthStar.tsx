@@ -7,7 +7,7 @@ export default function NorthStar() {
     return (
         // SEO FIX 1: Linked the section to an invisible h2 to maintain the document outline
         <section aria-labelledby="northstar-heading" className="w-full bg-white pt-20 pb-12 md:pt-16 md:pb-20 font-poppins-regular border-b border-slate-100">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
 
                 {/* SEO FIX 2: Added a visually hidden h2 for screen readers and crawlers */}
                 <h2 id="northstar-heading" className="sr-only">

@@ -24,7 +24,7 @@ export default function Footer() {
             </div>
 
             {/* MAIN GRID SECTION */}
-            <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16 relative z-10">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 py-12 lg:py-16 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
 
                     {/* COLUMN 1: Brand, Locations & Socials */}
@@ -199,7 +199,7 @@ export default function Footer() {
 
             {/* COPYRIGHT */}
             <div className="bg-black border-t border-slate-900 relative z-20">
-                <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-slate-600 uppercase tracking-wider font-semibold">
+                <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-slate-600 uppercase tracking-wider font-semibold">
                     <p>&copy; {new Date().getFullYear()} DevLogix Technology. All Rights Reserved.</p>
                     <div className="flex gap-8">
                         {/* <Link href="/privacy" className="hover:text-slate-400 transition-colors">Privacy Policy</Link> */}

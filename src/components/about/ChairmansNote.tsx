@@ -8,7 +8,7 @@ export default function ChairmansNote() {
     return (
         // SEO FIX 1: Identified the section and added an aria-label
         <section aria-label="Founder's Message" className="w-full bg-[#0B1221] pt-24 pb-12 md:pt-12 md:pb-18 font-poppins-regular border-t border-slate-800">
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 

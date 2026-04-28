@@ -115,7 +115,7 @@ export default function LeadershipCarousel() {
 
     return (
         <section className="w-full bg-white py-24 md:py-32 font-poppins-regular border-t border-slate-100 overflow-hidden">
-            <div className="max-w-[1440px] mx-auto px-6">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
 
                 {/* HEADER & CONTROLS */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">

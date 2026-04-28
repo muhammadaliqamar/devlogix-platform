@@ -42,8 +42,8 @@ export default function AuthorityStrip({ lang = 'es' }: { lang?: 'es' | 'pt' }) 
     const stats = getStats(lang);
     return (
         <div className="relative w-full bg-white font-poppins-regular">
-            <div className="relative h-0 w-full z-1 px-6">
-                <div className="max-w-7xl mx-auto -translate-y-6">
+            <div className="relative h-0 w-full z-1 px-6 md:px-12 xl:px-20">
+                <div className="w-full max-w-[1920px] mx-auto -translate-y-6">
                     <div className="bg-white border border-slate-100 shadow-[0_20px_50px_rgba(0,0,0,0.06)] rounded-[4px] overflow-hidden backdrop-blur-md">
                         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-100 py-4 md:py-6">
                             {stats.map((stat, index) => (

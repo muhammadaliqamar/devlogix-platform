@@ -87,7 +87,7 @@ export default function BlogPostClient({ post }: { post: any }) {
             </section>
 
             {/* ---------------- 2. MAIN CONTENT ---------------- */}
-            <section className="relative w-full max-w-7xl mx-auto px-6 py-20">
+            <section className="relative w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 py-20">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
                     {/* LEFT: CONTENT BODY (8 Columns) */}

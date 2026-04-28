@@ -39,7 +39,7 @@ export default function EvolutionaryPath() {
         <section aria-labelledby="timeline-heading" className="w-full bg-[#0A0A0A] py-24 md:py-32 font-poppins-regular overflow-hidden relative border-t border-slate-900">
             <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#111] to-[#0A0A0A] opacity-50" />
 
-            <div className="max-w-6xl mx-auto px-6 relative z-10">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 relative z-10">
 
                 {/* HEADER */}
                 <div className="text-center mb-16">

@@ -54,7 +54,7 @@ export default function InsightsGridUI({ items, locale }: InsightsGridProps) {
     return (
         // SEO FIX 1: Linked the section directly to the main semantic heading via aria-labelledby
         <section aria-labelledby="insights-heading" className="w-full bg-slate-50 pt-20 pb-12 md:pt-6 md:pb-12 font-poppins-regular" dir={t.dir}>
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
 
                 {/* SECTION HEADER */}
                 <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">

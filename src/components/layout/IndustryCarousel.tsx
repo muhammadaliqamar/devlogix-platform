@@ -54,7 +54,7 @@ export default function IndustryCarousel() {
     return (
         // SEO FIX 1: Added aria-labelledby to connect the section to its semantic title
         <section aria-labelledby="industries-heading" className="w-full bg-slate-50 pt-8 pb-12 md:pt-6 md:pb-12 font-poppins-regular overflow-hidden">
-            <div className="max-w-[1440px] mx-auto px-6 relative">
+            <div className="w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 relative">
 
                 {/* HEADER & CONTROLS */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">

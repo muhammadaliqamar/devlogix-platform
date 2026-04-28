@@ -18,7 +18,7 @@ export default function CaseStudyUI({ study }: { study: any }) {
                 <div className="absolute inset-0 opacity-[0.1] bg-[url('/grid-pattern.svg')] bg-center" />
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0d938c] opacity-[0.05] blur-[150px] rounded-full pointer-events-none" />
 
-                <div className="relative z-10 max-w-7xl mx-auto px-6">
+                <div className="relative z-10 w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20">
                     <Link href="/work" className="inline-flex items-center gap-2 text-slate-400 hover:text-[#0d938c] transition-colors mb-8 text-xs font-bold uppercase tracking-widest">
                         <ArrowLeft className="w-4 h-4" /> Mission Archive
                     </Link>
@@ -62,14 +62,14 @@ export default function CaseStudyUI({ study }: { study: any }) {
             <section className="w-full bg-[#0B1221] pb-20 px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-                    className="relative max-w-7xl mx-auto h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+                    className="relative w-full max-w-[1920px] mx-auto h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
                 >
                     <Image src={study.coverImage} alt={study.title} fill className="object-cover" />
                 </motion.div>
             </section>
 
             {/* ---------------- 3. DOSSIER CONTENT ---------------- */}
-            <section className="relative w-full max-w-7xl mx-auto px-6 py-20">
+            <section className="relative w-full max-w-[1920px] mx-auto px-6 md:px-12 xl:px-20 py-20">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
                     {/* LEFT: THE NARRATIVE (8 Cols) */}
